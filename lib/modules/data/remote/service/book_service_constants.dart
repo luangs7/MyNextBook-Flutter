@@ -1,0 +1,13 @@
+const String volumesApiUrl = "volumes";
+const String dividerOld = " ";
+const String divider = "+";
+const String ebookQuery = "ebooks";
+const String languagePt = "pt";
+const String languageRestrictQuery = "langRestrict";
+const String queryParam = "q";
+const String filterQuery = "filter";
+const String orderByQuery = "orderBy";
+const String orderByQueryValue = "relevance";
+const String maxresultsQuery = "maxResults";
+const int maxresultsValue = 40;
+const String queryDivider = "&";
