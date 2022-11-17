@@ -19,24 +19,21 @@ class Book {
   final bool isFavorited = false;
   final BookImage? imageLinks;
 
-  Book({
-    required this.id,
-    required this.title,
-    required this.subtitle,
-    required this.authors,
-    required this.publisher,
-    required this.description,
-    required this.pageCount,
-    required this.categories,
-    required this.contentVersion,
-    required this.language,
-    required this.previewLink,
-    required this.infoLink,
-    required this.averageRating,
-    required this.ratingsCount,
-    required this.publishedDate,
-    required this.imageLinks
-  });
-
-
+  Book(
+      {required this.id,
+      required this.title,
+      required this.subtitle,
+      required this.authors,
+      required this.publisher,
+      required this.description,
+      required this.pageCount,
+      required this.categories,
+      required this.contentVersion,
+      required this.language,
+      required this.previewLink,
+      required this.infoLink,
+      required this.averageRating,
+      required this.ratingsCount,
+      required this.publishedDate,
+      required this.imageLinks});
 }

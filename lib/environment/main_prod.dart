@@ -6,11 +6,8 @@ import 'package:mynextbook/app.dart';
 void main() {
   FlavorConfig.initialize(
     flavor: Flavor.prod,
-    values: const FlavorValues(
-      apiBaseUrl: "https://www.googleapis.com/books/v1/",
-      showLogs: true
-    ),
+    values: const FlavorValues(apiBaseUrl: "https://www.googleapis.com/books/v1/", showLogs: true),
   );
-  
+
   startApp();
 }

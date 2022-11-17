@@ -30,5 +30,4 @@ class BookDataSourceLocalImpl extends BookDataSourceLocal {
   Future<void> setFavoriteBook(BookData bookData) async {
     return await dao.insertBook(mapper.toEntity(bookData));
   }
-
 }

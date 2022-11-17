@@ -9,7 +9,7 @@ abstract class AddFavoriteBook {
 class AddFavoriteBookImpl extends AddFavoriteBook {
   final BookLocalRepository repository;
 
-   AddFavoriteBookImpl({required this.repository});
+  AddFavoriteBookImpl({required this.repository});
 
   @override
   Future<ApiResult<void>> execute(Book book) async {

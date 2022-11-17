@@ -5,6 +5,6 @@ import 'package:mynextbook/modules/data/datastore/mapper/app_preferences_mapper.
 extension DatastoreModule on GetIt {
   void datastoreModule() {
     registerLazySingleton(() => AppPreferencesMapper());
-    registerFactory(() => PreferencesDataSourceDatastoreImpl(sharedPreferences: get()) );
+    registerFactory(() => PreferencesDataSourceDatastoreImpl(sharedPreferences: get()));
   }
 }

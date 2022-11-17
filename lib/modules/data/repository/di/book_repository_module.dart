@@ -6,11 +6,12 @@ import 'package:mynextbook/modules/data/repository/mapper/book_repo_mapper.dart'
 import 'package:mynextbook/modules/data/repository/mapper/preferences_repo_mapper.dart';
 
 extension BookRepositoryModule on GetIt {
-    void bookRepositoryModule() {
-      registerLazySingleton(() => BookRepoMapper());
-      registerLazySingleton(() => PreferencesRepoMapper());
-      registerFactory(() => BookLocalRepositoryImpl(mapper: get(), dataSourceLocal: get()));
-      registerFactory(() => BookRemoteRepositoryImpl(bookMapper: get(),dataSourceLocal: get(),dataSourceRemote: get(), prefMapper: get()));
-      registerFactory(() => PreferencesRepositoryImpl(dataSourceDatastore: get(), mapper: get()));
-    }
+  void bookRepositoryModule() {
+    registerLazySingleton(() => BookRepoMapper());
+    registerLazySingleton(() => PreferencesRepoMapper());
+    registerFactory(() => BookLocalRepositoryImpl(mapper: get(), dataSourceLocal: get()));
+    registerFactory(() => BookRemoteRepositoryImpl(
+        bookMapper: get(), dataSourceLocal: get(), dataSourceRemote: get(), prefMapper: get()));
+    registerFactory(() => PreferencesRepositoryImpl(dataSourceDatastore: get(), mapper: get()));
   }
+}

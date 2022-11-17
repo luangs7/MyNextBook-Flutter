@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:mynextbook/modules/data/remote/model/book_response.dart';
 import 'package:mynextbook/modules/data/remote/service/book_service_constants.dart';
 import 'package:retrofit/retrofit.dart';
-part  'book_service.g.dart';
+part 'book_service.g.dart';
 
 @RestApi()
 abstract class BookService {

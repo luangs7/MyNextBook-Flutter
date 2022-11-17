@@ -20,10 +20,7 @@ class PreferencesViewModel extends ChangeNotifier {
   ViewState get setPreferenceState => _setPreferenceState;
   ViewState get getPreferenceState => _getPreferenceState;
 
-  PreferencesViewModel({
-    required this.updatePreferences,
-    required this.getPreferences
-  });
+  PreferencesViewModel({required this.updatePreferences, required this.getPreferences});
 
   Future onSetPreferences(bool isEbook, String? keyword, bool isPortuguese) async {
     _setPreferenceState = ViewState.loading();
@@ -31,7 +28,7 @@ class PreferencesViewModel extends ChangeNotifier {
     updatePreferences.execute(prefs).then((value) {
       _setPreferenceState = ViewState.success(prefs);
       notifyListeners();
-    }).catchError((onError){
+    }).catchError((onError) {
       _setPreferenceState = ViewState.error(onError);
     });
   }
@@ -40,7 +37,7 @@ class PreferencesViewModel extends ChangeNotifier {
     _getPreferenceState = ViewState.loading();
     getPreferences.execute().then((value) {
       _getPreferenceState = ViewState.success(value);
-    }).catchError((onError){
+    }).catchError((onError) {
       _getPreferenceState = ViewState.error(onError);
     });
   }

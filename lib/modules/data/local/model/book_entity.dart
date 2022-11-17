@@ -15,18 +15,15 @@ class BookEntity {
   final String? previewLink;
   final BookImageEntity? imageLinks;
 
-  BookEntity({
-    required this.id,
-    required this.title,
-    required this.subtitle,
-    required this.authors,
-    required this.publisher,
-    required this.description,
-    required this.categories,
-    required this.language,
-    required this.previewLink,
-    required this.imageLinks
-  });
-
-
+  BookEntity(
+      {required this.id,
+      required this.title,
+      required this.subtitle,
+      required this.authors,
+      required this.publisher,
+      required this.description,
+      required this.categories,
+      required this.language,
+      required this.previewLink,
+      required this.imageLinks});
 }

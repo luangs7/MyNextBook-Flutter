@@ -6,8 +6,5 @@ class BookImageEntity {
   final String smallThumbnail;
   final String thumbnail;
 
-  BookImageEntity({
-    required this.smallThumbnail,
-    required this.thumbnail
-  });
+  BookImageEntity({required this.smallThumbnail, required this.thumbnail});
 }

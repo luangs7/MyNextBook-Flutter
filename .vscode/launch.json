@@ -7,19 +7,34 @@
         {
             "name": "mynextbook",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "lib/environment/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev" //development or staging or production
+            ]
         },
         {
             "name": "mynextbook (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "program": "lib/environment/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev" //development or staging or production
+            ]
         },
         {
             "name": "mynextbook (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "program": "lib/environment/main_dev.dart",
+            "args": [
+                "--flavor",
+                "prod" //development or staging or production
+            ]
         }
     ]
 }

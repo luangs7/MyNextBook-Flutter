@@ -1,4 +1,3 @@
-
 class BookData {
   final String id;
   final String? title;
@@ -17,38 +16,30 @@ class BookData {
   final String? publishedDate;
   final BookImageData? imageLinks;
   bool isFavorited = false;
-  
 
-
-  BookData({
-    required this.id,
-    required this.title,
-    required this.subtitle,
-    required this.authors,
-    required this.publisher,
-    required this.description,
-    required this.pageCount,
-    required this.categories,
-    required this.contentVersion,
-    required this.language,
-    required this.previewLink,
-    required this.infoLink,
-    required this.averageRating,
-    required this.ratingsCount,
-    required this.publishedDate,
-    required this.imageLinks,
-    required this.isFavorited
-  });
+  BookData(
+      {required this.id,
+      required this.title,
+      required this.subtitle,
+      required this.authors,
+      required this.publisher,
+      required this.description,
+      required this.pageCount,
+      required this.categories,
+      required this.contentVersion,
+      required this.language,
+      required this.previewLink,
+      required this.infoLink,
+      required this.averageRating,
+      required this.ratingsCount,
+      required this.publishedDate,
+      required this.imageLinks,
+      required this.isFavorited});
 }
-
 
 class BookImageData {
   final String smallThumbnail;
   final String thumbnail;
 
-  BookImageData({
-    required this.smallThumbnail,
-    required this.thumbnail
-  });
+  BookImageData({required this.smallThumbnail, required this.thumbnail});
 }
-

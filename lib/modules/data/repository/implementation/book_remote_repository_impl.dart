@@ -22,12 +22,12 @@ class BookRemoteRepositoryImpl extends BookRemoteRepository {
 
   @override
   Future<ApiResult<Book>> getRandomBook(AppPreferences params) async {
-    try{
+    try {
       final book = await dataSourceRemote.getBooksFromQuery(prefMapper.toRepo(params));
       final localBook = await dataSourceLocal.getFavoriteBook(book.id);
       book.isFavorited = localBook != null;
       return ApiResult.success(bookMapper.toDomain(book));
-    } on Exception catch(e, _){
+    } on Exception catch (e, _) {
       return ApiResult.error(e);
     }
   }

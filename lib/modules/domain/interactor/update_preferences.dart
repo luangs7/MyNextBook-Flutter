@@ -5,8 +5,7 @@ abstract class UpdatePreferences {
   Future<void> execute(AppPreferences params);
 }
 
-class UpdatePreferencesImpl extends UpdatePreferences{
-
+class UpdatePreferencesImpl extends UpdatePreferences {
   final PreferencesRepository repository;
 
   UpdatePreferencesImpl({required this.repository});

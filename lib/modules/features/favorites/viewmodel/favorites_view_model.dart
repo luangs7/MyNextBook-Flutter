@@ -6,45 +6,39 @@ import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.d
 import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:provider/provider.dart';
 
-final userViewModelProvider =
-    ChangeNotifierProvider(create: (ref) => GetIt.I.get());
+final userViewModelProvider = ChangeNotifierProvider(create: (ref) => GetIt.I.get());
 
 class FavoritesViewModel extends BaseViewModel {
-    final GetFavoriteBooks getFavoriteBooks;
-    final RemoveBookFromFavorite removeBookFromFavorite;
+  final GetFavoriteBooks getFavoriteBooks;
+  final RemoveBookFromFavorite removeBookFromFavorite;
 
-    FavoritesViewModel({
-      required this.getFavoriteBooks,
-      required this.removeBookFromFavorite
-    });
+  FavoritesViewModel({required this.getFavoriteBooks, required this.removeBookFromFavorite});
 
-    Future<void> getFavoriteItems() async {
-      setState(ViewState.loading());
-      getFavoriteBooks.execute().then((result) {
+  Future<void> getFavoriteItems() async {
+    setState(ViewState.loading());
+    getFavoriteBooks.execute().then((result) {
       return result.when(
-        success: (data) {
+          success: (data) {
             setState(ViewState.success(data));
-          }, 
-        error: (error) {
+          },
+          error: (error) {
             setState(ViewState.error(error));
-          }, 
-        empty: (() => ViewState.empty())
-      );
-      });
-    }
+          },
+          empty: (() => ViewState.empty()));
+    });
+  }
 
-     Future<void> removeItem(Book book) async {
-      setState(ViewState.loading());
-      removeBookFromFavorite.execute(book).then((result) {
+  Future<void> removeItem(Book book) async {
+    setState(ViewState.loading());
+    removeBookFromFavorite.execute(book).then((result) {
       return result.when(
-        success: (data) {
+          success: (data) {
             getFavoriteItems();
-          }, 
-        error: (error) {
+          },
+          error: (error) {
             setState(ViewState.error(error));
-          }, 
-        empty: (() => ViewState.empty())
-      );
-      });
-    }
+          },
+          empty: (() => ViewState.empty()));
+    });
+  }
 }

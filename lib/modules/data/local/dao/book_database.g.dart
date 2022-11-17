@@ -10,14 +10,12 @@ part of 'book_database.dart';
 class $FloorBookDatabase {
   /// Creates a database builder for a persistent database.
   /// Once a database is built, you should keep a reference to it and re-use it.
-  static _$BookDatabaseBuilder databaseBuilder(String name) =>
-      _$BookDatabaseBuilder(name);
+  static _$BookDatabaseBuilder databaseBuilder(String name) => _$BookDatabaseBuilder(name);
 
   /// Creates a database builder for an in memory database.
   /// Information stored in an in memory database disappears when the process is killed.
   /// Once a database is built, you should keep a reference to it and re-use it.
-  static _$BookDatabaseBuilder inMemoryDatabaseBuilder() =>
-      _$BookDatabaseBuilder(null);
+  static _$BookDatabaseBuilder inMemoryDatabaseBuilder() => _$BookDatabaseBuilder(null);
 }
 
 class _$BookDatabaseBuilder {
@@ -43,9 +41,7 @@ class _$BookDatabaseBuilder {
 
   /// Creates the database and initializes it.
   Future<BookDatabase> build() async {
-    final path = name != null
-        ? await sqfliteDatabaseFactory.getDatabasePath(name!)
-        : ':memory:';
+    final path = name != null ? await sqfliteDatabaseFactory.getDatabasePath(name!) : ':memory:';
     final database = _$BookDatabase();
     database.database = await database.open(
       path,
@@ -78,8 +74,7 @@ class _$BookDatabase extends BookDatabase {
         await callback?.onOpen?.call(database);
       },
       onUpgrade: (database, startVersion, endVersion) async {
-        await MigrationAdapter.runMigrations(
-            database, startVersion, endVersion, migrations);
+        await MigrationAdapter.runMigrations(database, startVersion, endVersion, migrations);
 
         await callback?.onUpgrade?.call(database, startVersion, endVersion);
       },
@@ -142,8 +137,7 @@ class _$BookDao extends BookDao {
             categories: _stringConverter.decode(row['categories'] as String?),
             language: row['language'] as String,
             previewLink: row['previewLink'] as String?,
-            imageLinks:
-                _bookImageConverter.decode(row['imageLinks'] as String?)),
+            imageLinks: _bookImageConverter.decode(row['imageLinks'] as String?)),
         arguments: [bookId],
         queryableName: 'BookEntity',
         isView: false);
@@ -162,14 +156,12 @@ class _$BookDao extends BookDao {
             categories: _stringConverter.decode(row['categories'] as String?),
             language: row['language'] as String,
             previewLink: row['previewLink'] as String?,
-            imageLinks:
-                _bookImageConverter.decode(row['imageLinks'] as String?)));
+            imageLinks: _bookImageConverter.decode(row['imageLinks'] as String?)));
   }
 
   @override
   Future<void> delete(String bookId) async {
-    await _queryAdapter.queryNoReturn('DELETE FROM bookentity WHERE id=?1',
-        arguments: [bookId]);
+    await _queryAdapter.queryNoReturn('DELETE FROM bookentity WHERE id=?1', arguments: [bookId]);
   }
 
   @override

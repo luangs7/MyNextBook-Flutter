@@ -6,11 +6,8 @@ import 'package:mynextbook/app.dart';
 void main() {
   FlavorConfig.initialize(
     flavor: Flavor.mock,
-    values: const FlavorValues(
-      apiBaseUrl: "",
-      showLogs: true
-    ),
+    values: const FlavorValues(apiBaseUrl: "", showLogs: true),
   );
-  
+
   startApp();
 }

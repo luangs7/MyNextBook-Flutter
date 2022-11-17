@@ -4,7 +4,7 @@ import 'package:mynextbook/modules/data/local/datasource/book_datasource_local_i
 import 'package:mynextbook/modules/data/local/mapper/book_entity_mapper.dart';
 
 extension BookLocalModule on GetIt {
-  void bookLocalModule(){
+  void bookLocalModule() {
     registerLazySingleton(() => BookEntityMapper());
     registerLazySingleton(() => $FloorBookDatabase.databaseBuilder("app_database.db").build());
     registerLazySingleton(() => (get() as BookDatabase).bookDao);

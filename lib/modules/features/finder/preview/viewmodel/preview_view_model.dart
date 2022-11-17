@@ -22,49 +22,48 @@ class PreviewViewModel extends ChangeNotifier {
   ViewState get itemFavoriteState => _itemFavoriteState;
   ViewState get itemRandomState => _itemRandomState;
 
-  PreviewViewModel({
-    required this.getPreferences,
-    required this.getRandomBook,
-    required this.addFavoriteBook,
-    required this.removeBookFromFavorite
-  });
+  PreviewViewModel(
+      {required this.getPreferences,
+      required this.getRandomBook,
+      required this.addFavoriteBook,
+      required this.removeBookFromFavorite});
 
   Future<void> getBook() async {
     setItemRandomState(ViewState.loading());
     final preferences = await getPreferences.execute();
     getRandomBook.execute(preferences).then((value) {
       return value.when(
-        success: (data) => setItemRandomState(ViewState.success(data)) , 
-        error: (error) => setItemRandomState(ViewState.error(error)), 
-        empty: (() => setItemRandomState(ViewState.empty())));
+          success: (data) => setItemRandomState(ViewState.success(data)),
+          error: (error) => setItemRandomState(ViewState.error(error)),
+          empty: (() => setItemRandomState(ViewState.empty())));
     });
   }
 
-   Future<void> setFavoriteBook(Book book) async {
+  Future<void> setFavoriteBook(Book book) async {
     setItemFavoriteState(ViewState.loading());
-    if(book.isFavorited) {
+    if (book.isFavorited) {
       removeBookFromFavorite.execute(book).then((value) {
         return value.when(
-          success: ((data) => setItemFavoriteState(ViewState.success(data))), 
-          error: ((exception) => setItemFavoriteState(ViewState.error(exception))),
-          empty: () => setItemFavoriteState(ViewState.empty()));
+            success: ((data) => setItemFavoriteState(ViewState.success(data))),
+            error: ((exception) => setItemFavoriteState(ViewState.error(exception))),
+            empty: () => setItemFavoriteState(ViewState.empty()));
       });
     } else {
       addFavoriteBook.execute(book).then((value) {
         return value.when(
-          success: ((data) => setItemFavoriteState(ViewState.success(data))), 
-          error: ((exception) => setItemFavoriteState(ViewState.error(exception))),
-          empty: () => setItemFavoriteState(ViewState.empty()));
+            success: ((data) => setItemFavoriteState(ViewState.success(data))),
+            error: ((exception) => setItemFavoriteState(ViewState.error(exception))),
+            empty: () => setItemFavoriteState(ViewState.empty()));
       });
     }
   }
 
-  void setItemRandomState(ViewState viewState){
+  void setItemRandomState(ViewState viewState) {
     _itemFavoriteState = viewState;
     notifyListeners();
   }
 
-  void setItemFavoriteState(ViewState viewState){
+  void setItemFavoriteState(ViewState viewState) {
     _itemRandomState = viewState;
     notifyListeners();
   }
