@@ -7,6 +7,8 @@ import 'package:mynextbook/designsystem/common/app_theme_text.dart';
 import 'package:mynextbook/designsystem/components/item_action.dart';
 
 class FavoriteItem extends HookConsumerWidget {
+  const FavoriteItem({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(

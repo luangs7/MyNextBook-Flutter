@@ -6,9 +6,11 @@ import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/modules/domain/interactor/get_preferences.dart';
 import 'package:mynextbook/modules/domain/interactor/update_preferences.dart';
 import 'package:mynextbook/modules/domain/model/app_preferences.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mynextbook/modules/features/preferences/model/preferences_param.dart';
 
-final preferencesViewModelProvider = ChangeNotifierProvider(create: GetIt.I.get());
+final preferencesViewModelProvider =
+    ChangeNotifierProvider((ref) => GetIt.I.get<PreferencesViewModel>());
 
 class PreferencesViewModel extends ChangeNotifier {
   final UpdatePreferences updatePreferences;
@@ -20,11 +22,17 @@ class PreferencesViewModel extends ChangeNotifier {
   ViewState get setPreferenceState => _setPreferenceState;
   ViewState get getPreferenceState => _getPreferenceState;
 
-  PreferencesViewModel({required this.updatePreferences, required this.getPreferences});
+  PreferencesViewModel(
+      {required this.updatePreferences, required this.getPreferences});
 
-  Future onSetPreferences(bool isEbook, String? keyword, bool isPortuguese) async {
+  Future onSetPreferences(PreferencesParam param) async {
     _setPreferenceState = ViewState.loading();
-    final prefs = AppPreferences(isEbook: isEbook, keyword: keyword, isPortuguese: isPortuguese, subject: null);
+    notifyListeners();
+    final prefs = AppPreferences(
+        isEbook: param.isEbook,
+        keyword: param.keyword,
+        isPortuguese: param.isPortuguese,
+        subject: null);
     updatePreferences.execute(prefs).then((value) {
       _setPreferenceState = ViewState.success(prefs);
       notifyListeners();
@@ -34,11 +42,10 @@ class PreferencesViewModel extends ChangeNotifier {
   }
 
   Future getAppPreferences() async {
-    _getPreferenceState = ViewState.loading();
-    getPreferences.execute().then((value) {
+    return getPreferences.execute().then((value) {
       _getPreferenceState = ViewState.success(value);
     }).catchError((onError) {
       _getPreferenceState = ViewState.error(onError);
-    });
+    }).whenComplete(() => notifyListeners());
   }
 }

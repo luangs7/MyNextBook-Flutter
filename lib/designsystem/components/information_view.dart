@@ -27,9 +27,10 @@ class InformationView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeProvider);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: defaultPadding, vertical: defaultPaddingV),
+      padding: const EdgeInsets.symmetric(
+          horizontal: defaultPadding, vertical: defaultPaddingV),
       child: Column(children: [
-        Lottie.asset("lib/assets/$lottieAnimation.json"),
+        Lottie.asset("lib/assets/$lottieAnimation.json", repeat: false),
         const SizedBox(height: defaultMarginBetweenElements),
         GestureDetector(
             onTap: () {
@@ -37,10 +38,13 @@ class InformationView extends HookConsumerWidget {
             },
             child: Column(
               children: [
-                Text(title, style: AppTextTheme().h40.bold(), textAlign: TextAlign.center),
+                Text(title,
+                    style: AppTextTheme().h40.bold(),
+                    textAlign: TextAlign.center),
                 const SizedBox(height: defaultMarginBetweenElements),
                 Text(subtitle,
-                    style: AppTextTheme().h30.copyWith(color: theme.appColors.textColor.withOpacity(0.5)),
+                    style: AppTextTheme().h30.copyWith(
+                        color: theme.appColors.textColor.withOpacity(0.5)),
                     textAlign: TextAlign.center)
               ],
             )),

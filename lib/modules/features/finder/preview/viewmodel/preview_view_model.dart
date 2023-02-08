@@ -8,7 +8,7 @@ import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.d
 import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:provider/provider.dart';
 
-final previewViewModelProvider = ChangeNotifierProvider(create: GetIt.I.get());
+// final previewViewModelProvider = ChangeNotifierProvider(create: GetIt.I.get());
 
 class PreviewViewModel extends ChangeNotifier {
   final GetPreferences getPreferences;
@@ -45,14 +45,16 @@ class PreviewViewModel extends ChangeNotifier {
       removeBookFromFavorite.execute(book).then((value) {
         return value.when(
             success: ((data) => setItemFavoriteState(ViewState.success(data))),
-            error: ((exception) => setItemFavoriteState(ViewState.error(exception))),
+            error: ((exception) =>
+                setItemFavoriteState(ViewState.error(exception))),
             empty: () => setItemFavoriteState(ViewState.empty()));
       });
     } else {
       addFavoriteBook.execute(book).then((value) {
         return value.when(
             success: ((data) => setItemFavoriteState(ViewState.success(data))),
-            error: ((exception) => setItemFavoriteState(ViewState.error(exception))),
+            error: ((exception) =>
+                setItemFavoriteState(ViewState.error(exception))),
             empty: () => setItemFavoriteState(ViewState.empty()));
       });
     }

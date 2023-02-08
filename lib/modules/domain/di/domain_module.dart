@@ -8,11 +8,17 @@ import 'package:mynextbook/modules/domain/interactor/update_preferences.dart';
 
 extension DomainModule on GetIt {
   void domainModule() {
-    registerFactory(() => AddFavoriteBookImpl(repository: get()));
-    registerFactory(() => GetFavoriteBooksImpl(repository: get()));
-    registerFactory(() => GetPreferencesImpl(repository: get()));
-    registerFactory(() => GetRandomBookImpl(repository: get()));
-    registerFactory(() => RemoveBookFromFavoriteImpl(repository: get()));
-    registerFactory(() => UpdatePreferencesImpl(repository: get()));
+    registerLazySingleton<AddFavoriteBook>(
+        () => AddFavoriteBookImpl(repository: get()));
+    registerLazySingleton<GetFavoriteBooks>(
+        () => GetFavoriteBooksImpl(repository: get()));
+    registerLazySingleton<GetPreferences>(
+        () => GetPreferencesImpl(repository: get()));
+    registerLazySingleton<GetRandomBook>(
+        () => GetRandomBookImpl(repository: get()));
+    registerLazySingleton<RemoveBookFromFavorite>(
+        () => RemoveBookFromFavoriteImpl(repository: get()));
+    registerLazySingleton<UpdatePreferences>(
+        () => UpdatePreferencesImpl(repository: get()));
   }
 }

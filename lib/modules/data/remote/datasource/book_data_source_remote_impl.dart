@@ -12,12 +12,13 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
   BookDataSourceRemoteImpl({required this.service, required this.mapper});
 
   @override
-  Future<BookData> getBooksFromQuery(AppPreferencesRepo appPreferencesRepo) async {
+  Future<BookData> getBooksFromQuery(
+      AppPreferencesRepo appPreferencesRepo) async {
     var filter = appPreferencesRepo.isEbook ? ebookQuery : null;
     var query = createQueryParams(appPreferencesRepo);
     await service
-        .getBooks(
-            query, appPreferencesRepo.isPortuguese ? languagePt : null, filter, orderByQueryValue, maxresultsValue)
+        .getBooks(query, appPreferencesRepo.isPortuguese ? languagePt : null,
+            filter, orderByQueryValue, maxresultsValue)
         .then((value) {
       var list = mapper.toRepo(value);
       return (list..shuffle()).first;
@@ -30,7 +31,8 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
 
   String createQueryParams(AppPreferencesRepo appPreferencesRepo) {
     var query = StringBuffer();
-    var keyword = appPreferencesRepo.keyword?.replaceAll(dividerOld, divider) ?? "";
+    var keyword =
+        appPreferencesRepo.keyword?.replaceAll(dividerOld, divider) ?? "";
     if (keyword.isNotEmpty) {
       query.write(keyword);
     }

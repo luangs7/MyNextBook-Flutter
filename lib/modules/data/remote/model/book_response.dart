@@ -8,7 +8,8 @@ class BookResponse {
 
   BookResponse({required this.totalItems, required this.items});
 
-  factory BookResponse.fromJson(Map<String, dynamic> json) => _$BookResponseFromJson(json);
+  factory BookResponse.fromJson(Map<String, dynamic> json) =>
+      _$BookResponseFromJson(json);
   Map<String, dynamic> toJson() => _$BookResponseToJson(this);
 }
 
@@ -62,7 +63,8 @@ class VolumeInfo {
       required this.ratingsCount,
       required this.publishedDate});
 
-  factory VolumeInfo.fromJson(Map<String, dynamic> json) => _$VolumeInfoFromJson(json);
+  factory VolumeInfo.fromJson(Map<String, dynamic> json) =>
+      _$VolumeInfoFromJson(json);
   Map<String, dynamic> toJson() => _$VolumeInfoToJson(this);
 }
 
@@ -73,6 +75,7 @@ class ImageLinks {
 
   ImageLinks({required this.smallThumbnail, required this.thumbnail});
 
-  factory ImageLinks.fromJson(Map<String, dynamic> json) => _$ImageLinksFromJson(json);
+  factory ImageLinks.fromJson(Map<String, dynamic> json) =>
+      _$ImageLinksFromJson(json);
   Map<String, dynamic> toJson() => _$ImageLinksToJson(this);
 }

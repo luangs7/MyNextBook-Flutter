@@ -4,6 +4,6 @@ import 'package:mynextbook/navigation/app_router_impl.dart';
 
 extension NavigationModule on GetIt {
   void navigationModule() {
-    registerLazySingleton(() => AppRouterImpl() as AppRouter);
+    registerLazySingleton<AppRouter>(() => AppRouterImpl());
   }
 }

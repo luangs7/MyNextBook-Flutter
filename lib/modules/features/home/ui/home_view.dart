@@ -12,7 +12,7 @@ class HomeView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final AppRouter appRouter = GetIt.I.get();
     return Scaffold(
-        appBar: AppBar().buildAppBar(context, appRouter),
+        appBar: AppBar().buildAppBar(context, appRouter, showBackButton: false),
         body: InformationView(
             title: "Está com dúvida de qual vai ser seu próximo livro?",
             buttonTitle: "Vamos lá!",

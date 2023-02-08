@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 
 class BaseViewModel extends ChangeNotifier {

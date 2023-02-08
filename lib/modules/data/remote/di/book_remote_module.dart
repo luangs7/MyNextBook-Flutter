@@ -5,16 +5,20 @@ import 'package:mynextbook/modules/data/remote/mapper/book_remote_mapper.dart';
 import 'package:dio/dio.dart';
 import 'package:mynextbook/modules/data/remote/service/book_service.dart';
 import 'package:mynextbook/modules/data/remote/service/book_service_mock.dart';
+import 'package:mynextbook/modules/data/repository/datasource/book_data_source_remote.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:mynextbook/flavors/flavor_config.dart';
 
 extension RemoteModule on GetIt {
   void remoteModule() {
     registerLazySingleton(() => BookRemoteMapper());
-    registerFactory(() => BookDataSourceRemoteImpl(mapper: get(), service: get()));
-    registerLazySingleton(() => FlavorConfig.isMOCK()
+    registerLazySingleton<BookService>(() => FlavorConfig.isMOCK()
         ? BookServiceMock()
-        : BookService(createDioOptions(), baseUrl: FlavorConfig.instance.values.apiBaseUrl));
+        : BookService(createDioOptions(),
+            baseUrl: FlavorConfig.instance.values.apiBaseUrl));
+
+    registerLazySingleton<BookDataSourceRemote>(
+        () => BookDataSourceRemoteImpl(mapper: get(), service: get()));
   }
 
   Dio createDioOptions() {

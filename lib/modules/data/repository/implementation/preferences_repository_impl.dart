@@ -8,7 +8,8 @@ class PreferencesRepositoryImpl extends PreferencesRepository {
   final PreferencesDataSourceDatastore dataSourceDatastore;
   final PreferencesRepoMapper mapper;
 
-  PreferencesRepositoryImpl({required this.dataSourceDatastore, required this.mapper});
+  PreferencesRepositoryImpl(
+      {required this.dataSourceDatastore, required this.mapper});
 
   @override
   Future<AppPreferences> loadPreferences() async {
@@ -18,6 +19,7 @@ class PreferencesRepositoryImpl extends PreferencesRepository {
 
   @override
   Future<bool> updatePreferences(AppPreferences preferences) async {
-    return await dataSourceDatastore.updatePreferences(mapper.toRepo(preferences));
+    return await dataSourceDatastore
+        .updatePreferences(mapper.toRepo(preferences));
   }
 }

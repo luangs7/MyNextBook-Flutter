@@ -1,18 +1,23 @@
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/base_view_model.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/modules/domain/interactor/get_favorite_books.dart';
 import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
-import 'package:provider/provider.dart';
 
-final userViewModelProvider = ChangeNotifierProvider(create: (ref) => GetIt.I.get());
+// final favoritesViewModelProvider = ChangeNotifierProvider.autoDispose((ref) {
+//   FavoritesViewModel viewModel = GetIt.I.get();
+//   return viewModel;
+// });
 
 class FavoritesViewModel extends BaseViewModel {
   final GetFavoriteBooks getFavoriteBooks;
   final RemoveBookFromFavorite removeBookFromFavorite;
 
-  FavoritesViewModel({required this.getFavoriteBooks, required this.removeBookFromFavorite});
+  FavoritesViewModel(
+      {required this.getFavoriteBooks, required this.removeBookFromFavorite});
 
   Future<void> getFavoriteItems() async {
     setState(ViewState.loading());

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
 extension CustomAppBar on AppBar {
-  AppBar buildAppBar(BuildContext context, AppRouter appRouter, {bool showActions = true}) {
+  AppBar buildAppBar(BuildContext context, AppRouter appRouter,
+      {bool showActions = true, showBackButton = true}) {
     return AppBar(
+      automaticallyImplyLeading: showBackButton,
       actions: [
         showActions
             ? MaterialButton(
