@@ -52,6 +52,10 @@ dependencies:
   hooks_riverpod: ^2.1.1
   lottie: ^1.4.3
   cached_network_image: ^3.2.2
+  firebase_analytics: ^10.2.0
+  firebase_auth: ^4.4.0
+  firebase_core: ^2.13.0
+  firebase_remote_config: ^4.0.0
 
 dev_dependencies:
   flutter_test:

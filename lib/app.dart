@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_colors.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
+import 'package:mynextbook/modules/cloudservices/application/cloudservices_application.dart';
 import 'package:mynextbook/modules/data/datastore/di/book_datastore_module.dart';
 import 'package:mynextbook/modules/data/remote/di/book_remote_module.dart';
 import 'package:mynextbook/modules/data/local/di/book_local_module.dart';
@@ -13,9 +14,12 @@ import 'package:mynextbook/modules/data/repository/di/book_repository_module.dar
 import 'package:mynextbook/modules/domain/di/domain_module.dart';
 import 'package:mynextbook/modules/features/home/ui/home_view.dart';
 import 'package:mynextbook/modules/features/favorites/di/favorites_module.dart';
+import 'package:mynextbook/modules/features/login/di/login_module.dart';
 import 'package:mynextbook/modules/features/preferences/di/preferences_module.dart';
 import 'package:mynextbook/navigation/di/navigation_module.dart';
 import 'package:mynextbook/navigation/app_router.dart';
+import 'package:mynextbook/modules/firebase/di/firebase_module.dart';
+import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 
 void startApp() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +29,8 @@ void startApp() async {
 
 Future _initApp() async {
   _initialiseGetIt();
+  final application = GetIt.instance.get<CloudServicesApplication>();
+  application.initialize();
 }
 
 void _initialiseGetIt() async {
@@ -36,7 +42,9 @@ void _initialiseGetIt() async {
     ..remoteModule()
     ..domainModule()
     ..favoritesModule()
-    ..preferencesModule();
+    ..preferencesModule()
+    ..firebaseModule()
+    ..loginModule();
 }
 
 class MyApp extends HookConsumerWidget {
@@ -53,12 +61,12 @@ class MyApp extends HookConsumerWidget {
           if (snapshot.hasData) {
             final AppRouter appRouter = GetIt.I.get();
             return MaterialApp(
-                initialRoute: appRouter.welcomeView,
+                initialRoute: appRouter.loginView,
                 routes: appRouter.createRouter(context),
                 theme: theme.data,
                 themeMode: themeMode,
                 darkTheme: AppTheme.dark().data,
-                home: const SafeArea(child: HomeView()));
+                home: const SafeArea(child: LoginView()));
           } else {
             return const Center(child: CircularProgressIndicator());
           }

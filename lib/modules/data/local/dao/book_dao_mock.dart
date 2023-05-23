@@ -8,7 +8,7 @@ class BookDaoMock extends BookDao {
   }
 
   @override
-  Future<List<BookEntity>> getFavorites() async {
+  Future<List<BookEntity>> getFavorites(String userId) async {
     return List.empty();
   }
 

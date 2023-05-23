@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mynextbook/common/base/view_state.dart';
+import 'package:mynextbook/modules/domain/interactor/get_current_user.dart';
 import 'package:mynextbook/modules/domain/interactor/get_preferences.dart';
 import 'package:mynextbook/modules/domain/interactor/update_preferences.dart';
 import 'package:mynextbook/modules/domain/model/app_preferences.dart';
@@ -15,6 +16,7 @@ final preferencesViewModelProvider =
 class PreferencesViewModel extends ChangeNotifier {
   final UpdatePreferences updatePreferences;
   final GetPreferences getPreferences;
+  final GetCurrentUser getCurrentUser;
 
   ViewState _setPreferenceState = ViewState.empty();
   ViewState _getPreferenceState = ViewState.empty();
@@ -23,7 +25,9 @@ class PreferencesViewModel extends ChangeNotifier {
   ViewState get getPreferenceState => _getPreferenceState;
 
   PreferencesViewModel(
-      {required this.updatePreferences, required this.getPreferences});
+      {required this.updatePreferences,
+      required this.getPreferences,
+      required this.getCurrentUser});
 
   Future onSetPreferences(PreferencesParam param) async {
     _setPreferenceState = ViewState.loading();
@@ -33,7 +37,9 @@ class PreferencesViewModel extends ChangeNotifier {
         keyword: param.keyword,
         isPortuguese: param.isPortuguese,
         subject: null);
-    updatePreferences.execute(prefs).then((value) {
+    final user = await getCurrentUser.execute();
+    if (user == null) return;
+    updatePreferences.execute(prefs, user.uuid).then((value) {
       _setPreferenceState = ViewState.success(prefs);
       notifyListeners();
     }).catchError((onError) {
@@ -42,7 +48,9 @@ class PreferencesViewModel extends ChangeNotifier {
   }
 
   Future getAppPreferences() async {
-    return getPreferences.execute().then((value) {
+    final user = await getCurrentUser.execute();
+    if (user == null) return;
+    return getPreferences.execute(user.uuid).then((value) {
       _getPreferenceState = ViewState.success(value);
     }).catchError((onError) {
       _getPreferenceState = ViewState.error(onError);

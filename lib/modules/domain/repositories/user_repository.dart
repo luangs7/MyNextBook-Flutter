@@ -6,7 +6,7 @@ abstract class UserDataRepository {
   Future<ApiResult<bool>> doLogin(LoginParam loginParam);
   Future<ApiResult<bool>> doLoginWithToken(String token);
 
-  Future<ApiResult<User>> getCurrentUser();
+  Future<User?> getCurrentUser();
   Future<void> updatePreferences(String email);
   Future<String> loadPreferences();
 }

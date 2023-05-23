@@ -3,7 +3,9 @@ import 'package:mynextbook/modules/features/preferences/viewmodel/preferences_vi
 
 extension PreferencesModule on GetIt {
   void preferencesModule() {
-    registerFactory(() =>
-        PreferencesViewModel(updatePreferences: get(), getPreferences: get()));
+    registerFactory(() => PreferencesViewModel(
+        updatePreferences: get(),
+        getPreferences: get(),
+        getCurrentUser: get()));
   }
 }

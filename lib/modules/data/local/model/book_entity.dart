@@ -14,6 +14,7 @@ class BookEntity {
   final String language;
   final String? previewLink;
   final BookImageEntity? imageLinks;
+  final String userId;
 
   BookEntity(
       {required this.id,
@@ -25,5 +26,6 @@ class BookEntity {
       required this.categories,
       required this.language,
       required this.previewLink,
-      required this.imageLinks});
+      required this.imageLinks,
+      required this.userId});
 }

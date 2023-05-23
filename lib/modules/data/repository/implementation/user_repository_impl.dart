@@ -38,16 +38,16 @@ class UserDataRepositoryImpl implements UserDataRepository {
   }
 
   @override
-  Future<ApiResult<User>> getCurrentUser() async {
+  Future<User?> getCurrentUser() async {
     try {
       final user = await cloudServicesAuth.currentUser();
       if (user != null) {
-        return ApiResult.success(mapper.toDomain(user));
+        return mapper.toDomain(user);
       } else {
-        return ApiResult.empty();
+        return null;
       }
-    } on Exception catch (error) {
-      return ApiResult.error(error);
+    } on Exception catch (_) {
+      return null;
     }
   }
 

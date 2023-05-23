@@ -8,14 +8,14 @@
             "name": "mynextbook",
             "request": "launch",
             "type": "dart",
-            "program": "lib/environment/main_dev.dart",
+            "program": "lib/environment/main_mock.dart",
             "args": [
                 "--flavor",
-                "dev" //development or staging or production
+                "mock" //development or staging or production
             ]
         },
         {
-            "name": "mynextbook (profile mode)",
+            "name": "mynextbook (dev mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
@@ -30,7 +30,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "program": "lib/environment/main_dev.dart",
+            "program": "lib/environment/main_prod.dart",
             "args": [
                 "--flavor",
                 "prod" //development or staging or production

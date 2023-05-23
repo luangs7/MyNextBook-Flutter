@@ -4,6 +4,8 @@ import 'package:mynextbook/modules/features/favorites/viewmodel/favorites_view_m
 extension FavoritesModule on GetIt {
   void favoritesModule() {
     registerLazySingleton<FavoritesViewModel>(() => FavoritesViewModel(
-        getFavoriteBooks: get(), removeBookFromFavorite: get()));
+        getFavoriteBooks: get(),
+        removeBookFromFavorite: get(),
+        getCurrentUser: get()));
   }
 }

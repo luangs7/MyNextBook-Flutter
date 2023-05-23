@@ -3,7 +3,7 @@ import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/domain/repositories/book_local_repository.dart';
 
 abstract class GetFavoriteBooks {
-  Future<ApiResult<List<Book>>> execute();
+  Future<ApiResult<List<Book>>> execute(String userId);
 }
 
 class GetFavoriteBooksImpl extends GetFavoriteBooks {
@@ -12,7 +12,7 @@ class GetFavoriteBooksImpl extends GetFavoriteBooks {
   GetFavoriteBooksImpl({required this.repository});
 
   @override
-  Future<ApiResult<List<Book>>> execute() async {
-    return repository.getFavorites();
+  Future<ApiResult<List<Book>>> execute(String userId) async {
+    return repository.getFavorites(userId);
   }
 }

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "198296856371",
+    "project_id": "mynextbook-flutter",
+    "storage_bucket": "mynextbook-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198296856371:android:a5b91ef9cac8066df50046",
+        "android_client_info": {
+          "package_name": "com.lgmakerdevs.mynextbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198296856371-01vhbcpf9g09qt6a5n85gvhav54ietl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrtzzIbfNDwMEOvR-eSsbB0ZDjIvWvqPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198296856371-01vhbcpf9g09qt6a5n85gvhav54ietl3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "198296856371-qitlsrtf8m19s13u0jpr95hcf954lkvt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lgmakerdevs.mynextbook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

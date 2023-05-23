@@ -29,8 +29,9 @@ class InformationView extends HookConsumerWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPaddingV),
-      child: Column(children: [
-        Lottie.asset("lib/assets/$lottieAnimation.json", repeat: false),
+      child: Expanded(
+          child: Column(children: [
+        Lottie.asset("lib/assets/$lottieAnimation.json", repeat: true),
         const SizedBox(height: defaultMarginBetweenElements),
         GestureDetector(
             onTap: () {
@@ -50,11 +51,12 @@ class InformationView extends HookConsumerWidget {
             )),
         const Spacer(),
         CustomButton(
+            isEnabled: true,
             title: buttonTitle,
             onPressed: () {
               onNext();
             })
-      ]),
+      ])),
     );
   }
 }

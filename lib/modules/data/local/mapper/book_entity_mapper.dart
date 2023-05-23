@@ -3,7 +3,7 @@ import 'package:mynextbook/modules/data/local/model/book_image_entity.dart';
 import 'package:mynextbook/modules/data/repository/model/book_data.dart';
 
 class BookEntityMapper {
-  BookEntity toEntity(BookData model) {
+  BookEntity toEntity(BookData model, String userId) {
     return BookEntity(
         id: model.id,
         authors: model.authors ?? List.empty(),
@@ -14,11 +14,14 @@ class BookEntityMapper {
         previewLink: model.previewLink ?? "",
         publisher: model.publisher ?? "",
         subtitle: model.subtitle ?? "",
-        title: model.title ?? "");
+        title: model.title ?? "",
+        userId: userId);
   }
 
   BookImageEntity toBookImageEntity(BookImageData? model) {
-    return BookImageEntity(smallThumbnail: model?.smallThumbnail ?? "", thumbnail: model?.thumbnail ?? "");
+    return BookImageEntity(
+        smallThumbnail: model?.smallThumbnail ?? "",
+        thumbnail: model?.thumbnail ?? "");
   }
 
   BookData toRepo(BookEntity model) {
@@ -43,6 +46,8 @@ class BookEntityMapper {
   }
 
   BookImageData toBookImageRepo(BookImageEntity? model) {
-    return BookImageData(smallThumbnail: model?.smallThumbnail ?? "", thumbnail: model?.thumbnail ?? "");
+    return BookImageData(
+        smallThumbnail: model?.smallThumbnail ?? "",
+        thumbnail: model?.thumbnail ?? "");
   }
 }

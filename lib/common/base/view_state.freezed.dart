@@ -70,12 +70,14 @@ mixin _$ViewState<T> {
 
 /// @nodoc
 abstract class $ViewStateCopyWith<T, $Res> {
-  factory $ViewStateCopyWith(ViewState<T> value, $Res Function(ViewState<T>) then) =
+  factory $ViewStateCopyWith(
+          ViewState<T> value, $Res Function(ViewState<T>) then) =
       _$ViewStateCopyWithImpl<T, $Res, ViewState<T>>;
 }
 
 /// @nodoc
-class _$ViewStateCopyWithImpl<T, $Res, $Val extends ViewState<T>> implements $ViewStateCopyWith<T, $Res> {
+class _$ViewStateCopyWithImpl<T, $Res, $Val extends ViewState<T>>
+    implements $ViewStateCopyWith<T, $Res> {
   _$ViewStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -86,16 +88,20 @@ class _$ViewStateCopyWithImpl<T, $Res, $Val extends ViewState<T>> implements $Vi
 
 /// @nodoc
 abstract class _$$_SuccessCopyWith<T, $Res> {
-  factory _$$_SuccessCopyWith(_$_Success<T> value, $Res Function(_$_Success<T>) then) =
+  factory _$$_SuccessCopyWith(
+          _$_Success<T> value, $Res Function(_$_Success<T>) then) =
       __$$_SuccessCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<T, $Res> extends _$ViewStateCopyWithImpl<T, $Res, _$_Success<T>>
+class __$$_SuccessCopyWithImpl<T, $Res>
+    extends _$ViewStateCopyWithImpl<T, $Res, _$_Success<T>>
     implements _$$_SuccessCopyWith<T, $Res> {
-  __$$_SuccessCopyWithImpl(_$_Success<T> _value, $Res Function(_$_Success<T>) _then) : super(_value, _then);
+  __$$_SuccessCopyWithImpl(
+      _$_Success<T> _value, $Res Function(_$_Success<T>) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -133,12 +139,14 @@ class _$_Success<T> implements _Success<T> {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<T, _$_Success<T>> get copyWith => __$$_SuccessCopyWithImpl<T, _$_Success<T>>(this, _$identity);
+  _$$_SuccessCopyWith<T, _$_Success<T>> get copyWith =>
+      __$$_SuccessCopyWithImpl<T, _$_Success<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -220,20 +228,25 @@ abstract class _Success<T> implements ViewState<T> {
 
   T get data;
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<T, _$_Success<T>> get copyWith => throw _privateConstructorUsedError;
+  _$$_SuccessCopyWith<T, _$_Success<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$_ErrorCopyWith<T, $Res> {
-  factory _$$_ErrorCopyWith(_$_Error<T> value, $Res Function(_$_Error<T>) then) = __$$_ErrorCopyWithImpl<T, $Res>;
+  factory _$$_ErrorCopyWith(
+          _$_Error<T> value, $Res Function(_$_Error<T>) then) =
+      __$$_ErrorCopyWithImpl<T, $Res>;
   @useResult
   $Res call({Exception? exception});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<T, $Res> extends _$ViewStateCopyWithImpl<T, $Res, _$_Error<T>>
+class __$$_ErrorCopyWithImpl<T, $Res>
+    extends _$ViewStateCopyWithImpl<T, $Res, _$_Error<T>>
     implements _$$_ErrorCopyWith<T, $Res> {
-  __$$_ErrorCopyWithImpl(_$_Error<T> _value, $Res Function(_$_Error<T>) _then) : super(_value, _then);
+  __$$_ErrorCopyWithImpl(_$_Error<T> _value, $Res Function(_$_Error<T>) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -267,7 +280,8 @@ class _$_Error<T> implements _Error<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error<T> &&
-            (identical(other.exception, exception) || other.exception == exception));
+            (identical(other.exception, exception) ||
+                other.exception == exception));
   }
 
   @override
@@ -276,7 +290,8 @@ class _$_Error<T> implements _Error<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<T, _$_Error<T>> get copyWith => __$$_ErrorCopyWithImpl<T, _$_Error<T>>(this, _$identity);
+  _$$_ErrorCopyWith<T, _$_Error<T>> get copyWith =>
+      __$$_ErrorCopyWithImpl<T, _$_Error<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -358,19 +373,24 @@ abstract class _Error<T> implements ViewState<T> {
 
   Exception? get exception;
   @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<T, _$_Error<T>> get copyWith => throw _privateConstructorUsedError;
+  _$$_ErrorCopyWith<T, _$_Error<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$_LoadingCopyWith<T, $Res> {
-  factory _$$_LoadingCopyWith(_$_Loading<T> value, $Res Function(_$_Loading<T>) then) =
+  factory _$$_LoadingCopyWith(
+          _$_Loading<T> value, $Res Function(_$_Loading<T>) then) =
       __$$_LoadingCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<T, $Res> extends _$ViewStateCopyWithImpl<T, $Res, _$_Loading<T>>
+class __$$_LoadingCopyWithImpl<T, $Res>
+    extends _$ViewStateCopyWithImpl<T, $Res, _$_Loading<T>>
     implements _$$_LoadingCopyWith<T, $Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading<T> _value, $Res Function(_$_Loading<T>) _then) : super(_value, _then);
+  __$$_LoadingCopyWithImpl(
+      _$_Loading<T> _value, $Res Function(_$_Loading<T>) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -385,7 +405,8 @@ class _$_Loading<T> implements _Loading<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$_Loading<T>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading<T>);
   }
 
   @override
@@ -472,13 +493,17 @@ abstract class _Loading<T> implements ViewState<T> {
 
 /// @nodoc
 abstract class _$$_EmptyCopyWith<T, $Res> {
-  factory _$$_EmptyCopyWith(_$_Empty<T> value, $Res Function(_$_Empty<T>) then) = __$$_EmptyCopyWithImpl<T, $Res>;
+  factory _$$_EmptyCopyWith(
+          _$_Empty<T> value, $Res Function(_$_Empty<T>) then) =
+      __$$_EmptyCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_EmptyCopyWithImpl<T, $Res> extends _$ViewStateCopyWithImpl<T, $Res, _$_Empty<T>>
+class __$$_EmptyCopyWithImpl<T, $Res>
+    extends _$ViewStateCopyWithImpl<T, $Res, _$_Empty<T>>
     implements _$$_EmptyCopyWith<T, $Res> {
-  __$$_EmptyCopyWithImpl(_$_Empty<T> _value, $Res Function(_$_Empty<T>) _then) : super(_value, _then);
+  __$$_EmptyCopyWithImpl(_$_Empty<T> _value, $Res Function(_$_Empty<T>) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -493,7 +518,8 @@ class _$_Empty<T> implements _Empty<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$_Empty<T>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Empty<T>);
   }
 
   @override

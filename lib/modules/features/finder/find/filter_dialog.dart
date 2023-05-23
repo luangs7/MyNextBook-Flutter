@@ -66,6 +66,7 @@ class FilterDialog extends HookConsumerWidget {
                               focusedBorder: InputBorder.none),
                         ),
                         CustomButton(
+                            isEnabled: true,
                             title: "Salvar",
                             onPressed: () {
                               Navigator.pop(context);

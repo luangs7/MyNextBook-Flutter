@@ -10,12 +10,14 @@ part of 'book_database.dart';
 class $FloorBookDatabase {
   /// Creates a database builder for a persistent database.
   /// Once a database is built, you should keep a reference to it and re-use it.
-  static _$BookDatabaseBuilder databaseBuilder(String name) => _$BookDatabaseBuilder(name);
+  static _$BookDatabaseBuilder databaseBuilder(String name) =>
+      _$BookDatabaseBuilder(name);
 
   /// Creates a database builder for an in memory database.
   /// Information stored in an in memory database disappears when the process is killed.
   /// Once a database is built, you should keep a reference to it and re-use it.
-  static _$BookDatabaseBuilder inMemoryDatabaseBuilder() => _$BookDatabaseBuilder(null);
+  static _$BookDatabaseBuilder inMemoryDatabaseBuilder() =>
+      _$BookDatabaseBuilder(null);
 }
 
 class _$BookDatabaseBuilder {
@@ -41,7 +43,9 @@ class _$BookDatabaseBuilder {
 
   /// Creates the database and initializes it.
   Future<BookDatabase> build() async {
-    final path = name != null ? await sqfliteDatabaseFactory.getDatabasePath(name!) : ':memory:';
+    final path = name != null
+        ? await sqfliteDatabaseFactory.getDatabasePath(name!)
+        : ':memory:';
     final database = _$BookDatabase();
     database.database = await database.open(
       path,
@@ -74,13 +78,14 @@ class _$BookDatabase extends BookDatabase {
         await callback?.onOpen?.call(database);
       },
       onUpgrade: (database, startVersion, endVersion) async {
-        await MigrationAdapter.runMigrations(database, startVersion, endVersion, migrations);
+        await MigrationAdapter.runMigrations(
+            database, startVersion, endVersion, migrations);
 
         await callback?.onUpgrade?.call(database, startVersion, endVersion);
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `authors` TEXT, `publisher` TEXT NOT NULL, `description` TEXT NOT NULL, `categories` TEXT, `language` TEXT NOT NULL, `previewLink` TEXT, `imageLinks` TEXT, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `authors` TEXT, `publisher` TEXT NOT NULL, `description` TEXT NOT NULL, `categories` TEXT, `language` TEXT NOT NULL, `previewLink` TEXT, `imageLinks` TEXT, `userId` TEXT NOT NULL, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -112,7 +117,8 @@ class _$BookDao extends BookDao {
                   'categories': _stringConverter.encode(item.categories),
                   'language': item.language,
                   'previewLink': item.previewLink,
-                  'imageLinks': _bookImageConverter.encode(item.imageLinks)
+                  'imageLinks': _bookImageConverter.encode(item.imageLinks),
+                  'userId': item.userId
                 },
             changeListener);
 
@@ -137,15 +143,17 @@ class _$BookDao extends BookDao {
             categories: _stringConverter.decode(row['categories'] as String?),
             language: row['language'] as String,
             previewLink: row['previewLink'] as String?,
-            imageLinks: _bookImageConverter.decode(row['imageLinks'] as String?)),
+            imageLinks:
+                _bookImageConverter.decode(row['imageLinks'] as String?),
+            userId: row['userId'] as String),
         arguments: [bookId],
         queryableName: 'BookEntity',
         isView: false);
   }
 
   @override
-  Future<List<BookEntity>> getFavorites() async {
-    return _queryAdapter.queryList('SELECT * FROM bookentity',
+  Future<List<BookEntity>> getFavorites(String userId) async {
+    return _queryAdapter.queryList('SELECT * FROM bookentity where userId = ?1',
         mapper: (Map<String, Object?> row) => BookEntity(
             id: row['id'] as String,
             title: row['title'] as String,
@@ -156,12 +164,16 @@ class _$BookDao extends BookDao {
             categories: _stringConverter.decode(row['categories'] as String?),
             language: row['language'] as String,
             previewLink: row['previewLink'] as String?,
-            imageLinks: _bookImageConverter.decode(row['imageLinks'] as String?)));
+            imageLinks:
+                _bookImageConverter.decode(row['imageLinks'] as String?),
+            userId: row['userId'] as String),
+        arguments: [userId]);
   }
 
   @override
   Future<void> delete(String bookId) async {
-    await _queryAdapter.queryNoReturn('DELETE FROM bookentity WHERE id=?1', arguments: [bookId]);
+    await _queryAdapter.queryNoReturn('DELETE FROM bookentity WHERE id=?1',
+        arguments: [bookId]);
   }
 
   @override

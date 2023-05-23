@@ -12,9 +12,10 @@ class BookLocalRepositoryImpl extends BookLocalRepository {
       {required this.dataSourceLocal, required this.mapper});
 
   @override
-  Future<ApiResult<void>> addFavorites(Book book) async {
+  Future<ApiResult<void>> addFavorites(Book book, String userId) async {
     try {
-      final result = await dataSourceLocal.setFavoriteBook(mapper.toRepo(book));
+      final result =
+          await dataSourceLocal.setFavoriteBook(mapper.toRepo(book), userId);
       return ApiResult.success(result);
     } on Exception catch (e, _) {
       return ApiResult.error(e);
@@ -22,9 +23,9 @@ class BookLocalRepositoryImpl extends BookLocalRepository {
   }
 
   @override
-  Future<ApiResult<List<Book>>> getFavorites() async {
+  Future<ApiResult<List<Book>>> getFavorites(String userId) async {
     try {
-      final result = await dataSourceLocal.getFavoritesBooks();
+      final result = await dataSourceLocal.getFavoritesBooks(userId);
       final resultList = result.map((e) => mapper.toDomain(e)).toList();
       return resultList.isEmpty
           ? ApiResult.empty()

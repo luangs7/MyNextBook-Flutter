@@ -1,4 +1,4 @@
-package com.example.mynextbook
+package com.lgmakerdevs.mynextbook
 
 import io.flutter.embedding.android.FlutterActivity
 

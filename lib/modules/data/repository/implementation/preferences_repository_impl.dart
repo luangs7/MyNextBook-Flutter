@@ -12,14 +12,15 @@ class PreferencesRepositoryImpl extends PreferencesRepository {
       {required this.dataSourceDatastore, required this.mapper});
 
   @override
-  Future<AppPreferences> loadPreferences() async {
-    final result = await dataSourceDatastore.loadPreferences();
+  Future<AppPreferences> loadPreferences(String userId) async {
+    final result = await dataSourceDatastore.loadPreferences(userId);
     return mapper.toDomain(result);
   }
 
   @override
-  Future<bool> updatePreferences(AppPreferences preferences) async {
-    return await dataSourceDatastore
-        .updatePreferences(mapper.toRepo(preferences));
+  Future<bool> updatePreferences(
+      AppPreferences preferences, String userId) async {
+    return await dataSourceDatastore.updatePreferences(
+        mapper.toRepo(preferences), userId);
   }
 }

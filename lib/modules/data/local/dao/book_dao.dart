@@ -9,8 +9,8 @@ abstract class BookDao {
   @Query('SELECT * FROM bookentity WHERE id = :bookId')
   Stream<BookEntity?> getFavoritesById(String bookId);
 
-  @Query('SELECT * FROM bookentity')
-  Future<List<BookEntity>> getFavorites();
+  @Query('SELECT * FROM bookentity where userId = :userId')
+  Future<List<BookEntity>> getFavorites(String userId);
 
   @Query('DELETE FROM bookentity WHERE id=:bookId')
   Future<void> delete(String bookId);

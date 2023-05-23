@@ -14,9 +14,9 @@ class PreferencesDataSourceDatastoreImpl
   PreferencesDataSourceDatastoreImpl(this.sharedPreferences, this.mapper);
 
   @override
-  Future<AppPreferencesRepo> loadPreferences() async {
+  Future<AppPreferencesRepo> loadPreferences(String userId) async {
     String? json = await sharedPreferences
-        .getValue(PreferencesDataSourceDatastore.preferencesKey);
+        .getValue(PreferencesDataSourceDatastore.preferencesKey + userId);
     if (json != null) {
       return mapper.toRepo(AppPreferenceDatastore.fromJson(jsonDecode(json)));
     } else {
@@ -26,9 +26,10 @@ class PreferencesDataSourceDatastoreImpl
   }
 
   @override
-  Future<bool> updatePreferences(AppPreferencesRepo preferences) async {
+  Future<bool> updatePreferences(
+      AppPreferencesRepo preferences, String userId) async {
     return await sharedPreferences.setValue(
-        PreferencesDataSourceDatastore.preferencesKey,
+        PreferencesDataSourceDatastore.preferencesKey + userId,
         jsonEncode(mapper.toDatastore(preferences)));
   }
 }

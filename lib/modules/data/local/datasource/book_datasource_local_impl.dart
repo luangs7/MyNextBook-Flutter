@@ -16,8 +16,8 @@ class BookDataSourceLocalImpl extends BookDataSourceLocal {
   }
 
   @override
-  Future<List<BookData>> getFavoritesBooks() async {
-    final result = await dao.getFavorites();
+  Future<List<BookData>> getFavoritesBooks(String userId) async {
+    final result = await dao.getFavorites(userId);
     return result.map((e) => mapper.toRepo(e)).toList();
   }
 
@@ -27,7 +27,7 @@ class BookDataSourceLocalImpl extends BookDataSourceLocal {
   }
 
   @override
-  Future<void> setFavoriteBook(BookData bookData) async {
-    return await dao.insertBook(mapper.toEntity(bookData));
+  Future<void> setFavoriteBook(BookData bookData, String userId) async {
+    return await dao.insertBook(mapper.toEntity(bookData, userId));
   }
 }

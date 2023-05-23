@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mynextbook/modules/features/favorites/ui/favorites_view.dart';
 import 'package:mynextbook/modules/features/finder/find/find_view.dart';
 import 'package:mynextbook/modules/features/home/ui/home_view.dart';
+import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
 class AppRouterImpl extends AppRouter {
@@ -12,6 +13,7 @@ class AppRouterImpl extends AppRouter {
       finderView: (context) => FindView(),
       favoriteView: (context) => FavoritesView(),
       previewView: (context) => const HomeView(),
+      loginView: (context) => LoginView(),
     };
   }
 
@@ -28,7 +30,12 @@ class AppRouterImpl extends AppRouter {
   }
 
   @override
-  void to(BuildContext context, String route, {String? params}) {
-    Navigator.pushNamed(context, route, arguments: params);
+  void to(BuildContext context, String route,
+      {bool replace = false, String? params}) {
+    if (replace) {
+      Navigator.of(context).pushNamedAndRemoveUntil(route, (route) => false);
+    } else {
+      Navigator.of(context).pushNamed(route, arguments: params);
+    }
   }
 }

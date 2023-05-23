@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/modules/domain/interactor/add_favorite_book.dart';
+import 'package:mynextbook/modules/domain/interactor/get_current_user.dart';
 import 'package:mynextbook/modules/domain/interactor/get_preferences.dart';
 import 'package:mynextbook/modules/domain/interactor/get_random_book.dart';
 import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.dart';
@@ -15,6 +16,7 @@ class PreviewViewModel extends ChangeNotifier {
   final GetRandomBook getRandomBook;
   final AddFavoriteBook addFavoriteBook;
   final RemoveBookFromFavorite removeBookFromFavorite;
+  final GetCurrentUser getCurrentUser;
 
   ViewState _itemFavoriteState = ViewState.empty();
   ViewState _itemRandomState = ViewState.empty();
@@ -26,11 +28,14 @@ class PreviewViewModel extends ChangeNotifier {
       {required this.getPreferences,
       required this.getRandomBook,
       required this.addFavoriteBook,
-      required this.removeBookFromFavorite});
+      required this.removeBookFromFavorite,
+      required this.getCurrentUser});
 
   Future<void> getBook() async {
     setItemRandomState(ViewState.loading());
-    final preferences = await getPreferences.execute();
+    final user = await getCurrentUser.execute();
+    if (user == null) return;
+    final preferences = await getPreferences.execute(user.uuid);
     getRandomBook.execute(preferences).then((value) {
       return value.when(
           success: (data) => setItemRandomState(ViewState.success(data)),
@@ -41,6 +46,8 @@ class PreviewViewModel extends ChangeNotifier {
 
   Future<void> setFavoriteBook(Book book) async {
     setItemFavoriteState(ViewState.loading());
+    final user = await getCurrentUser.execute();
+    if (user == null) return;
     if (book.isFavorited) {
       removeBookFromFavorite.execute(book).then((value) {
         return value.when(
@@ -50,7 +57,7 @@ class PreviewViewModel extends ChangeNotifier {
             empty: () => setItemFavoriteState(ViewState.empty()));
       });
     } else {
-      addFavoriteBook.execute(book).then((value) {
+      addFavoriteBook.execute(book, user.uuid).then((value) {
         return value.when(
             success: ((data) => setItemFavoriteState(ViewState.success(data))),
             error: ((exception) =>

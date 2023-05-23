@@ -23,26 +23,25 @@ class FindView extends HookConsumerWidget {
     final AppRouter appRouter = GetIt.I.get();
     return Scaffold(
         appBar: AppBar().buildAppBar(context, appRouter),
-        body: SingleChildScrollView(
-            child: InformationView(
-                title:
-                    "Você pode utilizar alguns filtros para ajudar\nna nossa busca",
-                buttonTitle: "Buscar",
-                lottieAnimation: "book_preferences",
-                subtitle: "Basta clicar aqui para alterar suas preferências.",
-                onInformation: () {
-                  viewModel.getAppPreferences().then((value) {
-                    viewModel.getPreferenceState.handleState(success: (data) {
-                      onInitValues(data as AppPreferences, ref, textController);
-                      _openDialog(context, textController, (param) {
-                        viewModel.onSetPreferences(param);
-                      });
-                    });
+        body: InformationView(
+            title:
+                "Você pode utilizar alguns filtros para ajudar\nna nossa busca",
+            buttonTitle: "Buscar",
+            lottieAnimation: "book_preferences",
+            subtitle: "Basta clicar aqui para alterar suas preferências.",
+            onInformation: () {
+              viewModel.getAppPreferences().then((value) {
+                viewModel.getPreferenceState.handleState(success: (data) {
+                  onInitValues(data as AppPreferences, ref, textController);
+                  _openDialog(context, textController, (param) {
+                    viewModel.onSetPreferences(param);
                   });
-                },
-                onNext: () {
-                  appRouter.to(context, appRouter.previewView);
-                })));
+                });
+              });
+            },
+            onNext: () {
+              appRouter.to(context, appRouter.previewView);
+            }));
   }
 
   final ebookProvider = StateProvider((_) => false);
