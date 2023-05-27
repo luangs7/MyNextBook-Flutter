@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mynextbook/designsystem/components/custom_appbar.dart';
+import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart';
 import 'package:mynextbook/designsystem/components/information_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
+
+import '../../../../designsystem/components/base_view.dart';
+import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 
 class HomeView extends HookConsumerWidget {
   const HomeView({super.key});
@@ -11,9 +14,12 @@ class HomeView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AppRouter appRouter = GetIt.I.get();
-    return Scaffold(
-        appBar: AppBar().buildAppBar(context, appRouter, showBackButton: false),
-        body: InformationView(
+    final customBar = ref.read(customBarProvider);
+    customBar.showBackButton = false;
+    customBar.showActions = true;
+
+    return BaseView(
+        child: InformationView(
             title: "Está com dúvida de qual vai ser seu próximo livro?",
             buttonTitle: "Vamos lá!",
             lottieAnimation: "book_ideia",

@@ -3,9 +3,11 @@ import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 import 'package:flutter/material.dart';
-import 'package:mynextbook/designsystem/components/custom_appbar.dart';
+import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
+import '../../../../designsystem/components/base_view.dart';
+import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import '../viewmodel/login_viewmodel.dart';
 import 'login_body.dart';
 
@@ -23,6 +25,8 @@ class LoginView extends HookConsumerWidget {
 
     final emailTextController = useTextEditingController();
     final passwordTextController = useTextEditingController();
+    final customBar = ref.watch(customBarProvider);
+    handleCustomBar(customBar);
 
     useEffect(() {
       void updateButtonEnabled() {
@@ -36,7 +40,7 @@ class LoginView extends HookConsumerWidget {
         viewModel.getUser().then((value) {
           value.handleState(success: ((data) async {
             if (data != null) {
-              WidgetsBinding.instance?.addPostFrameCallback((_) =>
+              WidgetsBinding.instance.addPostFrameCallback((_) =>
                   appRouter.to(context, appRouter.welcomeView, replace: true));
             } else {
               final emailSaved = await viewModel.getLoginEmail();
@@ -51,51 +55,47 @@ class LoginView extends HookConsumerWidget {
       emailTextController.addListener(updateButtonEnabled);
       passwordTextController.addListener(updateButtonEnabled);
 
-      return () {
-        // Clean up resources
-        isUserLoading.value = true;
-        emailTextController.removeListener(updateButtonEnabled);
-        passwordTextController.removeListener(updateButtonEnabled);
-        emailTextController.dispose();
-        passwordTextController.dispose();
-      };
+      return () {};
     }, []);
 
     useEffect(() {
       viewModel.state.handleState(error: (exception) {
+        isUserLoading.value = false;
         emailError.value = true;
         passwordError.value = true;
+        isButtonEnabled.value = false;
       }, success: (data) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => appRouter.to(context, appRouter.welcomeView, replace: true));
       });
 
-      return () {};
+      return () {
+        viewModel.setState(ViewState.empty());
+      };
     }, [viewModel.state]);
 
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar().buildAppBar(
-        context,
-        appRouter,
-        showBackButton: false,
-        showActions: false,
-      ),
-      body: isUserLoading.value
-          ? const Center(child: CircularProgressIndicator())
-          : LoginBody(
-              emailTextController: emailTextController,
-              passwordTextController: passwordTextController,
-              emailError: emailError.value,
-              passwordError: passwordError.value,
-              isButtonEnabled: isButtonEnabled.value,
-              onLoginPressed: () {
-                viewModel.login(
-                  emailTextController.text,
-                  passwordTextController.text,
-                );
-              },
-            ),
-    );
+    return BaseView(
+        child: isUserLoading.value
+            ? const Center(child: CircularProgressIndicator())
+            : LoginBody(
+                emailTextController: emailTextController,
+                passwordTextController: passwordTextController,
+                emailError: emailError.value,
+                passwordError: passwordError.value,
+                isButtonEnabled: isButtonEnabled.value,
+                onLoginPressed: () {
+                  isUserLoading.value = true;
+                  viewModel.login(
+                    emailTextController.text,
+                    passwordTextController.text,
+                  );
+                },
+              ));
+  }
+
+  handleCustomBar(CustomBarState state) {
+    state.showActions = false;
+    state.showBackButton = false;
+    state.resizeToAvoidBottomInset = true;
   }
 }

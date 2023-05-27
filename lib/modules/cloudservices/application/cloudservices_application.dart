@@ -1,3 +1,3 @@
 abstract class CloudServicesApplication {
-  void initialize();
+  Future initialize();
 }

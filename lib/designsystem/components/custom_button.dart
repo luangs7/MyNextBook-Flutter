@@ -21,6 +21,7 @@ class CustomButton extends StatelessWidget {
     }
 
     return MaterialButton(
+      padding: const EdgeInsets.all(10),
       disabledColor: AppColors.dark().accent.withOpacity(0.3),
       elevation: 7,
       color: AppColors.dark().accent,

@@ -7,6 +7,7 @@ import 'package:mynextbook/modules/data/repository/implementation/preferences_re
 import 'package:mynextbook/modules/data/repository/implementation/user_repository_impl.dart';
 import 'package:mynextbook/modules/data/repository/mapper/book_repo_mapper.dart';
 import 'package:mynextbook/modules/data/repository/mapper/preferences_repo_mapper.dart';
+import 'package:mynextbook/modules/data/repository/mapper/user_repo_mapper.dart';
 import 'package:mynextbook/modules/domain/repositories/book_local_repository.dart';
 import 'package:mynextbook/modules/domain/repositories/book_remote_repository.dart';
 import 'package:mynextbook/modules/domain/repositories/preferences_repository.dart';
@@ -16,6 +17,7 @@ import 'package:mynextbook/modules/data/repository/mock/user_repository_impl_moc
 extension BookRepositoryModule on GetIt {
   void bookRepositoryModule() {
     registerLazySingleton(() => BookRepoMapper());
+    registerLazySingleton(() => UserRepoMapper());
     registerLazySingleton(() => PreferencesRepoMapper());
     registerLazySingleton<BookLocalRepository>(
         () => BookLocalRepositoryImpl(mapper: get(), dataSourceLocal: get()));

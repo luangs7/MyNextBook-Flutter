@@ -31,4 +31,9 @@ class UserDataRepositoryImplMock extends UserDataRepository {
   Future<void> updatePreferences(String email) async {
     return Future.value();
   }
+
+  @override
+  Future doLogout() {
+    return Future.value();
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:mynextbook/modules/domain/interactor/add_favorite_book.dart';
 import 'package:mynextbook/modules/domain/interactor/do_login.dart';
+import 'package:mynextbook/modules/domain/interactor/do_logout.dart';
 import 'package:mynextbook/modules/domain/interactor/get_current_user.dart';
 import 'package:mynextbook/modules/domain/interactor/get_favorite_books.dart';
 import 'package:mynextbook/modules/domain/interactor/get_login_email.dart';
@@ -31,5 +32,6 @@ extension DomainModule on GetIt {
         () => GetEmailLoginImpl(repository: get()));
     registerLazySingleton<SetEmailLogin>(
         () => SetEmailLoginImpl(repository: get()));
+    registerLazySingleton<DoLogout>(() => DoLogoutImpl(repository: get()));
   }
 }

@@ -3,6 +3,8 @@ import 'package:lottie/lottie.dart';
 import 'package:mynextbook/designsystem/components/text_field_outlined.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
 
+import 'login_signup_dialog.dart';
+
 class LoginBody extends StatelessWidget {
   final TextEditingController emailTextController;
   final TextEditingController passwordTextController;
@@ -38,6 +40,13 @@ class LoginBody extends StatelessWidget {
           hasError: emailError,
           padding: 6,
           errorMessage: "Email incorreto",
+          obscureText: false,
+          validation: (value) {
+            if (value?.isEmpty == true || value.isValidEmail()) {
+              return null;
+            }
+            return "Email inválido";
+          },
         ),
         TextFieldOutlined(
           controller: passwordTextController,
@@ -46,6 +55,38 @@ class LoginBody extends StatelessWidget {
           hasError: passwordError,
           padding: 6,
           errorMessage: "Senha incorreta",
+          obscureText: true,
+          validation: (value) {
+            if (value?.isEmpty == true) {
+              return null;
+            }
+            if (value == null) {
+              return "Campo obrigatório";
+            }
+            if (value.length < 5) {
+              return "Deve conter ao menos 6 caracteres";
+            }
+            return null;
+          },
+        ),
+        GestureDetector(
+          child: Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text(
+                "Cadastrar nova conta",
+                textAlign: TextAlign.end,
+              )),
+          onTap: () {
+            showGeneralDialog(
+              context: context,
+              barrierLabel: "",
+              barrierDismissible: true,
+              transitionDuration: const Duration(milliseconds: 200),
+              pageBuilder: (context, _, __) {
+                return LoginSignupDialog(context: context);
+              },
+            );
+          },
         ),
         const SizedBox(height: 30),
         Padding(
@@ -58,5 +99,15 @@ class LoginBody extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+extension EmailValidator on String? {
+  bool isValidEmail() {
+    return this == null
+        ? false
+        : RegExp(
+                r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+            .hasMatch(this!.trim());
   }
 }

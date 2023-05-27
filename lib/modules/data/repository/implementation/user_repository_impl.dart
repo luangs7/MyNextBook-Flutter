@@ -70,4 +70,9 @@ class UserDataRepositoryImpl implements UserDataRepository {
       return ApiResult.error(error);
     }
   }
+
+  @override
+  Future doLogout() async {
+    return await cloudServicesAuth.signOut();
+  }
 }

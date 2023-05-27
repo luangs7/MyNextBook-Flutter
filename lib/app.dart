@@ -21,6 +21,8 @@ import 'package:mynextbook/navigation/app_router.dart';
 import 'package:mynextbook/modules/firebase/di/firebase_module.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 
+import 'designsystem/components/base_view.dart';
+
 void startApp() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _initApp();
@@ -30,7 +32,7 @@ void startApp() async {
 Future _initApp() async {
   _initialiseGetIt();
   final application = GetIt.instance.get<CloudServicesApplication>();
-  application.initialize();
+  await application.initialize();
 }
 
 void _initialiseGetIt() async {
@@ -66,7 +68,7 @@ class MyApp extends HookConsumerWidget {
                 theme: theme.data,
                 themeMode: themeMode,
                 darkTheme: AppTheme.dark().data,
-                home: const SafeArea(child: LoginView()));
+                home: const BaseView(child: LoginView()));
           } else {
             return const Center(child: CircularProgressIndicator());
           }
