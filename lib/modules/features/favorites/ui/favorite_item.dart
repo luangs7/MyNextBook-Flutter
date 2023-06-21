@@ -6,8 +6,11 @@ import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/designsystem/common/app_theme_text.dart';
 import 'package:mynextbook/designsystem/components/item_action.dart';
 
+import '../../../domain/model/book.dart';
+
 class FavoriteItem extends HookConsumerWidget {
-  const FavoriteItem({super.key});
+  final Book book;
+  const FavoriteItem({super.key, required this.book});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,11 +20,9 @@ class FavoriteItem extends HookConsumerWidget {
         width: 90,
         child: Column(
           children: [
-            itemImage(
-                'http://books.google.com/books/content?id=qluXBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+            itemImage(book.imageLinks?.thumbnail ?? ""),
             const Padding(padding: EdgeInsets.only(top: defaultPaddingV)),
-            itemTitle(
-                "Harry Potter e os Enigmas do Principe Part II A vinganca continua"),
+            itemTitle(book.title ?? ""),
             const Padding(padding: EdgeInsets.only(top: defaultPadding)),
             itemActions(false, () {}, () {})
           ],

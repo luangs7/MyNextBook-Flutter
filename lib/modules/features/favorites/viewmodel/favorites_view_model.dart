@@ -8,10 +8,9 @@ import 'package:mynextbook/modules/domain/interactor/get_favorite_books.dart';
 import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
 
-// final favoritesViewModelProvider = ChangeNotifierProvider.autoDispose((ref) {
-//   FavoritesViewModel viewModel = GetIt.I.get();
-//   return viewModel;
-// });
+final favoritesViewModelProvider = ChangeNotifierProvider.autoDispose((ref) {
+  return GetIt.I.get<FavoritesViewModel>();
+});
 
 class FavoritesViewModel extends BaseViewModel {
   final GetFavoriteBooks getFavoriteBooks;
@@ -28,14 +27,13 @@ class FavoritesViewModel extends BaseViewModel {
     getCurrentUser.execute().then((user) {
       if (user == null) return;
       getFavoriteBooks.execute(user.uuid).then((result) {
-        return result.when(
-            success: (data) {
-              setState(ViewState.success(data));
-            },
-            error: (error) {
-              setState(ViewState.error(error));
-            },
-            empty: (() => ViewState.empty()));
+        return result.when(success: (data) {
+          setState(ViewState.success(data));
+        }, error: (error) {
+          setState(ViewState.error(error));
+        }, empty: () {
+          setState(ViewState.empty());
+        });
       });
     });
   }

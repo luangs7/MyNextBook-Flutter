@@ -1,6 +1,7 @@
 // ignore: depend_on_referenced_packages
 // ignore_for_file: avoid_init_to_null
 
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:equatable/equatable.dart';
 
@@ -27,5 +28,22 @@ extension HandleState<T> on ViewState {
         error: (exception) => error?.call(exception),
         loading: () => loading?.call(),
         empty: () => empty?.call());
+  }
+
+  Widget handleWidget({
+    required Function(T data) success,
+    required Widget Function(Exception? exception) error,
+    required Widget Function() loading,
+    required Widget Function() empty,
+  }) {
+    return when(success: (data) {
+      return success.call(data);
+    }, error: (exception) {
+      return error.call(exception);
+    }, loading: () {
+      return loading.call();
+    }, empty: () {
+      return empty.call();
+    });
   }
 }

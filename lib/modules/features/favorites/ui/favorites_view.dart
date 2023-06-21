@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart';
@@ -18,21 +19,33 @@ import 'package:mynextbook/navigation/app_router.dart';
 class FavoritesView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    BookEntityMapper mapper = GetIt.I.get();
-    BookDao dao = GetIt.I.get();
-    BookDataSourceLocal viewModel = GetIt.I.get();
+    final viewModel = ref.watch(favoritesViewModelProvider);
+
     AppRouter appRouter = GetIt.I.get();
 
-    var items = List.from(["1", "2", "3", "1", "2"]);
-    return BaseView(child: listOfItems(items));
+    useEffect(() {
+      viewModel.getFavoriteItems();
+      return () {};
+    }, []);
+
+    return BaseView(
+        child: viewModel.state.handleWidget(
+            success: (data) {
+              return listOfItems(data);
+            },
+            error: (exception) {
+              return const Center();
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            empty: () => const Center()));
   }
 
-  Widget listOfItems(List<dynamic> data) {
+  Widget listOfItems(List<Book> data) {
     return Padding(
         padding: const EdgeInsets.all(defaultPadding),
         child: Wrap(
           runAlignment: WrapAlignment.start,
-          children: data.map((e) => const FavoriteItem()).toList(),
+          children: data.map((e) => FavoriteItem(book: e)).toList(),
         ));
   }
 }
