@@ -10,7 +10,7 @@ abstract class BookService {
 
   @GET("volumes")
   Future<BookResponse> getBooks(
-    @Query(queryParam, encoded: false) String query,
+    @Query(queryParam, encoded: true) String query,
     @Query(languageRestrictQuery) String? language,
     @Query(filterQuery) String? filter,
     @Query(orderByQuery) String orderBy,

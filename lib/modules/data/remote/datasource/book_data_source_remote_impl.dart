@@ -16,7 +16,7 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
       AppPreferencesRepo appPreferencesRepo) async {
     var filter = appPreferencesRepo.isEbook ? ebookQuery : null;
     var query = createQueryParams(appPreferencesRepo);
-    await service
+    return await service
         .getBooks(query, appPreferencesRepo.isPortuguese ? languagePt : null,
             filter, orderByQueryValue, maxresultsValue)
         .then((value) {
@@ -25,17 +25,13 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
     }).catchError((onError) {
       throw onError;
     });
-
-    throw Exception();
   }
 
   String createQueryParams(AppPreferencesRepo appPreferencesRepo) {
     var query = StringBuffer();
     var keyword =
-        appPreferencesRepo.keyword?.replaceAll(dividerOld, divider) ?? "";
-    if (keyword.isNotEmpty) {
-      query.write(keyword);
-    }
+        appPreferencesRepo.keyword?.replaceAll(dividerOld, divider) ?? "a";
+    query.write(keyword);
     return query.toString();
   }
 }

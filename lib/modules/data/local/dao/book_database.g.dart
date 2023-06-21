@@ -85,7 +85,7 @@ class _$BookDatabase extends BookDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `authors` TEXT, `publisher` TEXT NOT NULL, `description` TEXT NOT NULL, `categories` TEXT, `language` TEXT NOT NULL, `previewLink` TEXT, `imageLinks` TEXT, `userId` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `description` TEXT NOT NULL, `previewLink` TEXT, `imageLinks` TEXT, `userId` TEXT NOT NULL, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -111,11 +111,7 @@ class _$BookDao extends BookDao {
                   'id': item.id,
                   'title': item.title,
                   'subtitle': item.subtitle,
-                  'authors': _stringConverter.encode(item.authors),
-                  'publisher': item.publisher,
                   'description': item.description,
-                  'categories': _stringConverter.encode(item.categories),
-                  'language': item.language,
                   'previewLink': item.previewLink,
                   'imageLinks': _bookImageConverter.encode(item.imageLinks),
                   'userId': item.userId
@@ -137,11 +133,7 @@ class _$BookDao extends BookDao {
             id: row['id'] as String,
             title: row['title'] as String,
             subtitle: row['subtitle'] as String,
-            authors: _stringConverter.decode(row['authors'] as String?),
-            publisher: row['publisher'] as String,
             description: row['description'] as String,
-            categories: _stringConverter.decode(row['categories'] as String?),
-            language: row['language'] as String,
             previewLink: row['previewLink'] as String?,
             imageLinks:
                 _bookImageConverter.decode(row['imageLinks'] as String?),
@@ -158,11 +150,7 @@ class _$BookDao extends BookDao {
             id: row['id'] as String,
             title: row['title'] as String,
             subtitle: row['subtitle'] as String,
-            authors: _stringConverter.decode(row['authors'] as String?),
-            publisher: row['publisher'] as String,
             description: row['description'] as String,
-            categories: _stringConverter.decode(row['categories'] as String?),
-            language: row['language'] as String,
             previewLink: row['previewLink'] as String?,
             imageLinks:
                 _bookImageConverter.decode(row['imageLinks'] as String?),

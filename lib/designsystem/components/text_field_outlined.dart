@@ -12,6 +12,8 @@ class TextFieldState {
   TextFieldState({required this.errorMessage, required this.hasError});
 }
 
+//create a provider 
+
 class TextFieldOutlined extends HookConsumerWidget {
   final TextEditingController controller;
   final String hint;

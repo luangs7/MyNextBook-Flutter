@@ -29,39 +29,19 @@ class VolumeInfo {
   final String title;
   final String? subtitle;
   final List<String>? authors;
-  final String? publisher;
   final String? description;
-  final int? pageCount;
-  final List<String>? categories;
-  final bool allowAnonLogging;
-  final String? contentVersion;
   final ImageLinks? imageLinks;
-  final String? language;
   final String? previewLink;
   final String? infoLink;
-  final String? canonicalVolumeLink;
-  final String? averageRating;
-  final int? ratingsCount;
-  final String? publishedDate;
 
   VolumeInfo(
       {required this.title,
       required this.subtitle,
       required this.authors,
-      required this.publisher,
       required this.description,
-      required this.pageCount,
-      required this.categories,
-      required this.allowAnonLogging,
-      required this.contentVersion,
       required this.imageLinks,
-      required this.language,
       required this.previewLink,
-      required this.infoLink,
-      required this.canonicalVolumeLink,
-      required this.averageRating,
-      required this.ratingsCount,
-      required this.publishedDate});
+      required this.infoLink});
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) =>
       _$VolumeInfoFromJson(json);

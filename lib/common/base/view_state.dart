@@ -2,6 +2,7 @@
 // ignore_for_file: avoid_init_to_null
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 
 part 'view_state.freezed.dart';
 
@@ -18,7 +19,9 @@ extension HandleState<T> on ViewState {
       {Function(T data)? success,
       Function(Exception? exception)? error = null,
       Function? loading = null,
-      Function? empty = null}) {
+      Function? empty = null,
+      Function(ViewState)? onEach = null}) {
+    onEach?.call(this);
     when(
         success: (data) => success?.call(data),
         error: (exception) => error?.call(exception),

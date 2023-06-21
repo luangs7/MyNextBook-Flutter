@@ -6,13 +6,9 @@ class BookEntityMapper {
   BookEntity toEntity(BookData model, String userId) {
     return BookEntity(
         id: model.id,
-        authors: model.authors ?? List.empty(),
-        categories: model.categories ?? List.empty(),
         description: model.description ?? '',
         imageLinks: toBookImageEntity(model.imageLinks),
-        language: model.language ?? "",
         previewLink: model.previewLink ?? "",
-        publisher: model.publisher ?? "",
         subtitle: model.subtitle ?? "",
         title: model.title ?? "",
         userId: userId);
@@ -26,22 +22,13 @@ class BookEntityMapper {
 
   BookData toRepo(BookEntity model) {
     return BookData(
-        authors: model.authors,
-        categories: model.categories,
         description: model.description,
         imageLinks: toBookImageRepo(model.imageLinks),
-        language: model.language,
         previewLink: model.previewLink,
-        publisher: model.publisher,
         subtitle: model.subtitle,
         title: model.title,
-        averageRating: null,
-        contentVersion: null,
         id: model.id,
         infoLink: null,
-        pageCount: null,
-        publishedDate: null,
-        ratingsCount: null,
         isFavorited: false);
   }
 

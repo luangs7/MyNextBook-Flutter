@@ -8,6 +8,9 @@ import 'package:mynextbook/modules/domain/interactor/get_current_user.dart';
 import 'package:mynextbook/modules/domain/interactor/get_login_email.dart';
 import 'package:mynextbook/modules/domain/interactor/set_login_email.dart';
 import 'package:mynextbook/modules/domain/model/user.dart';
+import 'package:mynextbook/modules/features/login/ui/login_body.dart';
+
+import 'login_state.dart';
 
 final loginViewModelProvider =
     ChangeNotifierProvider((ref) => GetIt.I.get<LoginViewModel>());
@@ -22,27 +25,82 @@ class LoginViewModel extends BaseViewModel {
       {required this.doLogin,
       required this.getEmailLogin,
       required this.setEmailLogin,
-      required this.getCurrentUser});
+      required this.getCurrentUser}) {
+    _loginFormState = LoginState.init();
+  }
+
+  LoginState _loginFormState = LoginState.init();
+  LoginState get loginFormState => _loginFormState;
 
   Future login(String email, String password) {
-    setState(ViewState.loading());
+    setLoadingState();
     return doLogin.execute(email, password, null).then((result) {
       result.when(success: (data) async {
         if (data) {
           await setLoginEmail(email);
-          setState(ViewState.success(data));
+          setLoginState(ViewState.success(data));
         } else {
-          setState(ViewState.error(Exception()));
+          setLoginError(ViewState.error(Exception()));
         }
       }, error: (error) {
-        setState(ViewState.error(error));
+        setLoginError(ViewState.error(error));
       }, empty: () {
-        setState(ViewState.empty());
+        setLoginState(ViewState.empty());
       });
     });
   }
 
+  setLoadingState() {
+    _loginFormState = _loginFormState.copyWith(
+        status: ViewState.loading(),
+        isButtonEnabled: false,
+        fieldErrors: false);
+    notifyListeners();
+  }
+
+  setLoginError(ViewState state) {
+    _loginFormState =
+        _loginFormState.copyWith(status: state, fieldErrors: true);
+    notifyListeners();
+  }
+
+  setLoginState(ViewState state) {
+    _loginFormState = _loginFormState.copyWith(
+      status: state,
+    );
+    notifyListeners();
+  }
+
+  resetLoginState() {
+    _loginFormState = _loginFormState.copyWith(
+      status: ViewState.empty(),
+    );
+  }
+
+  onPasswordChanged(String value) {
+    final isButtonEnabled =
+        value.length > 5 && _loginFormState.email.isValidEmail();
+    _loginFormState = _loginFormState.copyWith(
+        password: value,
+        status: ViewState.empty(),
+        fieldErrors: false,
+        isButtonEnabled: isButtonEnabled);
+    notifyListeners();
+  }
+
+  onEmailChanged(String value) {
+    final isButtonEnabled =
+        _loginFormState.password.length > 5 && value.isValidEmail();
+    _loginFormState = _loginFormState.copyWith(
+        email: value,
+        status: ViewState.empty(),
+        fieldErrors: false,
+        isButtonEnabled: isButtonEnabled);
+    notifyListeners();
+  }
+
   Future<String> getLoginEmail() async {
+    setLoadingState();
     return await getEmailLogin.execute();
   }
 

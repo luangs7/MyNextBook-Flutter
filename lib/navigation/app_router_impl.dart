@@ -5,6 +5,8 @@ import 'package:mynextbook/modules/features/home/ui/home_view.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
+import '../modules/features/finder/preview/ui/privew_view.dart';
+
 class AppRouterImpl extends AppRouter {
   @override
   Map<String, WidgetBuilder> createRouter(BuildContext context) {
@@ -12,8 +14,8 @@ class AppRouterImpl extends AppRouter {
       welcomeView: (context) => const HomeView(),
       finderView: (context) => FindView(),
       favoriteView: (context) => FavoritesView(),
-      previewView: (context) => const HomeView(),
-      loginView: (context) => LoginView(),
+      previewView: (context) => PreviewView(),
+      loginView: (context) => const LoginView(),
     };
   }
 

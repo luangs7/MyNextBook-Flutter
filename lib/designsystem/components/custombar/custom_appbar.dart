@@ -31,6 +31,7 @@ extension CustomAppBar on AppBar {
           appRouter.to(context, appRouter.favoriteView);
         },
       ),
+      const SizedBox(width: 16),
       GestureDetector(
         child: const Padding(
             padding: EdgeInsets.all(8),

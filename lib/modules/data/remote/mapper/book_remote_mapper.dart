@@ -8,18 +8,9 @@ class BookRemoteMapper {
             id: e.id,
             title: e.volumeInfo.title,
             subtitle: e.volumeInfo.subtitle,
-            authors: e.volumeInfo.authors,
-            publisher: e.volumeInfo.publisher,
             description: e.volumeInfo.description,
-            pageCount: e.volumeInfo.pageCount,
-            categories: e.volumeInfo.categories,
-            contentVersion: e.volumeInfo.contentVersion,
-            language: e.volumeInfo.language,
             previewLink: e.volumeInfo.previewLink,
             infoLink: e.volumeInfo.infoLink,
-            averageRating: e.volumeInfo.averageRating,
-            ratingsCount: e.volumeInfo.ratingsCount,
-            publishedDate: e.volumeInfo.publishedDate,
             imageLinks: toImageRepo(e.volumeInfo.imageLinks),
             isFavorited: false))
         .toList();
@@ -27,7 +18,8 @@ class BookRemoteMapper {
 
   BookImageData? toImageRepo(ImageLinks? model) {
     if (model != null) {
-      return BookImageData(smallThumbnail: model.smallThumbnail, thumbnail: model.thumbnail);
+      return BookImageData(
+          smallThumbnail: model.smallThumbnail, thumbnail: model.thumbnail);
     } else {
       return null;
     }

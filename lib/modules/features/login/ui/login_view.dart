@@ -3,7 +3,6 @@ import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 import 'package:flutter/material.dart';
-import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
 import '../../../../designsystem/components/base_view.dart';
@@ -18,10 +17,7 @@ class LoginView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final AppRouter appRouter = GetIt.I.get();
     final viewModel = ref.watch(loginViewModelProvider);
-    final emailError = useState(false);
-    final passwordError = useState(false);
-    final isButtonEnabled = useState(true);
-    final isUserLoading = useState(true);
+    final isLoading = useState(false);
 
     final emailTextController = useTextEditingController();
     final passwordTextController = useTextEditingController();
@@ -29,11 +25,23 @@ class LoginView extends HookConsumerWidget {
     handleCustomBar(customBar);
 
     useEffect(() {
-      void updateButtonEnabled() {
-        isButtonEnabled.value = emailTextController.text.isNotEmpty &&
-            passwordTextController.text.isNotEmpty;
-        emailError.value = false;
-        passwordError.value = false;
+      viewModel.loginFormState.status.handleState(success: (data) {
+        WidgetsBinding.instance.addPostFrameCallback(
+            (_) => appRouter.to(context, appRouter.welcomeView, replace: true));
+      });
+      isLoading.value = viewModel.loginFormState.status == ViewState.loading();
+      return () {
+        viewModel.resetLoginState();
+      };
+    }, [viewModel.loginFormState]);
+
+    useEffect(() {
+      void updateEmail() {
+        viewModel.onEmailChanged(emailTextController.text);
+      }
+
+      void updatePassword() {
+        viewModel.onPasswordChanged(passwordTextController.text);
       }
 
       void handleData() async {
@@ -43,48 +51,30 @@ class LoginView extends HookConsumerWidget {
               WidgetsBinding.instance.addPostFrameCallback((_) =>
                   appRouter.to(context, appRouter.welcomeView, replace: true));
             } else {
-              final emailSaved = await viewModel.getLoginEmail();
-              emailTextController.text = emailSaved;
-              isUserLoading.value = false;
+              viewModel.getLoginEmail().then((value) {
+                emailTextController.text = value;
+              });
             }
           }));
         });
       }
 
       handleData();
-      emailTextController.addListener(updateButtonEnabled);
-      passwordTextController.addListener(updateButtonEnabled);
-
+      emailTextController.addListener(updateEmail);
+      passwordTextController.addListener(updatePassword);
       return () {};
     }, []);
 
-    useEffect(() {
-      viewModel.state.handleState(error: (exception) {
-        isUserLoading.value = false;
-        emailError.value = true;
-        passwordError.value = true;
-        isButtonEnabled.value = false;
-      }, success: (data) {
-        WidgetsBinding.instance.addPostFrameCallback(
-            (_) => appRouter.to(context, appRouter.welcomeView, replace: true));
-      });
-
-      return () {
-        viewModel.setState(ViewState.empty());
-      };
-    }, [viewModel.state]);
-
     return BaseView(
-        child: isUserLoading.value
+        child: isLoading.value
             ? const Center(child: CircularProgressIndicator())
             : LoginBody(
                 emailTextController: emailTextController,
                 passwordTextController: passwordTextController,
-                emailError: emailError.value,
-                passwordError: passwordError.value,
-                isButtonEnabled: isButtonEnabled.value,
+                emailError: viewModel.loginFormState.fieldErrors,
+                passwordError: viewModel.loginFormState.fieldErrors,
+                isButtonEnabled: viewModel.loginFormState.isButtonEnabled,
                 onLoginPressed: () {
-                  isUserLoading.value = true;
                   viewModel.login(
                     emailTextController.text,
                     passwordTextController.text,
