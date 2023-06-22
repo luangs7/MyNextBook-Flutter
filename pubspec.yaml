@@ -89,6 +89,9 @@ flutter:
     - lib/assets/book_ideia.json
     - lib/assets/book_preferences.json
     - lib/assets/book_search.json
+    - lib/assets/lottie_loading.json
+    - lib/assets/lottie_empty.json
+    - lib/assets/lottie_error.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

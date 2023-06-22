@@ -8,7 +8,7 @@ import 'package:mynextbook/modules/domain/interactor/get_favorite_books.dart';
 import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
 
-final favoritesViewModelProvider = ChangeNotifierProvider.autoDispose((ref) {
+final favoritesViewModelProvider = ChangeNotifierProvider((ref) {
   return GetIt.I.get<FavoritesViewModel>();
 });
 
@@ -23,7 +23,6 @@ class FavoritesViewModel extends BaseViewModel {
       required this.getCurrentUser});
 
   Future<void> getFavoriteItems() async {
-    setState(ViewState.loading());
     getCurrentUser.execute().then((user) {
       if (user == null) return;
       getFavoriteBooks.execute(user.uuid).then((result) {
