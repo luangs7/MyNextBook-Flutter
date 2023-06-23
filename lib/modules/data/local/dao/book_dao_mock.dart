@@ -13,8 +13,8 @@ class BookDaoMock extends BookDao {
   }
 
   @override
-  Stream<BookEntity?> getFavoritesById(String bookId) {
-    return const Stream.empty();
+  Future<BookEntity?> getFavoritesById(String bookId) {
+    return Future.value(null);
   }
 
   @override

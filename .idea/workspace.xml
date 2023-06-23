@@ -5,13 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d08f3d-4284-48c0-980d-0098d3994994" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/designsystem/components/item_image.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/designsystem/components/item_title.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_bottomsheet.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/item_action.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/item_action.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/converter/book_image_converter.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao_mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao_mock.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/datasource/book_datasource_local_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/datasource/book_datasource_local_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/di/book_local_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/di/book_local_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/mapper/book_entity_mapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/mapper/book_entity_mapper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/model/book_entity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/model/book_entity.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/model/book_image_entity.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/domain/model/book.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/model/book.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/find_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/find/find_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/ui/login_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mynextbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mynextbook.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,6 +58,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GxkNWdw9NJ3FzK7BI3jG47uARo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
@@ -32,15 +73,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DEBUGGABLE_DEVICE": "samsung-sm_a325m-RX8T509154R",
+    "DEBUGGABLE_PROCESS": "com.lgmakerdevs.mynextbook.dev",
+    "DEBUGGER_ID": "Java",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHOW_ALL_PROCESSES": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "C:/Users/Luan/Documents/GitHub/MyNextBook-Flutter",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager" selected="Flutter.main_dev.dart" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,5 +108,86 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>57</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>63</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>70</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>74</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>98</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
+          <line>102</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart</url>
+          <line>34</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
+          <line>53</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
+          <line>38</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart</url>
+          <line>18</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/designsystem/components/item_image.dart</url>
+          <line>13</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
+          <line>45</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
+          <line>68</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
+          <line>77</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

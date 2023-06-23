@@ -3,76 +3,43 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
-import 'package:mynextbook/designsystem/common/app_theme_text.dart';
-import 'package:mynextbook/designsystem/components/item_action.dart';
-
+import '../../../../designsystem/components/item_action_container.dart';
+import '../../../../designsystem/components/item_image.dart';
+import '../../../../designsystem/components/item_title.dart';
 import '../../../domain/model/book.dart';
 
 class FavoriteItem extends HookConsumerWidget {
   final Book book;
+
   const FavoriteItem({super.key, required this.book});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final appTheme = ref.watch(appThemeProvider);
     return Padding(
       padding: const EdgeInsets.all(defaultPaddingV),
-      child: SizedBox(
-        width: 90,
-        child: Column(
-          children: [
-            itemImage(book.imageLinks?.thumbnail ?? ""),
-            const Padding(padding: EdgeInsets.only(top: defaultPaddingV)),
-            itemTitle(book.title ?? ""),
-            const Padding(padding: EdgeInsets.only(top: defaultPadding)),
-            itemActions(false, () {}, () {})
-          ],
+      child: IntrinsicWidth(
+        child: Container(
+          padding: const EdgeInsets.all(0) ,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: ItemImage(
+                    url: book.imageLinks?.thumbnail ?? ""),
+              ),
+              const Padding(padding: EdgeInsets.only(top: defaultPaddingV)),
+              ItemActionContainer(
+                itemSize: 32,
+                isFavorited: false,
+                onFavorited: () {},
+                onShared: () {},
+                onView: () {},
+              )
+            ],
+          ),
         ),
       ),
-    );
-  }
-
-  Widget itemImage(String image) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.all(Radius.circular(8)),
-      child: CachedNetworkImage(
-        imageUrl: image,
-        placeholder: (context, url) => const SizedBox(
-            height: 20, width: 20, child: CircularProgressIndicator()),
-        errorWidget: (context, url, error) {
-          return const Icon(Icons.error);
-        },
-      ),
-    );
-  }
-
-  Widget itemTitle(String label) {
-    return Consumer(builder: ((context, ref, child) {
-      var theme = ref.watch(appThemeProvider);
-      return Text(label,
-          style: AppTextTheme()
-              .h20
-              .copyWith(color: theme.appColors.textColor.withOpacity(0.5)),
-          textAlign: TextAlign.center,
-          maxLines: 3,
-          overflow: TextOverflow.ellipsis);
-    }));
-  }
-
-  Widget itemActions(
-      bool isFavorited, Function onFavorited, Function onShared) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ItemAction(
-            height: 32.0,
-            width: 32.0,
-            accent: isFavorited ? Colors.red : Colors.white,
-            onClick: onFavorited),
-        const Padding(padding: EdgeInsets.all(4)),
-        ItemAction(
-            height: 32.0, width: 32.0, accent: Colors.white, onClick: onShared)
-      ],
     );
   }
 }

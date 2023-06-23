@@ -40,7 +40,7 @@ class LoginState {
       email: "",
       password: "",
       isButtonEnabled: false,
-      status: ViewState.loading(),
+      status: ViewState.empty(),
       fieldErrors: false,
       errorMessage: "",
     );

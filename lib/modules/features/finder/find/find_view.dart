@@ -12,6 +12,7 @@ import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart'
 import 'package:mynextbook/modules/features/finder/find/filter_dialog.dart';
 
 import '../../../../designsystem/components/base_view.dart';
+import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 
 class FindView extends HookConsumerWidget {
   FindView({super.key});
@@ -21,7 +22,9 @@ class FindView extends HookConsumerWidget {
     final viewModel = ref.watch(preferencesViewModelProvider);
     final textController =
         useTextEditingController.fromValue(TextEditingValue.empty);
-
+    final customBar = ref.read(customBarProvider);
+    customBar.showBackButton = true;
+    customBar.showActions = true;
     final AppRouter appRouter = GetIt.I.get();
     return BaseView(
         child: InformationView(

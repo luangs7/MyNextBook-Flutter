@@ -69,6 +69,7 @@ class PreviewViewModel extends ChangeNotifier {
     removeBookFromFavorite.execute(book).then((value) {
       return value.handle(success: ((data) {
         _itemFavoriteState = false;
+        notifyListeners();
       }));
     });
   }
@@ -77,6 +78,7 @@ class PreviewViewModel extends ChangeNotifier {
     addFavoriteBook.execute(book, uuid).then((value) {
       return value.handle(success: ((data) {
         _itemFavoriteState = true;
+        notifyListeners();
       }));
     });
   }

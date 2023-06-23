@@ -25,11 +25,15 @@ class LoginView extends HookConsumerWidget {
     handleCustomBar(customBar);
 
     useEffect(() {
-      viewModel.loginFormState.status.handleState(success: (data) {
+      viewModel.loginFormState.status.handleState(
+        onEach: (state) {
+          isLoading.value = state == ViewState.loading();
+        },
+          success: (data) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => appRouter.to(context, appRouter.welcomeView, replace: true));
       });
-      isLoading.value = viewModel.loginFormState.status == ViewState.loading();
+
       return () {
         viewModel.resetLoginState();
       };

@@ -4,36 +4,39 @@ import 'package:flutter/material.dart';
 class ItemAction extends StatelessWidget {
   double height;
   double width;
-  Color accent; 
+  Color accent;
   Function onClick;
-  
-  ItemAction({
-    Key? key,
-    required this.height,
-    required this.width,
-    required this.accent,
-    required this.onClick,
-  }) : super(key: key);
+  IconData icon;
+
+  ItemAction(
+      {Key? key,
+      required this.height,
+      required this.width,
+      required this.accent,
+      required this.onClick,
+      required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      padding: const EdgeInsets.all(6),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border:
-              Border.all(color: accent, width: 1, style: BorderStyle.solid)),
-      child: IconButton(
-          onPressed: onClick(),
-          padding: const EdgeInsets.all(0.0),
-          icon: Icon(
-            Icons.favorite,
-            size: 16,
-            color: accent,
-          )),
+    return GestureDetector(
+      child: Container(
+        height: height,
+        width: width,
+        padding: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border:
+                Border.all(color: accent, width: 1, style: BorderStyle.solid)),
+        child: Icon(
+          icon,
+          size: 16,
+          color: accent,
+        ),
+      ),
+      onTap: () {
+        onClick.call();
+      },
     );
   }
-
 }

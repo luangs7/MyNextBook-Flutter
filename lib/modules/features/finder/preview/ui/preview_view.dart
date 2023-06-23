@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
+import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
+import 'package:mynextbook/modules/features/finder/preview/ui/preview_bottomsheet.dart';
+import 'package:mynextbook/modules/features/finder/preview/ui/preview_item.dart';
 
 import '../../../../../common/base/api_result.dart';
+import '../../../../../designsystem/components/custombar/custom_appbar_provider.dart';
+import '../../../../../designsystem/components/item_action_container.dart';
+import '../../../../../designsystem/components/item_image.dart';
+import '../../../../../designsystem/components/item_title.dart';
 import '../../../../../designsystem/components/lottie_view.dart';
 import '../viewmodel/preview_view_model.dart';
 
 class PreviewView extends HookConsumerWidget {
+  const PreviewView({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final viewModel = ref.watch(previewViewModelProvider);
-    final isFavorited = useState(false);
-
+    final customBar = ref.read(customBarProvider);
+    customBar.showBackButton = true;
+    customBar.showActions = true;
     useEffect(() {
       viewModel.getBook();
       return () {
@@ -22,54 +32,14 @@ class PreviewView extends HookConsumerWidget {
       };
     }, []);
 
-    useEffect(() {
-      isFavorited.value = viewModel.previewState.state == ViewState.loading();
-      return () {};
-    }, [viewModel.previewState]);
-
     return BaseView(
         child: viewModel.previewState.state.handleWidget(
       success: (data) {
+        final book = castOrNull<Book>(data);
         return Stack(
           children: [
-            Container(color: Colors.blueAccent),
-            DraggableScrollableSheet(
-              maxChildSize: 0.5,
-              minChildSize: 0.3,
-              builder: (context, scrollController) {
-                return Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(18))),
-                    child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: ListView.builder(
-                          physics: const ClampingScrollPhysics(),
-                          controller: scrollController,
-                          itemCount: 2,
-                          itemBuilder: (context, index) {
-                            if (index == 0) {
-                              return Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Column(children: [
-                                    SizedBox(
-                                        width: 50,
-                                        child: Divider(
-                                          color: Colors.grey.shade300,
-                                          thickness: 5,
-                                        ))
-                                  ]));
-                            } else {
-                              return Text(
-                                castOrNull<Book>(data)?.description ?? "",
-                                style: const TextStyle(color: Colors.black),
-                              );
-                            }
-                          },
-                        )));
-              },
-            )
+            PreviewItem(book: book),
+            PreviewBottomSheet(description: book?.description ?? "")
           ],
         );
       },

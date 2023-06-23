@@ -100,7 +100,6 @@ class LoginViewModel extends BaseViewModel {
   }
 
   Future<String> getLoginEmail() async {
-    setLoadingState();
     return await getEmailLogin.execute();
   }
 

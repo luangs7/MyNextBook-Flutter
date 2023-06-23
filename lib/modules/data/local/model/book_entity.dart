@@ -1,5 +1,4 @@
 import 'package:floor/floor.dart';
-import 'package:mynextbook/modules/data/local/model/book_image_entity.dart';
 
 @entity
 class BookEntity {
@@ -9,7 +8,7 @@ class BookEntity {
   final String subtitle;
   final String description;
   final String? previewLink;
-  final BookImageEntity? imageLinks;
+  final String? image;
   final String userId;
 
   BookEntity(
@@ -18,6 +17,6 @@ class BookEntity {
       required this.subtitle,
       required this.description,
       required this.previewLink,
-      required this.imageLinks,
+      required this.image,
       required this.userId});
 }

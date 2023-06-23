@@ -85,7 +85,7 @@ class _$BookDatabase extends BookDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `description` TEXT NOT NULL, `previewLink` TEXT, `imageLinks` TEXT, `userId` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `description` TEXT NOT NULL, `previewLink` TEXT, `image` TEXT, `userId` TEXT NOT NULL, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -103,7 +103,7 @@ class _$BookDao extends BookDao {
   _$BookDao(
     this.database,
     this.changeListener,
-  )   : _queryAdapter = QueryAdapter(database, changeListener),
+  )   : _queryAdapter = QueryAdapter(database),
         _bookEntityInsertionAdapter = InsertionAdapter(
             database,
             'BookEntity',
@@ -113,10 +113,9 @@ class _$BookDao extends BookDao {
                   'subtitle': item.subtitle,
                   'description': item.description,
                   'previewLink': item.previewLink,
-                  'imageLinks': _bookImageConverter.encode(item.imageLinks),
+                  'image': item.image,
                   'userId': item.userId
-                },
-            changeListener);
+                });
 
   final sqflite.DatabaseExecutor database;
 
@@ -127,40 +126,36 @@ class _$BookDao extends BookDao {
   final InsertionAdapter<BookEntity> _bookEntityInsertionAdapter;
 
   @override
-  Stream<BookEntity?> getFavoritesById(String bookId) {
-    return _queryAdapter.queryStream('SELECT * FROM bookentity WHERE id = ?1',
+  Future<BookEntity?> getFavoritesById(String bookId) async {
+    return _queryAdapter.query('SELECT * FROM BookEntity WHERE id = ?1',
         mapper: (Map<String, Object?> row) => BookEntity(
             id: row['id'] as String,
             title: row['title'] as String,
             subtitle: row['subtitle'] as String,
             description: row['description'] as String,
             previewLink: row['previewLink'] as String?,
-            imageLinks:
-                _bookImageConverter.decode(row['imageLinks'] as String?),
+            image: row['image'] as String?,
             userId: row['userId'] as String),
-        arguments: [bookId],
-        queryableName: 'BookEntity',
-        isView: false);
+        arguments: [bookId]);
   }
 
   @override
   Future<List<BookEntity>> getFavorites(String userId) async {
-    return _queryAdapter.queryList('SELECT * FROM bookentity where userId = ?1',
+    return _queryAdapter.queryList('SELECT * FROM BookEntity where userId = ?1',
         mapper: (Map<String, Object?> row) => BookEntity(
             id: row['id'] as String,
             title: row['title'] as String,
             subtitle: row['subtitle'] as String,
             description: row['description'] as String,
             previewLink: row['previewLink'] as String?,
-            imageLinks:
-                _bookImageConverter.decode(row['imageLinks'] as String?),
+            image: row['image'] as String?,
             userId: row['userId'] as String),
         arguments: [userId]);
   }
 
   @override
   Future<void> delete(String bookId) async {
-    await _queryAdapter.queryNoReturn('DELETE FROM bookentity WHERE id=?1',
+    await _queryAdapter.queryNoReturn('DELETE FROM BookEntity WHERE id=?1',
         arguments: [bookId]);
   }
 
@@ -172,4 +167,3 @@ class _$BookDao extends BookDao {
 
 // ignore_for_file: unused_element
 final _stringConverter = StringConverter();
-final _bookImageConverter = BookImageConverter();

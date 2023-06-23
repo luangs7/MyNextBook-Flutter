@@ -7,7 +7,7 @@ class Book {
   final String? description;
   final String? previewLink;
   final String? infoLink;
-  final bool isFavorited = false;
+  bool isFavorited = false;
   final BookImage? imageLinks;
 
   Book(

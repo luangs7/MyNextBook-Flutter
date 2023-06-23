@@ -52,9 +52,17 @@ class FavoritesView extends HookConsumerWidget {
   Widget listOfItems(List<Book> data) {
     return Padding(
         padding: const EdgeInsets.all(defaultPadding),
-        child: Wrap(
-          runAlignment: WrapAlignment.start,
-          children: data.map((e) => FavoriteItem(book: e)).toList(),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // Number of columns in the grid
+            mainAxisSpacing: 4, // Spacing between each row
+            crossAxisSpacing: 4,
+          ),
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+          return FavoriteItem(book: data[index]);
+          },
+
         ));
   }
 }
