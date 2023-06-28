@@ -36,10 +36,10 @@ class BookLocalRepositoryImpl extends BookLocalRepository {
   }
 
   @override
-  Future<ApiResult<void>> removeFavorite(Book book) async {
+  Future<ApiResult<void>> removeFavorite(Book book, String userId) async {
     try {
       final result =
-          await dataSourceLocal.removeFavoriteBook(mapper.toRepo(book));
+          await dataSourceLocal.removeFavoriteBook(mapper.toRepo(book), userId);
       return ApiResult.success(result);
     } on Exception catch (e, _) {
       return ApiResult.error(e);

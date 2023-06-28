@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
-import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
@@ -10,9 +9,6 @@ import 'package:mynextbook/modules/features/finder/preview/ui/preview_item.dart'
 
 import '../../../../../common/base/api_result.dart';
 import '../../../../../designsystem/components/custombar/custom_appbar_provider.dart';
-import '../../../../../designsystem/components/item_action_container.dart';
-import '../../../../../designsystem/components/item_image.dart';
-import '../../../../../designsystem/components/item_title.dart';
 import '../../../../../designsystem/components/lottie_view.dart';
 import '../viewmodel/preview_view_model.dart';
 
@@ -44,17 +40,17 @@ class PreviewView extends HookConsumerWidget {
         );
       },
       error: (exception) {
-        return LottieView(
+        return const LottieView(
           asset: "lib/assets/lottie_error.json",
         );
       },
       loading: () {
-        return LottieView(
+        return const LottieView(
           asset: "lib/assets/book_search.json",
         );
       },
       empty: () {
-        return LottieView(
+        return const LottieView(
           asset: "lib/assets/lottie_empty.json",
         );
       },

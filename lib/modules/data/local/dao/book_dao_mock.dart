@@ -3,7 +3,7 @@ import 'package:mynextbook/modules/data/local/model/book_entity.dart';
 
 class BookDaoMock extends BookDao {
   @override
-  Future<void> delete(String bookId) async {
+  Future<void> delete(String bookId, String userId) async {
     return;
   }
 
@@ -13,7 +13,7 @@ class BookDaoMock extends BookDao {
   }
 
   @override
-  Future<BookEntity?> getFavoritesById(String bookId) {
+  Future<BookEntity?> getFavoritesById(String bookId, String userId) {
     return Future.value(null);
   }
 

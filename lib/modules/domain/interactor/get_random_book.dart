@@ -4,7 +4,7 @@ import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/domain/repositories/book_remote_repository.dart';
 
 abstract class GetRandomBook {
-  Future<ApiResult<Book>> execute(AppPreferences params);
+  Future<ApiResult<Book>> execute(AppPreferences params, String userId);
 }
 
 class GetRandomBookImpl extends GetRandomBook {
@@ -13,7 +13,7 @@ class GetRandomBookImpl extends GetRandomBook {
   GetRandomBookImpl({required this.repository});
 
   @override
-  Future<ApiResult<Book>> execute(AppPreferences params) {
-    return repository.getRandomBook(params);
+  Future<ApiResult<Book>> execute(AppPreferences params, String userId) {
+    return repository.getRandomBook(params, userId);
   }
 }

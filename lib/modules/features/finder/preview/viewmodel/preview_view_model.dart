@@ -39,7 +39,7 @@ class PreviewViewModel extends ChangeNotifier {
     final user = await getCurrentUser.execute();
     if (user == null) return;
     final preferences = await getPreferences.execute(user.uuid);
-    getRandomBook.execute(preferences).then((value) {
+    getRandomBook.execute(preferences, user.uuid).then((value) {
       return value.handle<Book>(
           success: (data) {
             _itemFavoriteState = data.isFavorited;
@@ -66,7 +66,9 @@ class PreviewViewModel extends ChangeNotifier {
   }
 
   void removeFavoriteBook(Book book) async {
-    removeBookFromFavorite.execute(book).then((value) {
+    final user = await getCurrentUser.execute();
+    if (user == null) return;
+    removeBookFromFavorite.execute(book, user.uuid).then((value) {
       return value.handle(success: ((data) {
         _itemFavoriteState = false;
         notifyListeners();

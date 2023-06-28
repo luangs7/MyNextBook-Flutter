@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
-import 'package:lottie/lottie.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/designsystem/common/app_theme_text.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
+
+import 'lottie_view.dart';
 
 class InformationView extends HookConsumerWidget {
   final String title;
@@ -30,8 +31,11 @@ class InformationView extends HookConsumerWidget {
       padding: const EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPaddingV),
       child: Column(children: [
-        Lottie.asset("lib/assets/$lottieAnimation.json", repeat: true),
-        const SizedBox(height: defaultMarginBetweenElements),
+        LottieView(
+          asset: "lib/assets/$lottieAnimation.json",
+          size: MediaQuery.of(context).size.height * 0.3,
+        ),
+        const SizedBox(height: defaultPadding),
         GestureDetector(
             onTap: () {
               onInformation?.call();

@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../common/base/api_result.dart';
-import '../../../../domain/model/book.dart';
 
 class PreviewBottomSheet extends StatelessWidget {
   final String description;

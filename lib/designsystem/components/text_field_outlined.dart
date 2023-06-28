@@ -1,4 +1,3 @@
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
@@ -12,7 +11,7 @@ class TextFieldState {
   TextFieldState({required this.errorMessage, required this.hasError});
 }
 
-//create a provider 
+//create a provider
 
 class TextFieldOutlined extends HookConsumerWidget {
   final TextEditingController controller;

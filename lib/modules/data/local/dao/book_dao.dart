@@ -6,12 +6,12 @@ abstract class BookDao {
   @insert
   Future<void> insertBook(BookEntity book);
 
-  @Query('SELECT * FROM BookEntity WHERE id = :bookId')
-  Future<BookEntity?> getFavoritesById(String bookId);
+  @Query('SELECT * FROM BookEntity WHERE id = :bookId AND userId = :userId')
+  Future<BookEntity?> getFavoritesById(String bookId, String userId);
 
   @Query('SELECT * FROM BookEntity where userId = :userId')
   Future<List<BookEntity>> getFavorites(String userId);
 
-  @Query('DELETE FROM BookEntity WHERE id=:bookId')
-  Future<void> delete(String bookId);
+  @Query('DELETE FROM BookEntity WHERE id=:bookId && userId = :userId')
+  Future<void> delete(String bookId, String userId);
 }

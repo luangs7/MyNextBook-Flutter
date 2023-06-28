@@ -10,8 +10,8 @@ class BookDataSourceLocalImpl extends BookDataSourceLocal {
   BookDataSourceLocalImpl({required this.dao, required this.mapper});
 
   @override
-  Future<BookData?> getFavoriteBook(String id) async {
-    final book = await dao.getFavoritesById(id);
+  Future<BookData?> getFavoriteBook(String id, String userId) async {
+    final book = await dao.getFavoritesById(id, userId);
     return book != null ? mapper.toRepo(book) : null;
   }
 
@@ -22,8 +22,8 @@ class BookDataSourceLocalImpl extends BookDataSourceLocal {
   }
 
   @override
-  Future<void> removeFavoriteBook(BookData bookData) async {
-    return await dao.delete(bookData.id);
+  Future<void> removeFavoriteBook(BookData bookData, String userId) async {
+    return await dao.delete(bookData.id, userId);
   }
 
   @override

@@ -25,11 +25,9 @@ class LoginView extends HookConsumerWidget {
     handleCustomBar(customBar);
 
     useEffect(() {
-      viewModel.loginFormState.status.handleState(
-        onEach: (state) {
-          isLoading.value = state == ViewState.loading();
-        },
-          success: (data) {
+      viewModel.loginFormState.status.handleState(onEach: (state) {
+        isLoading.value = state == ViewState.loading();
+      }, success: (data) {
         WidgetsBinding.instance.addPostFrameCallback(
             (_) => appRouter.to(context, appRouter.welcomeView, replace: true));
       });
@@ -49,6 +47,7 @@ class LoginView extends HookConsumerWidget {
       }
 
       void handleData() async {
+        isLoading.value = true;
         viewModel.getUser().then((value) {
           value.handleState(success: ((data) async {
             if (data != null) {
@@ -56,6 +55,7 @@ class LoginView extends HookConsumerWidget {
                   appRouter.to(context, appRouter.welcomeView, replace: true));
             } else {
               viewModel.getLoginEmail().then((value) {
+                isLoading.value = false;
                 emailTextController.text = value;
               });
             }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class LottieView extends StatelessWidget {
-  String? asset;
-  String? url;
-  double? size;
-  String? message;
+  final String? asset;
+  final String? url;
+  final double? size;
+  final String? message;
 
-  LottieView({super.key, this.asset, this.url, this.size, this.message});
+  const LottieView({super.key, this.asset, this.url, this.size, this.message});
 
   @override
   Widget build(BuildContext context) {

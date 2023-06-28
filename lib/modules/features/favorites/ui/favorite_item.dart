@@ -1,45 +1,42 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
-import 'package:mynextbook/designsystem/common/app_theme.dart';
 import '../../../../designsystem/components/item_action_container.dart';
 import '../../../../designsystem/components/item_image.dart';
-import '../../../../designsystem/components/item_title.dart';
 import '../../../domain/model/book.dart';
 
 class FavoriteItem extends HookConsumerWidget {
   final Book book;
+  final Function onFavorited;
+  final Function onView;
 
-  const FavoriteItem({super.key, required this.book});
+  const FavoriteItem(
+      {super.key,
+      required this.book,
+      required this.onFavorited,
+      required this.onView});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appTheme = ref.watch(appThemeProvider);
-    return Padding(
-      padding: const EdgeInsets.all(defaultPaddingV),
-      child: IntrinsicWidth(
-        child: Container(
-          padding: const EdgeInsets.all(0) ,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                child: ItemImage(
-                    url: book.imageLinks?.thumbnail ?? ""),
-              ),
-              const Padding(padding: EdgeInsets.only(top: defaultPaddingV)),
-              ItemActionContainer(
-                itemSize: 32,
-                isFavorited: false,
-                onFavorited: () {},
-                onShared: () {},
-                onView: () {},
-              )
-            ],
-          ),
+    const width = 140.0;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ItemImage(
+          height: width * 1.5,
+          width: width,
+          url: book.imageLinks?.thumbnail ?? "",
         ),
-      ),
+        const SizedBox(height: defaultPaddingV),
+        ItemActionContainer(
+          itemSize: 32,
+          isFavorited: true,
+          onFavorited: () => onFavorited.call(book),
+          onShared: null,
+          onView: onView,
+        )
+      ],
     );
   }
 }

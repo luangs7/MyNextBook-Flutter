@@ -3,7 +3,7 @@ import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/domain/repositories/book_local_repository.dart';
 
 abstract class RemoveBookFromFavorite {
-  Future<ApiResult<void>> execute(Book params);
+  Future<ApiResult<void>> execute(Book params, String userId);
 }
 
 class RemoveBookFromFavoriteImpl extends RemoveBookFromFavorite {
@@ -12,7 +12,7 @@ class RemoveBookFromFavoriteImpl extends RemoveBookFromFavorite {
   RemoveBookFromFavoriteImpl({required this.repository});
 
   @override
-  Future<ApiResult<void>> execute(Book params) {
-    return repository.removeFavorite(params);
+  Future<ApiResult<void>> execute(Book params, String userId) {
+    return repository.removeFavorite(params, userId);
   }
 }

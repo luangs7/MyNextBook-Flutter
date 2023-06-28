@@ -13,7 +13,6 @@ import 'package:mynextbook/modules/data/local/di/book_local_module.dart';
 import 'package:mynextbook/modules/data/repository/di/book_repository_module.dart';
 import 'package:mynextbook/modules/domain/di/domain_module.dart';
 import 'package:mynextbook/modules/features/finder/di/finder_module.dart';
-import 'package:mynextbook/modules/features/home/ui/home_view.dart';
 import 'package:mynextbook/modules/features/favorites/di/favorites_module.dart';
 import 'package:mynextbook/modules/features/login/di/login_module.dart';
 import 'package:mynextbook/modules/features/preferences/di/preferences_module.dart';
@@ -21,6 +20,7 @@ import 'package:mynextbook/navigation/di/navigation_module.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 import 'package:mynextbook/modules/firebase/di/firebase_module.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'designsystem/components/base_view.dart';
 
@@ -70,6 +70,11 @@ class MyApp extends HookConsumerWidget {
                 theme: theme.data,
                 themeMode: themeMode,
                 darkTheme: AppTheme.dark().data,
+                localizationsDelegates: const [
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                supportedLocales: const [Locale('en'), Locale('pt', 'BR')],
                 home: const BaseView(child: LoginView()));
           } else {
             return const Center(child: CircularProgressIndicator());

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'item_action.dart';
@@ -7,7 +6,7 @@ class ItemActionContainer extends StatelessWidget {
   final double itemSize;
   final bool isFavorited;
   final Function onFavorited;
-  final Function onShared;
+  final Function? onShared;
   final Function onView;
 
   const ItemActionContainer(
@@ -38,12 +37,13 @@ class ItemActionContainer extends StatelessWidget {
             accent: Colors.white,
             onClick: onView),
         const Padding(padding: EdgeInsets.all(6)),
-        ItemAction(
-            icon: Icons.share,
-            height: itemSize,
-            width: itemSize,
-            accent: Colors.white,
-            onClick: onShared)
+        if (onShared != null)
+          ItemAction(
+              icon: Icons.share,
+              height: itemSize,
+              width: itemSize,
+              accent: Colors.white,
+              onClick: onShared!)
       ],
     );
   }

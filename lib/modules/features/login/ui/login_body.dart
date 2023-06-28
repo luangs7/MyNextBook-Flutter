@@ -14,6 +14,7 @@ class LoginBody extends StatelessWidget {
   final VoidCallback onLoginPressed;
 
   const LoginBody({
+    super.key,
     required this.emailTextController,
     required this.passwordTextController,
     required this.emailError,

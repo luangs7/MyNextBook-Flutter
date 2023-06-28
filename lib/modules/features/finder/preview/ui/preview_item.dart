@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mynextbook/modules/features/favorites/viewmodel/favorites_view_model.dart';
 import 'package:mynextbook/modules/features/finder/preview/viewmodel/preview_view_model.dart';
 
 import '../../../../../designsystem/components/item_action_container.dart';

@@ -7,8 +7,8 @@ class Book {
   final String? description;
   final String? previewLink;
   final String? infoLink;
-  bool isFavorited = false;
   final BookImage? imageLinks;
+  bool isFavorited;
 
   Book(
       {required this.id,
@@ -17,5 +17,6 @@ class Book {
       required this.description,
       required this.previewLink,
       required this.infoLink,
-      required this.imageLinks});
+      required this.imageLinks,
+      required this.isFavorited});
 }

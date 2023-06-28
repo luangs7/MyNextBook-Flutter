@@ -2,13 +2,13 @@
 import 'package:flutter/material.dart';
 
 class ItemAction extends StatelessWidget {
-  double height;
-  double width;
-  Color accent;
-  Function onClick;
-  IconData icon;
+  final double height;
+  final double width;
+  final Color accent;
+  final Function onClick;
+  final IconData icon;
 
-  ItemAction(
+  const ItemAction(
       {Key? key,
       required this.height,
       required this.width,

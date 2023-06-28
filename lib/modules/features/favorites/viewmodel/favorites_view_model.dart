@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/base_view_model.dart';
@@ -39,15 +38,18 @@ class FavoritesViewModel extends BaseViewModel {
 
   Future<void> removeItem(Book book) async {
     setState(ViewState.loading());
-    removeBookFromFavorite.execute(book).then((result) {
-      return result.when(
-          success: (data) {
-            getFavoriteItems();
-          },
-          error: (error) {
-            setState(ViewState.error(error));
-          },
-          empty: (() => ViewState.empty()));
+    getCurrentUser.execute().then((user) {
+      if (user == null) return;
+      removeBookFromFavorite.execute(book, user.uuid).then((result) {
+        return result.when(
+            success: (data) {
+              getFavoriteItems();
+            },
+            error: (error) {
+              setState(ViewState.error(error));
+            },
+            empty: (() => ViewState.empty()));
+      });
     });
   }
 }

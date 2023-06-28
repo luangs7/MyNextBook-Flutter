@@ -8,7 +8,6 @@ import 'package:mynextbook/modules/domain/model/app_preferences.dart';
 import 'package:mynextbook/modules/features/preferences/model/preferences_param.dart';
 import 'package:mynextbook/modules/features/preferences/viewmodel/preferences_view_model.dart';
 import 'package:mynextbook/navigation/app_router.dart';
-import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart';
 import 'package:mynextbook/modules/features/finder/find/filter_dialog.dart';
 
 import '../../../../designsystem/components/base_view.dart';

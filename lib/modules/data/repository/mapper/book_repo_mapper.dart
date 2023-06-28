@@ -23,6 +23,7 @@ class BookRepoMapper {
         description: model.description,
         imageLinks: toImageDomain(model.imageLinks),
         previewLink: model.previewLink,
+        isFavorited: model.isFavorited,
         infoLink: model.infoLink);
   }
 

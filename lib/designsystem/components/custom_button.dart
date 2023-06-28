@@ -3,7 +3,7 @@ import 'package:mynextbook/designsystem/common/app_colors.dart';
 import 'package:mynextbook/designsystem/common/app_theme_text.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton(
+  const CustomButton(
       {Key? key,
       required this.title,
       required this.onPressed,
@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
 
   final String title;
   final Function onPressed;
-  var isEnabled = true;
+  final bool isEnabled;
 
   @override
   Widget build(BuildContext context) {

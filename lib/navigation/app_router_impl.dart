@@ -13,8 +13,8 @@ class AppRouterImpl extends AppRouter {
     return {
       welcomeView: (context) => const HomeView(),
       finderView: (context) => FindView(),
-      favoriteView: (context) => FavoritesView(),
-      previewView: (context) => PreviewView(),
+      favoriteView: (context) => const FavoritesView(),
+      previewView: (context) => const PreviewView(),
       loginView: (context) => const LoginView(),
     };
   }
