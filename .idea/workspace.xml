@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d08f3d-4284-48c0-980d-0098d3994994" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/ui/login_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mynextbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mynextbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,42 +86,42 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>38</line>
+          <line>37</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>57</line>
+          <line>56</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>63</line>
+          <line>62</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>70</line>
+          <line>69</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>74</line>
+          <line>73</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>98</line>
+          <line>97</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>102</line>
+          <line>101</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart</url>
-          <line>34</line>
+          <line>32</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
@@ -138,7 +136,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart</url>
-          <line>18</line>
+          <line>21</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
@@ -158,7 +156,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
-          <line>77</line>
+          <line>79</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>

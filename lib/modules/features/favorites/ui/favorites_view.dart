@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -9,8 +7,10 @@ import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/features/favorites/ui/favorite_item.dart';
 import 'package:mynextbook/modules/features/favorites/viewmodel/favorites_view_model.dart';
 
+import '../../../../designsystem/common/launch_url.dart';
 import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import '../../../../designsystem/components/lottie_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoritesView extends HookConsumerWidget {
   const FavoritesView({super.key});
@@ -38,9 +38,9 @@ class FavoritesView extends HookConsumerWidget {
               return const Center();
             },
             loading: () => const Center(child: CircularProgressIndicator()),
-            empty: () => const LottieView(
+            empty: () => LottieView(
                   asset: "lib/assets/lottie_empty.json",
-                  message: "Você ainda não favoritou nenhum livro.",
+                  message: AppLocalizations.of(context).empty_favorites,
                 )));
   }
 
@@ -62,7 +62,9 @@ class FavoritesView extends HookConsumerWidget {
           return FavoriteItem(
             book: data[index],
             onFavorited: (book) => onFavorited.call(book),
-            onView: () {},
+            onView: () {
+              showUrl(data[index].previewLink ?? "");
+            },
           );
         },
       );

@@ -5,6 +5,7 @@ import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
 import 'package:mynextbook/designsystem/components/custom_checkbok.dart';
 import 'package:mynextbook/modules/features/preferences/model/preferences_param.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FilterDialog extends HookConsumerWidget {
   final BuildContext context;
@@ -47,17 +48,18 @@ class FilterDialog extends HookConsumerWidget {
                     child: Column(
                       children: [
                         CustomCheckbox(
-                          label: "Apenas Ebook",
+                          label: AppLocalizations.of(context).ebook_only,
                           provider: ebookProvider,
                         ),
                         CustomCheckbox(
-                          label: "Apenas Português",
+                          label: AppLocalizations.of(context).language_title,
                           provider: languageProvider,
                         ),
                         TextField(
                           controller: textController,
                           decoration: InputDecoration(
-                              hintText: "Insira uma palavra-chave",
+                              hintText: AppLocalizations.of(context)
+                                  .keyword_description,
                               hintStyle: TextStyle(
                                   fontSize: defaultTextSize,
                                   color: theme.appColors.textColor
@@ -67,7 +69,7 @@ class FilterDialog extends HookConsumerWidget {
                         ),
                         CustomButton(
                             isEnabled: true,
-                            title: "Salvar",
+                            title: AppLocalizations.of(context).confirm,
                             onPressed: () {
                               Navigator.pop(context);
                               onConfirmation(PreferencesParam(

@@ -1,3 +1,28 @@
 {
-    "hello": "oi"
-}
+    "share_message" : "Encontrei um livro para você:",
+    "error_message" : "Encontramos um erro,\npor favor tente novamente mais tarde.",
+    "empty_message" : "Não encontramos resultados para a sua busca,\nvocê pode alterar seus filtros e refazer a busca.",
+    "welcome_title" : "Está com dúvida de qual vai ser seu próximo livro?",
+    "welcome_subtitle" : "Deixa que vamos te ajudar!",
+    "btn_go" : "Vamos lá!",
+    "signin" : "Entrar",
+    "signup" : "Criar nova conta",
+    "email_field": "E-mail",
+    "password_field": "Senha",
+    "confirmation_button" : "Ok",
+    "signup_title" : "Criar nova conta",
+    "signup_description" : "Para se registrar, basta inserir um e-mail e uma senha na tela de login e seu cadastro será feito automaticamente.",
+    "information_filter_title": "Você pode usar qualquer filtro para ajudar\nna nossa busca.",
+    "information_filter_subtitle": "Clique aqui para alterar suas preferências.",
+    "btn_search": "Buscar",
+    "empty_favorites": "Você ainda não marcou nenhum livro como favorito.",
+    "confirm":"Confirmar",
+    "keyword_title": "Palavra-chave",
+    "keyword_description": "Digite uma palavra-chave",
+    "language_title": "Somente em português",
+    "ebook_only":"Somente e-book",
+    "field_incorrect": "Dados incorretos",
+    "field_needed" : "Campo obrigatório",
+    "password_size" : "Deve conter ao menos 6 caracteres",
+    "email_invalid" : "Email inválido"
+    }

@@ -8,6 +8,7 @@ import 'package:mynextbook/modules/features/finder/preview/ui/preview_bottomshee
 import 'package:mynextbook/modules/features/finder/preview/ui/preview_item.dart';
 
 import '../../../../../common/base/api_result.dart';
+import '../../../../../designsystem/common/lottie_states.dart';
 import '../../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import '../../../../../designsystem/components/lottie_view.dart';
 import '../viewmodel/preview_view_model.dart';
@@ -40,19 +41,13 @@ class PreviewView extends HookConsumerWidget {
         );
       },
       error: (exception) {
-        return const LottieView(
-          asset: "lib/assets/lottie_error.json",
-        );
+        return const LottieView(asset: lottieError);
       },
       loading: () {
-        return const LottieView(
-          asset: "lib/assets/book_search.json",
-        );
+        return const LottieView(asset: lottieLoading);
       },
       empty: () {
-        return const LottieView(
-          asset: "lib/assets/lottie_empty.json",
-        );
+        return const LottieView(asset: lottieLoading);
       },
     ));
   }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mynextbook/designsystem/components/text_field_outlined.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../../designsystem/common/lottie_states.dart';
 import 'login_signup_dialog.dart';
 
 class LoginBody extends StatelessWidget {
@@ -29,43 +31,41 @@ class LoginBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       children: [
         Lottie.network(
-          "https://assets2.lottiefiles.com/packages/lf20_ad3uxjiv.json",
+          lottieLogin,
           repeat: true,
           height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width,
         ),
         TextFieldOutlined(
           controller: emailTextController,
-          hint: "Insira seu email",
+          hint: AppLocalizations.of(context).email_field,
           hintColor: Colors.white30,
           hasError: emailError,
           padding: 6,
-          errorMessage: "Email incorreto",
           obscureText: false,
           validation: (value) {
             if (value?.isEmpty == true || value.isValidEmail()) {
               return null;
             }
-            return "Email inválido";
+            return AppLocalizations.of(context).email_invalid;
           },
         ),
         TextFieldOutlined(
           controller: passwordTextController,
-          hint: "Insira sua senha",
+          hint: AppLocalizations.of(context).password_field,
           hintColor: Colors.white30,
           hasError: passwordError,
           padding: 6,
-          errorMessage: "Senha incorreta",
           obscureText: true,
           validation: (value) {
             if (value?.isEmpty == true) {
               return null;
             }
             if (value == null) {
-              return "Campo obrigatório";
+              return AppLocalizations.of(context).field_needed;
             }
             if (value.length < 5) {
-              return "Deve conter ao menos 6 caracteres";
+              return AppLocalizations.of(context).password_size;
             }
             return null;
           },
@@ -73,8 +73,8 @@ class LoginBody extends StatelessWidget {
         GestureDetector(
           child: Container(
               padding: const EdgeInsets.all(8),
-              child: const Text(
-                "Cadastrar nova conta",
+              child: Text(
+                AppLocalizations.of(context).signup,
                 textAlign: TextAlign.end,
               )),
           onTap: () {
@@ -94,7 +94,7 @@ class LoginBody extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: CustomButton(
             isEnabled: isButtonEnabled,
-            title: "Entrar",
+            title: AppLocalizations.of(context).signin,
             onPressed: onLoginPressed,
           ),
         ),

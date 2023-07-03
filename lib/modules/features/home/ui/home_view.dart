@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/components/information_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
+import '../../../../designsystem/common/lottie_states.dart';
 import '../../../../designsystem/components/base_view.dart';
 import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -20,10 +21,10 @@ class HomeView extends HookConsumerWidget {
 
     return BaseView(
         child: InformationView(
-            title: "Está com dúvida de qual vai ser seu próximo livro?",
-            buttonTitle: "Vamos lá!",
-            lottieAnimation: "book_ideia",
-            subtitle: "Deixa que vamos te ajudar!",
+            title: AppLocalizations.of(context).welcome_title,
+            buttonTitle: AppLocalizations.of(context).btn_go,
+            lottieAnimation: lottieBookIdea,
+            subtitle: AppLocalizations.of(context).welcome_subtitle,
             onInformation: null,
             onNext: () {
               appRouter.to(context, appRouter.finderView);

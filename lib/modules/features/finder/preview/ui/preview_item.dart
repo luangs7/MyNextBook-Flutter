@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mynextbook/designsystem/common/launch_url.dart';
 import 'package:mynextbook/modules/features/finder/preview/viewmodel/preview_view_model.dart';
 
 import '../../../../../designsystem/components/item_action_container.dart';
@@ -32,8 +33,12 @@ class PreviewItem extends HookConsumerWidget {
             onFavorited: () {
               viewModel.setFavoriteBook(book!);
             },
-            onShared: () {},
-            onView: () {},
+            onShared: () {
+              share(context, book?.previewLink ?? "");
+            },
+            onView: () {
+              showUrl(book?.previewLink ?? "");
+            },
           ),
         ],
       );

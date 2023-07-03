@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginSignupDialog extends HookConsumerWidget {
   final BuildContext context;
@@ -33,8 +34,7 @@ class LoginSignupDialog extends HookConsumerWidget {
                             const BorderRadius.all(Radius.circular(8))),
                     child: Column(
                       children: [
-                        const Text(
-                            "Para se cadastrar, basta digitar um email e uma senha na tela de login e seu cadastro será feito automaticamente."),
+                        Text(AppLocalizations.of(context).signup_description),
                         const SizedBox(height: 30),
                         CustomButton(
                             isEnabled: true,

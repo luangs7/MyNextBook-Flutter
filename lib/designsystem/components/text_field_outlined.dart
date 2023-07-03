@@ -5,7 +5,7 @@ import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class TextFieldState {
-  final String errorMessage;
+  final String? errorMessage;
   final bool hasError;
 
   TextFieldState({required this.errorMessage, required this.hasError});
@@ -19,7 +19,7 @@ class TextFieldOutlined extends HookConsumerWidget {
   final Color hintColor;
   final bool hasError;
   final double padding;
-  final String errorMessage;
+  final String? errorMessage;
   final bool obscureText;
   final String? Function(String?) validation;
 
@@ -30,7 +30,7 @@ class TextFieldOutlined extends HookConsumerWidget {
       required this.hintColor,
       required this.hasError,
       required this.padding,
-      required this.errorMessage,
+      this.errorMessage,
       required this.obscureText,
       required this.validation});
 

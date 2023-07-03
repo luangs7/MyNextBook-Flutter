@@ -10,8 +10,10 @@ import 'package:mynextbook/modules/features/preferences/viewmodel/preferences_vi
 import 'package:mynextbook/navigation/app_router.dart';
 import 'package:mynextbook/modules/features/finder/find/filter_dialog.dart';
 
+import '../../../../designsystem/common/lottie_states.dart';
 import '../../../../designsystem/components/base_view.dart';
 import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FindView extends HookConsumerWidget {
   FindView({super.key});
@@ -27,11 +29,10 @@ class FindView extends HookConsumerWidget {
     final AppRouter appRouter = GetIt.I.get();
     return BaseView(
         child: InformationView(
-            title:
-                "Você pode utilizar alguns filtros para ajudar\nna nossa busca",
-            buttonTitle: "Buscar",
-            lottieAnimation: "book_preferences",
-            subtitle: "Basta clicar aqui para alterar suas preferências.",
+            title: AppLocalizations.of(context).information_filter_title,
+            buttonTitle: AppLocalizations.of(context).btn_search,
+            lottieAnimation: lottiePreferences,
+            subtitle: AppLocalizations.of(context).information_filter_subtitle,
             onInformation: () {
               viewModel.getAppPreferences().then((value) {
                 viewModel.getPreferenceState.handleState(success: (data) {
