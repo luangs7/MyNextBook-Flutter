@@ -23,6 +23,7 @@ import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'designsystem/components/base_view.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void startApp() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,11 +71,8 @@ class MyApp extends HookConsumerWidget {
                 theme: theme.data,
                 themeMode: themeMode,
                 darkTheme: AppTheme.dark().data,
-                localizationsDelegates: const [
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                ],
-                supportedLocales: const [Locale('en'), Locale('pt', 'BR')],
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
                 home: const BaseView(child: LoginView()));
           } else {
             return const Center(child: CircularProgressIndicator());
