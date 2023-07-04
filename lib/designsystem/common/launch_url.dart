@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> showUrl(String url) async {
   if (await canLaunchUrl(Uri.parse(url))) {
-    await launchUrl(Uri.parse(url));
+    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
   } else {
     throw 'Could not launch $url';
   }

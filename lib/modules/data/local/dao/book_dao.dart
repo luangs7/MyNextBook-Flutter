@@ -12,6 +12,6 @@ abstract class BookDao {
   @Query('SELECT * FROM BookEntity where userId = :userId')
   Future<List<BookEntity>> getFavorites(String userId);
 
-  @Query('DELETE FROM BookEntity WHERE id=:bookId && userId = :userId')
+  @Query('DELETE FROM BookEntity WHERE id=:bookId AND userId = :userId')
   Future<void> delete(String bookId, String userId);
 }

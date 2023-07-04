@@ -34,10 +34,7 @@ class PreviewView extends HookConsumerWidget {
       success: (data) {
         final book = castOrNull<Book>(data);
         return Stack(
-          children: [
-            PreviewItem(book: book),
-            PreviewBottomSheet(description: book?.description ?? "")
-          ],
+          children: [PreviewItem(book: book), PreviewBottomSheet(book: book)],
         );
       },
       error: (exception) {

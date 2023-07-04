@@ -5,7 +5,6 @@ import 'package:mynextbook/modules/features/finder/preview/viewmodel/preview_vie
 
 import '../../../../../designsystem/components/item_action_container.dart';
 import '../../../../../designsystem/components/item_image.dart';
-import '../../../../../designsystem/components/item_title.dart';
 import '../../../../domain/model/book.dart';
 
 class PreviewItem extends HookConsumerWidget {
@@ -22,24 +21,23 @@ class PreviewItem extends HookConsumerWidget {
         children: [
           ItemImage(
               url: book!.imageLinks?.thumbnail ?? "",
-              width: MediaQuery.of(context).size.height * 0.2,
-              height: MediaQuery.of(context).size.height * 0.3),
+              width: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.4),
           Padding(
               padding: const EdgeInsets.all(20),
-              child: ItemTitle(label: book!.title ?? "")),
-          ItemActionContainer(
-            itemSize: 42,
-            isFavorited: viewModel.itemFavoriteState,
-            onFavorited: () {
-              viewModel.setFavoriteBook(book!);
-            },
-            onShared: () {
-              share(context, book?.previewLink ?? "");
-            },
-            onView: () {
-              showUrl(book?.previewLink ?? "");
-            },
-          ),
+              child: ItemActionContainer(
+                itemSize: 42,
+                isFavorited: viewModel.itemFavoriteState,
+                onFavorited: () {
+                  viewModel.setFavoriteBook(book!);
+                },
+                onShared: () {
+                  share(context, book?.previewLink ?? "");
+                },
+                onView: () {
+                  showUrl(book?.previewLink ?? "");
+                },
+              )),
         ],
       );
     } else {

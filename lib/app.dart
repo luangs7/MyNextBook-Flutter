@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mynextbook/designsystem/common/app_colors.dart';
-import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/modules/cloudservices/application/cloudservices_application.dart';
 import 'package:mynextbook/modules/data/datastore/di/book_datastore_module.dart';
@@ -20,7 +18,6 @@ import 'package:mynextbook/navigation/di/navigation_module.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 import 'package:mynextbook/modules/firebase/di/firebase_module.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'designsystem/components/base_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -79,49 +76,4 @@ class MyApp extends HookConsumerWidget {
           }
         });
   }
-}
-
-Container HomeBody() {
-  return Container(
-    height: 200,
-    child: Stack(
-      children: <Widget>[
-        Container(
-          decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(36),
-                  bottomRight: Radius.circular(36)),
-              color: kPrimaryColor),
-        ),
-        Positioned(
-          left: 0,
-          right: 0,
-          bottom: 0,
-          child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: defaultPadding),
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-            height: 54,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: const BorderRadius.all(Radius.circular(27)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
-                      offset: const Offset(0, 10),
-                      blurRadius: 50)
-                ]),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: "Search",
-                  hintStyle: TextStyle(
-                      fontSize: defaultTextSize,
-                      color: kTextColor.withOpacity(0.3)),
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none),
-            ),
-          ),
-        )
-      ],
-    ),
-  );
 }

@@ -2,6 +2,7 @@
 // ignore_for_file: avoid_init_to_null
 
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'view_state.freezed.dart';

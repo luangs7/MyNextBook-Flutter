@@ -163,7 +163,7 @@ class _$BookDao extends BookDao {
     String userId,
   ) async {
     await _queryAdapter.queryNoReturn(
-        'DELETE FROM BookEntity WHERE id=?1 && userId = ?2',
+        'DELETE FROM BookEntity WHERE id=?1 AND userId = ?2',
         arguments: [bookId, userId]);
   }
 

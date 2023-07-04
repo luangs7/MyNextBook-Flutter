@@ -31,28 +31,33 @@ class InformationView extends HookConsumerWidget {
       padding: const EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPaddingV),
       child: Column(children: [
-        LottieView(
-          asset: "lib/assets/$lottieAnimation.json",
-          size: MediaQuery.of(context).size.height * 0.3,
-        ),
-        const SizedBox(height: defaultPadding),
-        GestureDetector(
-            onTap: () {
-              onInformation?.call();
-            },
+        Expanded(
             child: Column(
-              children: [
-                Text(title,
-                    style: AppTextTheme().h40.bold(),
-                    textAlign: TextAlign.center),
-                const SizedBox(height: defaultMarginBetweenElements),
-                Text(subtitle,
-                    style: AppTextTheme().h30.copyWith(
-                        color: theme.appColors.textColor.withOpacity(0.5)),
-                    textAlign: TextAlign.center)
-              ],
-            )),
-        const Spacer(),
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            LottieView(
+              asset: "lib/assets/$lottieAnimation.json",
+              size: MediaQuery.of(context).size.height * 0.4,
+            ),
+            GestureDetector(
+                onTap: () {
+                  onInformation?.call();
+                },
+                child: Column(
+                  children: [
+                    Text(title,
+                        style: AppTextTheme().h40.bold(),
+                        textAlign: TextAlign.center),
+                    const SizedBox(height: defaultMarginBetweenElements),
+                    Text(subtitle,
+                        style: AppTextTheme().h30.copyWith(
+                            color: theme.appColors.textColor.withOpacity(0.5)),
+                        textAlign: TextAlign.center)
+                  ],
+                )),
+          ],
+        )),
         CustomButton(
             isEnabled: true,
             title: buttonTitle,

@@ -19,7 +19,8 @@ class BookRemoteMapper {
   BookImageData? toImageRepo(ImageLinks? model) {
     if (model != null) {
       return BookImageData(
-          smallThumbnail: model.smallThumbnail, thumbnail: model.thumbnail);
+          smallThumbnail: model.smallThumbnail,
+          thumbnail: model.thumbnail.replaceAll("zoom=", "zoom=5"));
     } else {
       return null;
     }
