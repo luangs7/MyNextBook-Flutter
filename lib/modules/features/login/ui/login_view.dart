@@ -87,9 +87,10 @@ class LoginView extends HookConsumerWidget {
               ));
   }
 
-  handleCustomBar(CustomBarState state) {
-    state.showActions = false;
-    state.showBackButton = false;
-    state.resizeToAvoidBottomInset = true;
+  handleCustomBar(CustomBarState customBar) {
+    customBar.changeState(
+        showBackButton: false,
+        showActions: false,
+        resizeToAvoidBottomInset: true);
   }
 }

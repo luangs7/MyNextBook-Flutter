@@ -9,7 +9,21 @@ class CustomBarState extends ChangeNotifier {
   bool showActions = false;
   bool resizeToAvoidBottomInset = false;
 
-  notifty() {
+  notify() {
     notifyListeners();
+  }
+}
+
+extension CustomBar on CustomBarState {
+  void changeState(
+      {bool hasSignOut = false,
+      bool showBackButton = false,
+      bool showActions = false,
+      bool resizeToAvoidBottomInset = false}) {
+    this.hasSignOut = hasSignOut;
+    this.showBackButton = showBackButton;
+    this.showActions = showActions;
+    this.resizeToAvoidBottomInset = resizeToAvoidBottomInset;
+    notify();
   }
 }

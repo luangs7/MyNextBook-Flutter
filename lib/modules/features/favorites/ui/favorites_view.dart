@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
+import 'package:mynextbook/designsystem/common/lottie_states.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/features/favorites/ui/favorite_item.dart';
@@ -19,8 +20,7 @@ class FavoritesView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final viewModel = ref.watch(favoritesViewModelProvider);
     final customBar = ref.read(customBarProvider);
-    customBar.showBackButton = true;
-    customBar.showActions = false;
+    customBar.changeState(showBackButton: true, showActions: false);
 
     useEffect(() {
       viewModel.getFavoriteItems();
@@ -39,7 +39,7 @@ class FavoritesView extends HookConsumerWidget {
             },
             loading: () => const Center(child: CircularProgressIndicator()),
             empty: () => LottieView(
-                  asset: "lib/assets/lottie_empty.json",
+                  asset: lottieEmpty,
                   message: AppLocalizations.of(context).empty_favorites,
                 )));
   }

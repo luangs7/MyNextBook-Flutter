@@ -24,8 +24,7 @@ class FindView extends HookConsumerWidget {
     final textController =
         useTextEditingController.fromValue(TextEditingValue.empty);
     final customBar = ref.read(customBarProvider);
-    customBar.showBackButton = true;
-    customBar.showActions = true;
+    customBar.changeState(showBackButton: true, showActions: true);
     final AppRouter appRouter = GetIt.I.get();
     return BaseView(
         child: InformationView(

@@ -16,8 +16,7 @@ class HomeView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final AppRouter appRouter = GetIt.I.get();
     final customBar = ref.read(customBarProvider);
-    customBar.showBackButton = false;
-    customBar.showActions = true;
+    customBar.changeState(showBackButton: false, showActions: true);
 
     return BaseView(
         child: InformationView(

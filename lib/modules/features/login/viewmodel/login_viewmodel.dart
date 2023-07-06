@@ -2,12 +2,12 @@ import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/base_view_model.dart';
 import 'package:mynextbook/common/base/view_state.dart';
+import 'package:mynextbook/common/utils/validations.dart';
 import 'package:mynextbook/modules/domain/interactor/do_login.dart';
 import 'package:mynextbook/modules/domain/interactor/get_current_user.dart';
 import 'package:mynextbook/modules/domain/interactor/get_login_email.dart';
 import 'package:mynextbook/modules/domain/interactor/set_login_email.dart';
 import 'package:mynextbook/modules/domain/model/user.dart';
-import 'package:mynextbook/modules/features/login/ui/login_body.dart';
 
 import 'login_state.dart';
 

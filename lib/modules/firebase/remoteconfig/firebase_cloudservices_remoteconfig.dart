@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:mynextbook/modules/cloudservices/remoteconfig/cloudservices_remoteconfig.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
@@ -7,7 +5,7 @@ class FirebaseCloudServicesRemoteConfig extends CloudServicesRemoteConfig {
   final remoteConfig = FirebaseRemoteConfig.instance;
 
   @override
-  Future fetch(Long cacheExpiration) async {
+  Future fetch(int cacheExpiration) async {
     return await remoteConfig.fetch();
   }
 

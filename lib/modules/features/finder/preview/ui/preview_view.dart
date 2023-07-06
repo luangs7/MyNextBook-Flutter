@@ -20,8 +20,8 @@ class PreviewView extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final viewModel = ref.watch(previewViewModelProvider);
     final customBar = ref.read(customBarProvider);
-    customBar.showBackButton = true;
-    customBar.showActions = true;
+    customBar.changeState(showBackButton: true, showActions: true);
+
     useEffect(() {
       viewModel.getBook();
       return () {

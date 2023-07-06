@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mynextbook/common/utils/validations.dart';
 import 'package:mynextbook/designsystem/components/text_field_outlined.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -100,15 +101,5 @@ class LoginBody extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-extension EmailValidator on String? {
-  bool isValidEmail() {
-    return this == null
-        ? false
-        : RegExp(
-                r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-            .hasMatch(this!.trim());
   }
 }
