@@ -1,7 +1,15 @@
+import 'package:hive/hive.dart';
+part 'app_preference_datastore.g.dart';
+
+@HiveType(typeId: 0)
 class AppPreferenceDatastore {
+  @HiveField(0)
   final bool isEbook;
+  @HiveField(1)
   final String? keyword;
+  @HiveField(2)
   final bool isPortuguese;
+  @HiveField(3)
   final String? subject;
 
   AppPreferenceDatastore(
@@ -9,21 +17,4 @@ class AppPreferenceDatastore {
       required this.keyword,
       required this.isPortuguese,
       required this.subject});
-
-  factory AppPreferenceDatastore.fromJson(dynamic json) {
-    return AppPreferenceDatastore(
-        isEbook: json['isEbook'],
-        keyword: json['keyword'],
-        isPortuguese: json['isPortuguese'],
-        subject: json['subject']);
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'isEbook': isEbook,
-      'keyword': keyword,
-      'isPortuguese': isPortuguese,
-      'subject': subject
-    };
-  }
 }
