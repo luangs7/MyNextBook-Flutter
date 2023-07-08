@@ -18,7 +18,7 @@ class PreferencesRepositoryImpl extends PreferencesRepository {
   }
 
   @override
-  Future<bool> updatePreferences(
+  Future<void> updatePreferences(
       AppPreferences preferences, String userId) async {
     return await dataSourceDatastore.updatePreferences(
         mapper.toRepo(preferences), userId);
