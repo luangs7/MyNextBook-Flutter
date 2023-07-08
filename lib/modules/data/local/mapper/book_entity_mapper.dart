@@ -4,7 +4,7 @@ import 'package:mynextbook/modules/data/repository/model/book_data.dart';
 class BookEntityMapper {
   BookEntity toEntity(BookData model, String userId) {
     return BookEntity(
-        id: model.id,
+        uuid: model.id,
         description: model.description ?? '',
         image: model.imageLinks?.thumbnail,
         previewLink: model.previewLink ?? "",
@@ -20,7 +20,7 @@ class BookEntityMapper {
         previewLink: model.previewLink,
         subtitle: model.subtitle,
         title: model.title,
-        id: model.id,
+        id: model.uuid,
         infoLink: null,
         isFavorited: false);
   }

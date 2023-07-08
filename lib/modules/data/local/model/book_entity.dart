@@ -1,9 +1,10 @@
-import 'package:floor/floor.dart';
+import 'package:objectbox/objectbox.dart';
 
-@entity
+@Entity()
 class BookEntity {
-  @primaryKey
-  final String id;
+  @Id(assignable: true)
+  int id = 0;
+  final String uuid;
   final String title;
   final String subtitle;
   final String description;
@@ -12,7 +13,7 @@ class BookEntity {
   final String userId;
 
   BookEntity(
-      {required this.id,
+      {required this.uuid,
       required this.title,
       required this.subtitle,
       required this.description,
