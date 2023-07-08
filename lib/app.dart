@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive/hive.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/modules/cloudservices/application/cloudservices_application.dart';
@@ -21,9 +23,16 @@ import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 
 import 'designsystem/components/base_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:path_provider/path_provider.dart';
+
+import 'modules/data/datastore/model/app_preference_datastore.dart';
 
 void startApp() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDirectory = await getApplicationDocumentsDirectory();
+  Hive
+    ..init(appDocumentDirectory.path)
+    ..registerAdapter(AppPreferenceDatastoreAdapter());
   await _initApp();
   runApp(const ProviderScope(child: MyApp()));
 }
