@@ -30,8 +30,7 @@ void startApp() async {
 
 Future _initApp() async {
   _initialiseGetIt();
-  final application = GetIt.instance.get<CloudServicesApplication>();
-  await application.initialize();
+  await GetIt.instance.get<CloudServicesApplication>().initialize();
 }
 
 void _initialiseGetIt() async {
