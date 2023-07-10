@@ -23,7 +23,10 @@ class LoginSignupDialog extends HookConsumerWidget {
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Container(
-                    padding: const EdgeInsets.all(defaultPadding),
+                    padding: const EdgeInsets.only(
+                        top: defaultPadding,
+                        left: defaultPadding,
+                        right: defaultPadding),
                     decoration: BoxDecoration(
                         color: theme.appColors.background,
                         boxShadow: [

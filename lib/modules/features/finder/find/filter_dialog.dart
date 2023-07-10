@@ -34,7 +34,6 @@ class FilterDialog extends HookConsumerWidget {
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Container(
-                    padding: const EdgeInsets.all(defaultPadding),
                     decoration: BoxDecoration(
                         color: theme.appColors.background,
                         boxShadow: [
@@ -47,26 +46,37 @@ class FilterDialog extends HookConsumerWidget {
                             const BorderRadius.all(Radius.circular(8))),
                     child: Column(
                       children: [
-                        CustomCheckbox(
-                          label: AppLocalizations.of(context).ebook_only,
-                          provider: ebookProvider,
-                        ),
-                        CustomCheckbox(
-                          label: AppLocalizations.of(context).language_title,
-                          provider: languageProvider,
-                        ),
-                        TextField(
-                          controller: textController,
-                          decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)
-                                  .keyword_description,
-                              hintStyle: TextStyle(
-                                  fontSize: defaultTextSize,
-                                  color: theme.appColors.textColor
-                                      .withOpacity(0.3)),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none),
-                        ),
+                        Container(
+                            padding: const EdgeInsets.only(
+                                top: defaultPadding,
+                                left: defaultPadding,
+                                right: defaultPadding),
+                            child: Column(children: [
+                              CustomCheckbox(
+                                label: AppLocalizations.of(context).ebook_only,
+                                provider: ebookProvider,
+                              ),
+                              CustomCheckbox(
+                                label:
+                                    AppLocalizations.of(context).language_title,
+                                provider: languageProvider,
+                              ),
+                              TextField(
+                                style: TextStyle(
+                                    color: theme.appColors.textColor
+                                        .withOpacity(0.7)),
+                                controller: textController,
+                                decoration: InputDecoration(
+                                    hintText: AppLocalizations.of(context)
+                                        .keyword_description,
+                                    hintStyle: TextStyle(
+                                        fontSize: defaultTextSize,
+                                        color: theme.appColors.textColor
+                                            .withOpacity(0.3)),
+                                    enabledBorder: InputBorder.none,
+                                    focusedBorder: InputBorder.none),
+                              ),
+                            ])),
                         CustomButton(
                             isEnabled: true,
                             title: AppLocalizations.of(context).confirm,
