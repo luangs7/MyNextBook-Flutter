@@ -5,6 +5,8 @@ import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../../designsystem/common/app_theme_text.dart';
+
 class LoginSignupDialog extends HookConsumerWidget {
   final BuildContext context;
 
@@ -34,11 +36,15 @@ class LoginSignupDialog extends HookConsumerWidget {
                             const BorderRadius.all(Radius.circular(8))),
                     child: Column(
                       children: [
-                        Text(AppLocalizations.of(context).signup_description),
+                        Text(
+                          style: AppTextTheme().h30.dense(),
+                          AppLocalizations.of(context).signup_description,
+                          textAlign: TextAlign.center,
+                        ),
                         const SizedBox(height: 30),
                         CustomButton(
                             isEnabled: true,
-                            title: "Ok",
+                            title: "OK",
                             onPressed: () {
                               Navigator.pop(context);
                             })

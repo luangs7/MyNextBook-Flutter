@@ -38,7 +38,7 @@ class InformationView extends HookConsumerWidget {
           children: [
             LottieView(
               asset: "lib/assets/$lottieAnimation.json",
-              size: MediaQuery.of(context).size.height * 0.4,
+              size: MediaQuery.of(context).size.height * 0.3,
             ),
             GestureDetector(
                 onTap: () {
