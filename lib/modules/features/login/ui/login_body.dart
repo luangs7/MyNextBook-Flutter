@@ -71,7 +71,7 @@ class LoginBody extends StatelessWidget {
                 if (value == null) {
                   return AppLocalizations.of(context).field_needed;
                 }
-                if (value.length < 5) {
+                if (value.length <= 5) {
                   return AppLocalizations.of(context).password_size;
                 }
                 return null;
