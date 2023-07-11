@@ -1,20 +1,18 @@
-import 'package:mynextbook/modules/data/datastore/sharedpreferences/custom_sharedpref.dart';
+import 'package:hive/hive.dart';
 import 'package:mynextbook/modules/data/repository/datasource/user_datasource_datastore.dart';
 
 class UserDatastoreImpl extends UserDataSourceDatastore {
-  final CustomSharedPref sharedPreferences;
+  final Box box;
 
-  UserDatastoreImpl(this.sharedPreferences);
+  UserDatastoreImpl(this.box);
 
   @override
   Future<String> loadPreferences() async {
-    return await sharedPreferences.getValue(UserDataSourceDatastore.userKey) ??
-        "";
+    return await box.get(UserDataSourceDatastore.userKey) ?? "";
   }
 
   @override
   Future updateEmail(String email) async {
-    return await sharedPreferences.setValue(
-        UserDataSourceDatastore.userKey, email);
+    return await box.put(UserDataSourceDatastore.userKey, email);
   }
 }
