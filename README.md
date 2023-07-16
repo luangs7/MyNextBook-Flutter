@@ -12,8 +12,7 @@ and encapsulation.
 
 Let's take a look in each major module of the application:
 
-* **app** - The Application module. It contains all the initialization logic for the Android
-  environment and starts the _Jetpack Navigation Compose Graph_.
+* **app** - The Application module. It contains all the initialization logic for the app.
 * **features** - The module containing all the visual from the application, separated by features
 * **domain** - The modules containing the most important part of the application: the business
   logic. This module depends only on itself and all interaction it does is via _dependency
