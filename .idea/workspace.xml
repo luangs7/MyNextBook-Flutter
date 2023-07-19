@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d08f3d-4284-48c0-980d-0098d3994994" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/text_field_outlined.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/text_field_outlined.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao_mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao_mock.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/datasource/book_datasource_local_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/datasource/book_datasource_local_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/model/book_entity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/model/book_entity.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/model/book_response.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/model/book_response.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_bottomsheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_bottomsheet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/ui/login_body.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +80,6 @@
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Flutter.main_dev.dart" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,85 +97,15 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>37</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>56</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>62</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>69</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>73</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>97</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/login/viewmodel/login_viewmodel.dart</url>
-          <line>101</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart</url>
-          <line>32</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
-          <line>53</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
-          <line>38</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart</url>
-          <line>21</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/designsystem/components/item_image.dart</url>
-          <line>13</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
-          <line>45</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
-          <line>68</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart</url>
-          <line>79</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

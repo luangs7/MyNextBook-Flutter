@@ -44,12 +44,8 @@ class LoginBody extends StatelessWidget {
           hasError: emailError,
           padding: 6,
           obscureText: false,
-          validation: (value) {
-            if (value?.isEmpty == true || value.isValidEmail()) {
-              return null;
-            }
-            return AppLocalizations.of(context).email_invalid;
-          },
+          action: TextInputAction.next,
+          validation: (value) => doEmailValidation(context, value),
         ),
         TextFieldOutlined(
           controller: passwordTextController,
@@ -58,18 +54,7 @@ class LoginBody extends StatelessWidget {
           hasError: passwordError,
           padding: 6,
           obscureText: true,
-          validation: (value) {
-            if (value?.isEmpty == true) {
-              return null;
-            }
-            if (value == null) {
-              return AppLocalizations.of(context).field_needed;
-            }
-            if (value.length < 5) {
-              return AppLocalizations.of(context).password_size;
-            }
-            return null;
-          },
+          validation: (value) => doPasswordValidation(context, value),
         ),
         GestureDetector(
           child: Container(
@@ -101,5 +86,25 @@ class LoginBody extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String? doEmailValidation(BuildContext context, String? value) {
+    if (value?.isEmpty == true || value.isValidEmail()) {
+      return null;
+    }
+    return AppLocalizations.of(context).email_invalid;
+  }
+
+  String? doPasswordValidation(BuildContext context, String? value) {
+    if (value?.isEmpty == true) {
+      return null;
+    }
+    if (value == null) {
+      return AppLocalizations.of(context).field_needed;
+    }
+    if (value.length <= 5) {
+      return AppLocalizations.of(context).password_size;
+    }
+    return null;
   }
 }

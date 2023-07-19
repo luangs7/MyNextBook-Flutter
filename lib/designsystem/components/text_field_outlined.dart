@@ -20,6 +20,7 @@ class TextFieldOutlined extends HookConsumerWidget {
   final String? errorMessage;
   final bool obscureText;
   final String? Function(String?) validation;
+  final TextInputAction action;
 
   const TextFieldOutlined(
       {super.key,
@@ -30,7 +31,8 @@ class TextFieldOutlined extends HookConsumerWidget {
       required this.padding,
       this.errorMessage,
       required this.obscureText,
-      required this.validation});
+      required this.validation,
+      this.action = TextInputAction.done});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -56,7 +58,7 @@ class TextFieldOutlined extends HookConsumerWidget {
           },
           obscureText: obscureText,
           controller: controller,
-          textInputAction: TextInputAction.done,
+          textInputAction: action,
           style: TextStyle(color: color),
           decoration: InputDecoration(
               errorText: fieldState.value.hasError

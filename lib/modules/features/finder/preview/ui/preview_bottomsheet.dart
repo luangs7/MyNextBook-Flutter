@@ -11,7 +11,7 @@ class PreviewBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      maxChildSize: 0.6,
+      maxChildSize: 0.7,
       minChildSize: 0.4,
       initialChildSize: 0.4,
       builder: (context, scrollController) {

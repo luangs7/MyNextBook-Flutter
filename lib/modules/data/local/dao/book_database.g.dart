@@ -85,7 +85,7 @@ class _$BookDatabase extends BookDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `description` TEXT NOT NULL, `previewLink` TEXT, `image` TEXT, `userId` TEXT NOT NULL, PRIMARY KEY (`id`))');
+            'CREATE TABLE IF NOT EXISTS `BookEntity` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `subtitle` TEXT NOT NULL, `description` TEXT NOT NULL, `previewLink` TEXT, `image` TEXT, `userId` TEXT NOT NULL, `uuid` TEXT NOT NULL, PRIMARY KEY (`uuid`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -114,7 +114,8 @@ class _$BookDao extends BookDao {
                   'description': item.description,
                   'previewLink': item.previewLink,
                   'image': item.image,
-                  'userId': item.userId
+                  'userId': item.userId,
+                  'uuid': item.uuid
                 });
 
   final sqflite.DatabaseExecutor database;
@@ -126,12 +127,8 @@ class _$BookDao extends BookDao {
   final InsertionAdapter<BookEntity> _bookEntityInsertionAdapter;
 
   @override
-  Future<BookEntity?> getFavoritesById(
-    String bookId,
-    String userId,
-  ) async {
-    return _queryAdapter.query(
-        'SELECT * FROM BookEntity WHERE id = ?1 AND userId = ?2',
+  Future<BookEntity?> getFavoritesById(String uuid) async {
+    return _queryAdapter.query('SELECT * FROM BookEntity WHERE uuid = ?1',
         mapper: (Map<String, Object?> row) => BookEntity(
             id: row['id'] as String,
             title: row['title'] as String,
@@ -140,7 +137,7 @@ class _$BookDao extends BookDao {
             previewLink: row['previewLink'] as String?,
             image: row['image'] as String?,
             userId: row['userId'] as String),
-        arguments: [bookId, userId]);
+        arguments: [uuid]);
   }
 
   @override

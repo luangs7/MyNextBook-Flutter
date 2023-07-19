@@ -13,7 +13,7 @@ class BookDaoMock extends BookDao {
   }
 
   @override
-  Future<BookEntity?> getFavoritesById(String bookId, String userId) {
+  Future<BookEntity?> getFavoritesById(String uuid) {
     return Future.value(null);
   }
 

@@ -28,7 +28,15 @@ class LottieView extends StatelessWidget {
                 height: size ?? MediaQuery.of(context).size.height * 0.5,
                 width: MediaQuery.of(context).size.width,
               ),
-        message != null ? Text(message!) : const Center()
+        message != null
+            ? Padding(
+                padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
+                child: Text(
+                  message!,
+                  textAlign: TextAlign.center,
+                ),
+              )
+            : const Center()
       ],
     );
   }

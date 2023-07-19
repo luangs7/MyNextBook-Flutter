@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mynextbook/designsystem/common/app_constants.dart';
 import '../../../../designsystem/components/item_action_container.dart';
 import '../../../../designsystem/components/item_image.dart';
 import '../../../domain/model/book.dart';
@@ -18,23 +17,24 @@ class FavoriteItem extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const width = 140.0;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
+    final width = MediaQuery.of(context).size.width * 0.4;
+    final height = MediaQuery.of(context).size.width * 0.6;
+    return Wrap(
       children: [
         ItemImage(
-          height: width * 1.5,
+          height: height,
           width: width,
           url: book.imageLinks?.thumbnail ?? "",
         ),
-        const SizedBox(height: defaultPaddingV),
-        ItemActionContainer(
-          itemSize: 32,
-          isFavorited: true,
-          onFavorited: () => onFavorited.call(book),
-          onShared: null,
-          onView: onView,
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: ItemActionContainer(
+            itemSize: 32,
+            isFavorited: true,
+            onFavorited: () => onFavorited.call(book),
+            onShared: null,
+            onView: onView,
+          ),
         )
       ],
     );
