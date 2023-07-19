@@ -27,44 +27,47 @@ class InformationView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeProvider);
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: defaultPadding, vertical: defaultPaddingV),
-      child: Column(children: [
+    return Column(
+      children: [
         Expanded(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            LottieView(
-              asset: "lib/assets/$lottieAnimation.json",
-              size: MediaQuery.of(context).size.height * 0.4,
-            ),
-            GestureDetector(
-                onTap: () {
-                  onInformation?.call();
-                },
+            child: Container(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: defaultPadding, vertical: defaultPaddingV),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(title,
-                        style: AppTextTheme().h40.bold(),
-                        textAlign: TextAlign.center),
-                    const SizedBox(height: defaultMarginBetweenElements),
-                    Text(subtitle,
-                        style: AppTextTheme().h30.copyWith(
-                            color: theme.appColors.textColor.withOpacity(0.5)),
-                        textAlign: TextAlign.center)
+                    LottieView(
+                      asset: "lib/assets/$lottieAnimation.json",
+                      size: MediaQuery.of(context).size.height * 0.3,
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          onInformation?.call();
+                        },
+                        child: Column(
+                          children: [
+                            Text(title,
+                                style: AppTextTheme().h40.bold(),
+                                textAlign: TextAlign.center),
+                            const SizedBox(
+                                height: defaultMarginBetweenElements),
+                            Text(subtitle,
+                                style: AppTextTheme().h30.copyWith(
+                                    color: theme.appColors.textColor
+                                        .withOpacity(0.5)),
+                                textAlign: TextAlign.center)
+                          ],
+                        )),
                   ],
-                )),
-          ],
-        )),
+                ))),
         CustomButton(
             isEnabled: true,
             title: buttonTitle,
             onPressed: () {
               onNext();
             })
-      ]),
+      ],
     );
   }
 }

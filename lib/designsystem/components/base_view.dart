@@ -20,15 +20,7 @@ class BaseView extends HookConsumerWidget {
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: customBar.resizeToAvoidBottomInset,
-      appBar: AppBar().buildAppBar(
-        context,
-        appRouter,
-        () {
-          logout(context, appRouter);
-        },
-        showBackButton: customBar.showBackButton,
-        showActions: customBar.showActions,
-      ),
+      appBar: _buildAppBar(appRouter, context, customBar),
       body: child,
     ));
   }
@@ -38,5 +30,22 @@ class BaseView extends HookConsumerWidget {
     await logout.execute();
     // ignore: use_build_context_synchronously
     appRouter.to(context, appRouter.loginView);
+  }
+
+  PreferredSizeWidget? _buildAppBar(
+      AppRouter appRouter, BuildContext context, CustomBarState customBar) {
+    if (customBar.isVisible) {
+      return AppBar().buildAppBar(
+        context,
+        appRouter,
+        () {
+          logout(context, appRouter);
+        },
+        showBackButton: customBar.showBackButton,
+        showActions: customBar.showActions,
+      );
+    } else {
+      return null;
+    }
   }
 }

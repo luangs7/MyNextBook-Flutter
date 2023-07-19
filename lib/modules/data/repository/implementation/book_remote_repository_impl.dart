@@ -26,9 +26,14 @@ class BookRemoteRepositoryImpl extends BookRemoteRepository {
     try {
       final book =
           await dataSourceRemote.getBooksFromQuery(prefMapper.toRepo(params));
-      final localBook = await dataSourceLocal.getFavoriteBook(book.id, userId);
-      book.isFavorited = localBook != null;
-      return ApiResult.success(bookMapper.toDomain(book));
+      if (book != null) {
+        final localBook =
+            await dataSourceLocal.getFavoriteBook(book.id, userId);
+        book.isFavorited = localBook != null;
+        return ApiResult.success(bookMapper.toDomain(book));
+      } else {
+        return ApiResult.empty();
+      }
     } on Exception catch (e, _) {
       return ApiResult.error(e);
     }

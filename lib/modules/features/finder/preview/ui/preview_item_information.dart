@@ -31,7 +31,8 @@ class PreviewItemInformation extends StatelessWidget {
             .h20
             .copyWith(color: Colors.black.withOpacity(0.7))
             .dense(),
-      )
+      ),
+      const SizedBox(height: defaultPaddingBig)
     ]);
   }
 }

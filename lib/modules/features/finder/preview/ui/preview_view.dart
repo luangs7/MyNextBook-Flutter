@@ -44,7 +44,9 @@ class PreviewView extends HookConsumerWidget {
             message: AppLocalizations.of(context).error_message);
       },
       loading: () {
-        return const LottieView(asset: lottieLoading);
+        return LottieView(
+            asset: lottieLoading,
+            size: MediaQuery.of(context).size.height * 0.5);
       },
       empty: () {
         return LottieView(

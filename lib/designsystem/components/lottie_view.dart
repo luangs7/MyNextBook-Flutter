@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../common/app_constants.dart';
+
 class LottieView extends StatelessWidget {
   final String? asset;
   final String? url;
@@ -19,18 +21,19 @@ class LottieView extends StatelessWidget {
             ? Lottie.asset(
                 asset!,
                 repeat: true,
-                height: size ?? MediaQuery.of(context).size.height * 0.5,
+                height: size ?? MediaQuery.of(context).size.height * 0.3,
                 width: MediaQuery.of(context).size.width,
               )
             : Lottie.network(
                 url ?? "",
                 repeat: true,
-                height: size ?? MediaQuery.of(context).size.height * 0.5,
+                height: size ?? MediaQuery.of(context).size.height * 0.3,
                 width: MediaQuery.of(context).size.width,
               ),
         message != null
             ? Padding(
-                padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
+                padding: const EdgeInsets.only(
+                    left: defaultPadding, right: defaultPadding),
                 child: Text(
                   message!,
                   textAlign: TextAlign.center,

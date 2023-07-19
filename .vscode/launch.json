@@ -9,7 +9,7 @@
             "name": "mynextbook",
             "request": "launch",
             "type": "dart",
-            "program": "lib/environment/main_dev.dart",
+            "program": "lib/environment/main_mock.dart",
             "args": [
                 "--flavor",
                 "mock" //development or staging or production

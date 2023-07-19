@@ -28,62 +28,62 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: const BouncingScrollPhysics(),
+    return Column(
       children: [
-        Lottie.network(
-          lottieLogin,
-          repeat: true,
-          height: MediaQuery.of(context).size.height * 0.3,
-          width: MediaQuery.of(context).size.width,
-        ),
-        TextFieldOutlined(
-          controller: emailTextController,
-          hint: AppLocalizations.of(context).email_field,
-          hintColor: Colors.white30,
-          hasError: emailError,
-          padding: 6,
-          obscureText: false,
-          action: TextInputAction.next,
-          validation: (value) => doEmailValidation(context, value),
-        ),
-        TextFieldOutlined(
-          controller: passwordTextController,
-          hint: AppLocalizations.of(context).password_field,
-          hintColor: Colors.white30,
-          hasError: passwordError,
-          padding: 6,
-          obscureText: true,
-          validation: (value) => doPasswordValidation(context, value),
-        ),
-        GestureDetector(
-          child: Container(
-              padding: const EdgeInsets.all(8),
-              child: Text(
-                AppLocalizations.of(context).signup,
-                textAlign: TextAlign.end,
-              )),
-          onTap: () {
-            showGeneralDialog(
-              context: context,
-              barrierLabel: "",
-              barrierDismissible: true,
-              transitionDuration: const Duration(milliseconds: 200),
-              pageBuilder: (context, _, __) {
-                return LoginSignupDialog(context: context);
-              },
-            );
-          },
-        ),
-        const SizedBox(height: 30),
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: CustomButton(
-            isEnabled: isButtonEnabled,
-            title: AppLocalizations.of(context).signin,
-            onPressed: onLoginPressed,
+        Expanded(
+            child: ListView(physics: const BouncingScrollPhysics(), children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 32),
+            child: Lottie.network(
+              lottieLogin,
+              repeat: true,
+              height: MediaQuery.of(context).size.height * 0.3,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
-        ),
+          TextFieldOutlined(
+            controller: emailTextController,
+            hint: AppLocalizations.of(context).email_field,
+            hintColor: Colors.white30,
+            hasError: emailError,
+            padding: 6,
+            obscureText: false,
+            action: TextInputAction.next,
+            validation: (value) => doEmailValidation(context, value),
+          ),
+          TextFieldOutlined(
+            controller: passwordTextController,
+            hint: AppLocalizations.of(context).password_field,
+            hintColor: Colors.white30,
+            hasError: passwordError,
+            padding: 6,
+            obscureText: true,
+            validation: (value) => doPasswordValidation(context, value),
+          ),
+          GestureDetector(
+            child: Container(
+                padding: const EdgeInsets.all(8),
+                child: Text(
+                  AppLocalizations.of(context).signup,
+                  textAlign: TextAlign.end,
+                )),
+            onTap: () {
+              showDialog(
+                context: context,
+                barrierLabel: "",
+                barrierDismissible: true,
+                builder: (context) {
+                  return LoginSignupDialog(context: context);
+                },
+              );
+            },
+          ),
+        ])),
+        CustomButton(
+          isEnabled: isButtonEnabled,
+          title: AppLocalizations.of(context).signin,
+          onPressed: onLoginPressed,
+        )
       ],
     );
   }

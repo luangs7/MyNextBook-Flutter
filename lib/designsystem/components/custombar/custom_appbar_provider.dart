@@ -8,6 +8,7 @@ class CustomBarState extends ChangeNotifier {
   bool showBackButton = false;
   bool showActions = false;
   bool resizeToAvoidBottomInset = false;
+  bool isVisible = false;
 }
 
 extension CustomBar on CustomBarState {
@@ -15,10 +16,12 @@ extension CustomBar on CustomBarState {
       {bool hasSignOut = false,
       bool showBackButton = false,
       bool showActions = false,
-      bool resizeToAvoidBottomInset = false}) {
+      bool resizeToAvoidBottomInset = false,
+      bool isVisible = true}) {
     this.hasSignOut = hasSignOut;
     this.showBackButton = showBackButton;
     this.showActions = showActions;
     this.resizeToAvoidBottomInset = resizeToAvoidBottomInset;
+    this.isVisible = isVisible;
   }
 }
