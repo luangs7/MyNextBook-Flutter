@@ -21,6 +21,7 @@ class ItemAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
+        alignment: Alignment.center,
         height: height,
         width: width,
         padding: const EdgeInsets.all(6),
@@ -30,7 +31,7 @@ class ItemAction extends StatelessWidget {
                 Border.all(color: accent, width: 1, style: BorderStyle.solid)),
         child: Icon(
           icon,
-          size: 16,
+          size: (width + height) / 2 * 0.5,
           color: accent,
         ),
       ),

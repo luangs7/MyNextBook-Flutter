@@ -29,14 +29,19 @@ class ItemActionContainer extends StatelessWidget {
             width: itemSize,
             accent: isFavorited ? Colors.red : Colors.white,
             onClick: onFavorited),
-        const Padding(padding: EdgeInsets.all(6)),
+        const SizedBox(
+          width: 8,
+        ),
         ItemAction(
             icon: Icons.remove_red_eye,
             height: itemSize,
             width: itemSize,
             accent: Colors.white,
             onClick: onView),
-        const Padding(padding: EdgeInsets.all(6)),
+        if (onShared != null)
+          const SizedBox(
+            width: 8,
+          ),
         if (onShared != null)
           ItemAction(
               icon: Icons.share,
