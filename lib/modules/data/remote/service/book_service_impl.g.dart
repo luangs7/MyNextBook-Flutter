@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'book_service.dart';
+part of 'book_service_impl.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'book_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _BookService implements BookService {
-  _BookService(
+class _BookServiceImpl implements BookServiceImpl {
+  _BookServiceImpl(
     this._dio, {
     this.baseUrl,
   });

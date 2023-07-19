@@ -1,3 +1,4 @@
+const defaultPaddingBig = 32.0;
 const defaultPadding = 16.0;
 const defaultTextSize = 16.0;
 const defaultPaddingV = 8.0;

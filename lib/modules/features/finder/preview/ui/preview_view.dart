@@ -12,6 +12,7 @@ import '../../../../../designsystem/common/lottie_states.dart';
 import '../../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import '../../../../../designsystem/components/lottie_view.dart';
 import '../viewmodel/preview_view_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PreviewView extends HookConsumerWidget {
   const PreviewView({super.key});
@@ -38,13 +39,19 @@ class PreviewView extends HookConsumerWidget {
         );
       },
       error: (exception) {
-        return const LottieView(asset: lottieError);
+        return LottieView(
+            asset: lottieError,
+            message: AppLocalizations.of(context).error_message);
       },
       loading: () {
-        return const LottieView(asset: lottieLoading);
+        return LottieView(
+            asset: lottieLoading,
+            size: MediaQuery.of(context).size.height * 0.5);
       },
       empty: () {
-        return const LottieView(asset: lottieLoading);
+        return LottieView(
+            asset: lottieEmpty,
+            message: AppLocalizations.of(context).empty_message);
       },
     ));
   }

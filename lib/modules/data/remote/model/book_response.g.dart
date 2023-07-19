@@ -8,15 +8,15 @@ part of 'book_response.dart';
 
 BookResponse _$BookResponseFromJson(Map<String, dynamic> json) => BookResponse(
       totalItems: json['totalItems'] as int,
-      items: (json['items'] as List<dynamic>)
-          .map((e) => Item.fromJson(e as Map<String, dynamic>))
+      items: (json['items'] as List<dynamic>?)
+          ?.map((e) => Item.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$BookResponseToJson(BookResponse instance) =>
     <String, dynamic>{
       'totalItems': instance.totalItems,
-      'items': instance.items.map((e) => e.toJson()).toList(),
+      'items': instance.items?.map((e) => e.toJson()).toList(),
     };
 
 Item _$ItemFromJson(Map<String, dynamic> json) => Item(

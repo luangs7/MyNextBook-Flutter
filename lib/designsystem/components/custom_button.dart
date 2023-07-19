@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mynextbook/designsystem/common/app_colors.dart';
+import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme_text.dart';
 
 class CustomButton extends StatelessWidget {
@@ -20,17 +21,23 @@ class CustomButton extends StatelessWidget {
       onPressed();
     }
 
-    return MaterialButton(
-      padding: const EdgeInsets.all(10),
-      disabledColor: AppColors.dark().accent.withOpacity(0.3),
-      elevation: 7,
-      color: AppColors.dark().accent,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
-      onPressed: isEnabled ? buttonAction : null,
-      child: SizedBox(
-          width: double.infinity,
-          child: Text(title,
-              textAlign: TextAlign.center, style: AppTextTheme().h30.bold())),
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: defaultPaddingV,
+          right: defaultPaddingV,
+          bottom: defaultPadding),
+      child: MaterialButton(
+        padding: const EdgeInsets.all(10),
+        disabledColor: AppColors.dark().accent.withOpacity(0.3),
+        elevation: 7,
+        color: AppColors.dark().accent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
+        onPressed: isEnabled ? buttonAction : null,
+        child: SizedBox(
+            width: double.infinity,
+            child: Text(title,
+                textAlign: TextAlign.center, style: AppTextTheme().h30.bold())),
+      ),
     );
   }
 }

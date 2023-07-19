@@ -46,12 +46,14 @@ class FavoritesView extends HookConsumerWidget {
 
   Widget listOfItems(List<Book> data, Function(Book) onFavorited) {
     return LayoutBuilder(builder: (context, constraints) {
+      final ratio = MediaQuery.of(context).size.width /
+          (MediaQuery.of(context).size.height / 1.3);
       return GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 0.7,
+            childAspectRatio: ratio,
             crossAxisCount: constraints.maxWidth > 700
                 ? 4
                 : 2, // Number of columns in the grid

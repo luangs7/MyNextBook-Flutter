@@ -4,9 +4,9 @@ part 'book_response.g.dart';
 @JsonSerializable(explicitToJson: true)
 class BookResponse {
   final int totalItems;
-  final List<Item> items;
+  final List<Item>? items;
 
-  BookResponse({required this.totalItems, required this.items});
+  BookResponse({required this.totalItems, this.items});
 
   factory BookResponse.fromJson(Map<String, dynamic> json) =>
       _$BookResponseFromJson(json);

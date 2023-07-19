@@ -11,7 +11,7 @@ class BookDataSourceLocalImpl extends BookDataSourceLocal {
 
   @override
   Future<BookData?> getFavoriteBook(String id, String userId) async {
-    final book = await dao.getFavoritesById(id, userId);
+    final book = await dao.getFavoritesById(id + userId);
     return book != null ? mapper.toRepo(book) : null;
   }
 
