@@ -59,12 +59,12 @@ class FindView extends HookConsumerWidget {
 
   void _openDialog(BuildContext context, TextEditingController textController,
       Function(PreferencesParam) onConfirmation) {
-    showGeneralDialog(
+    showDialog(
         context: context,
         barrierLabel: "",
-        barrierDismissible: true,
-        transitionDuration: const Duration(milliseconds: 400),
-        pageBuilder: (_, __, ___) {
+        barrierDismissible: false,
+        useSafeArea: false,
+        builder: (_) {
           return FilterDialog(
               context: context,
               textController: textController,

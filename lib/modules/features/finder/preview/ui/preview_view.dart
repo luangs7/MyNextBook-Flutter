@@ -50,7 +50,7 @@ class PreviewView extends HookConsumerWidget {
       },
       empty: () {
         return LottieView(
-            asset: lottieError,
+            asset: lottieEmpty,
             message: AppLocalizations.of(context).empty_message);
       },
     ));

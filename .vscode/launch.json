@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "mynextbook",
             "request": "launch",
@@ -18,7 +19,6 @@
             "name": "mynextbook (dev mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
             "program": "lib/environment/main_dev.dart",
             "args": [
                 "--flavor",

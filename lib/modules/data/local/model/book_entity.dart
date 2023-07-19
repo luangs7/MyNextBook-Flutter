@@ -2,7 +2,6 @@ import 'package:floor/floor.dart';
 
 @entity
 class BookEntity {
-  @primaryKey
   final String id;
   final String title;
   final String subtitle;
@@ -10,6 +9,8 @@ class BookEntity {
   final String? previewLink;
   final String? image;
   final String userId;
+  @primaryKey
+  late final String uuid;
 
   BookEntity(
       {required this.id,
@@ -18,5 +19,7 @@ class BookEntity {
       required this.description,
       required this.previewLink,
       required this.image,
-      required this.userId});
+      required this.userId}) {
+    uuid = id + userId;
+  }
 }

@@ -7,7 +7,7 @@ import 'package:mynextbook/modules/data/local/model/book_entity.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 part 'book_database.g.dart';
 
-@Database(version: 1, entities: [BookEntity])
+@Database(version: 2, entities: [BookEntity])
 @TypeConverters([StringConverter])
 abstract class BookDatabase extends FloorDatabase {
   BookDao get bookDao;
