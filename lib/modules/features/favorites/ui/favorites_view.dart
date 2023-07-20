@@ -46,8 +46,8 @@ class FavoritesView extends HookConsumerWidget {
 
   Widget listOfItems(List<Book> data, Function(Book) onFavorited) {
     return LayoutBuilder(builder: (context, constraints) {
-      final ratio = MediaQuery.of(context).size.width /
-          (MediaQuery.of(context).size.height * 1.2);
+      final ratio =
+          (MediaQuery.of(context).size.width * 0.5) / constraints.maxWidth;
       return GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         physics: const BouncingScrollPhysics(),
