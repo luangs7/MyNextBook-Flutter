@@ -17,9 +17,10 @@ class FavoriteItem extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final width = MediaQuery.of(context).size.width * 0.4;
-    final height = MediaQuery.of(context).size.width * 0.6;
+    final width = MediaQuery.of(context).size.width * 0.3;
+    final height = MediaQuery.of(context).size.width * 0.45;
     return Wrap(
+      alignment: WrapAlignment.center,
       children: [
         ItemImage(
           height: height,
@@ -29,7 +30,7 @@ class FavoriteItem extends HookConsumerWidget {
         Padding(
           padding: const EdgeInsets.only(top: 8),
           child: ItemActionContainer(
-            itemSize: 32,
+            itemSize: 28,
             isFavorited: true,
             onFavorited: () => onFavorited.call(book),
             onShared: null,
