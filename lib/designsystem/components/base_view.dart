@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/components/custombar/custom_appbar.dart';
-import 'package:mynextbook/modules/domain/interactor/do_logout.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
 import 'custombar/custom_appbar_provider.dart';
@@ -25,25 +24,13 @@ class BaseView extends HookConsumerWidget {
     ));
   }
 
-  void logout(BuildContext context, AppRouter appRouter) async {
-    final logout = GetIt.I.get<DoLogout>();
-    await logout.execute();
-    // ignore: use_build_context_synchronously
-    appRouter.to(context, appRouter.loginView);
-  }
-
   PreferredSizeWidget? _buildAppBar(
       AppRouter appRouter, BuildContext context, CustomBarState customBar) {
     if (customBar.isVisible) {
-      return AppBar().buildAppBar(
-        context,
-        appRouter,
-        () {
-          logout(context, appRouter);
-        },
-        showBackButton: customBar.showBackButton,
-        showActions: customBar.showActions,
-      );
+      return AppBar().buildAppBar(context, appRouter,
+          showBackButton: customBar.showBackButton,
+          showActions: customBar.showActions,
+          title: customBar.title);
     } else {
       return null;
     }

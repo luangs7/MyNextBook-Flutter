@@ -6,6 +6,7 @@ abstract class AppRouter {
   final String previewView = "/preview_view";
   final String favoriteView = "/favorite_view";
   final String loginView = "/login_view";
+  final String accountView = "/account_view";
 
   Map<String, WidgetBuilder> createRouter(BuildContext context);
   void to(BuildContext context, String route, {bool replace, String? params});

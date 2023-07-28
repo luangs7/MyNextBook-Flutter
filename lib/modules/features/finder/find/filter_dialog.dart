@@ -63,6 +63,9 @@ class FilterDialog extends HookConsumerWidget {
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none),
                     ),
+                    const SizedBox(
+                      height: defaultPaddingBig,
+                    ),
                     CustomButton(
                         isEnabled: true,
                         title: AppLocalizations.of(context).confirm,

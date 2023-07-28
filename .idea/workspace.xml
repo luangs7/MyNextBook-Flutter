@@ -5,24 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d08f3d-4284-48c0-980d-0098d3994994" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/text_field_outlined.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/text_field_outlined.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao_mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_dao_mock.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/dao/book_database.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/datasource/book_datasource_local_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/datasource/book_datasource_local_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/local/model/book_entity.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/local/model/book_entity.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/model/book_response.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/model/book_response.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/base_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/base_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/cloudservices/auth/cloudservices_auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/cloudservices/auth/cloudservices_auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/repository/implementation/user_repository_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/repository/implementation/user_repository_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/repository/mock/user_repository_impl_mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/repository/mock/user_repository_impl_mock.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/domain/di/domain_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/di/domain_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/domain/repositories/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/repositories/user_repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_bottomsheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_bottomsheet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/ui/login_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/firebase/auth/firebase_cloudservices_auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/firebase/auth/firebase_cloudservices_auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/navigation/app_router_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/app_router_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mynextbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mynextbook.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,9 +77,11 @@
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Luan/Documents/GitHub/MyNextBook-Flutter&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
+  <component name="RunManager" selected="Flutter.main_dev.dart" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -107,5 +109,36 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/firebase/auth/firebase_cloudservices_auth.dart</url>
+          <line>55</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/firebase/auth/firebase_cloudservices_auth.dart</url>
+          <line>60</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/data/repository/implementation/user_repository_impl.dart</url>
+          <line>84</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart</url>
+          <line>93</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart</url>
+          <line>111</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

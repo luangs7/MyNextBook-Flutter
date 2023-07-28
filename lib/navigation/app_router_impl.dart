@@ -5,6 +5,7 @@ import 'package:mynextbook/modules/features/home/ui/home_view.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
+import '../modules/features/account/ui/account_view.dart';
 import '../modules/features/finder/preview/ui/preview_view.dart';
 
 class AppRouterImpl extends AppRouter {
@@ -16,6 +17,7 @@ class AppRouterImpl extends AppRouter {
       favoriteView: (context) => const FavoritesView(),
       previewView: (context) => const PreviewView(),
       loginView: (context) => const LoginView(),
+      accountView: (context) => AccountView(),
     };
   }
 

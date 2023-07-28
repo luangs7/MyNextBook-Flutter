@@ -75,4 +75,26 @@ class UserDataRepositoryImpl implements UserDataRepository {
   Future doLogout() async {
     return await cloudServicesAuth.signOut();
   }
+
+  @override
+  Future<ApiResult<bool>> deleteAccount() async {
+    try {
+      final result = await cloudServicesAuth.deleteAccount();
+      return ApiResult.success(result != null);
+    }  on Exception catch (e){
+      return ApiResult.error(e);
+    }
+  }
+
+  @override
+  Future<ApiResult<bool>> changePassword() async {
+    try {
+      final user = await cloudServicesAuth.currentUser();
+      final result =
+      await cloudServicesAuth.requestPasswordChange(user?.email ?? "");
+      return ApiResult.success(result != null);
+    } on Exception catch (e) {
+      return ApiResult.error(e);
+    }
+  }
 }

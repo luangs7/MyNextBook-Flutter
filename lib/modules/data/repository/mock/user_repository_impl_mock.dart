@@ -36,4 +36,14 @@ class UserDataRepositoryImplMock extends UserDataRepository {
   Future doLogout() {
     return Future.value();
   }
+
+  @override
+  Future<ApiResult<bool>> changePassword() {
+    return Future.value(ApiResult.success(true));
+  }
+
+  @override
+  Future<ApiResult<bool>> deleteAccount() {
+    return Future.value(ApiResult.success(true));
+  }
 }
