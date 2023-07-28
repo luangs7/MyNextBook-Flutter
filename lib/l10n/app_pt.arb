@@ -24,5 +24,12 @@
     "field_incorrect": "Dados incorretos",
     "field_needed" : "Campo obrigatório",
     "password_size" : "Deve conter ao menos 6 caracteres",
-    "email_invalid" : "Email inválido"
+    "email_invalid" : "Email inválido",
+    "delete_account" : "Deletar minha conta",
+    "delete_account_message" : "Sua conta foi deletada com sucesso! Até breve.",
+    "logout" : "Sair",
+    "change_password" : "Alterar senha",
+    "change_password_message" : "Enviamos uma mensagem para o email cadastrado para que a sua senha seja alterada.",
+    "my_favorites" : "Meus favoritos",
+    "my_account" : "Minha conta"
     }

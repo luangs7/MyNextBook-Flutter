@@ -21,7 +21,7 @@ class FavoritesView extends HookConsumerWidget {
     final viewModel = ref.watch(favoritesViewModelProvider);
     final customBar = ref.read(customBarProvider);
     customBar.changeState(
-        showBackButton: true, showActions: false, title: "Meus Favoritos");
+        showBackButton: true, showActions: false, title: AppLocalizations.of(context).my_favorites);
 
     useEffect(() {
       viewModel.getFavoriteItems();

@@ -22,7 +22,14 @@
     "language_title": "Only in portuguese",
     "ebook_only":"Only Ebook",
     "field_incorrect": "Incorrect data",
-"field_needed": "Field required",
-"password_size": "Must be at least 6 characters",
-"email_invalid" : "Invalid email"
+    "field_needed": "Field required",
+    "password_size": "Must be at least 6 characters",
+    "email_invalid" : "Invalid email",
+    "delete_account": "Delete my account",
+    "delete_account_message": "Your account has been successfully deleted! See you soon.",
+    "logout": "Logout",
+    "change_password": "Change password",
+    "change_password_message": "We have sent a message to the registered email to change your password.",
+    "my_favorites": "My favorites",
+    "my_account": "My account"
 }

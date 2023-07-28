@@ -11,13 +11,14 @@ import '../../../../navigation/app_router.dart';
 import '../../../domain/interactor/do_logout.dart';
 import '../viewmodel/account_view_model.dart';
 import 'message_dialog.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountView extends HookConsumerWidget {
   const AccountView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    handleCustomBar(ref.read(customBarProvider));
+    handleCustomBar(ref.read(customBarProvider), context);
     final AppRouter appRouter = GetIt.I.get();
     final viewModel = ref.watch(accountViewModelProvider);
 
@@ -28,26 +29,25 @@ class AccountView extends HookConsumerWidget {
           const EdgeInsets.only(bottom: defaultPadding, top: defaultPadding),
       physics: const BouncingScrollPhysics(),
       children: [
-        _itemList("Sair", () => logout(context, appRouter)),
-        _itemList("Deletar minha conta", () {
+        _itemList(AppLocalizations.of(context).logout, () => logout(context, appRouter)),
+        _itemList(AppLocalizations.of(context).delete_account, () {
           viewModel.doDeleteAccount().then(
                 (value) => showMessageDialog(
                     context: context,
-                    message: "Sua conta foi deletada com sucesso! Até breve.",
+                    message: AppLocalizations.of(context).delete_account_message,
                     onConfirmation: () => logout(context, appRouter)),
               );
         }),
-        _itemList("Alterar senha", () => viewModel.doChangePassword().then((value) {
+        _itemList(AppLocalizations.of(context).change_password, () => viewModel.doChangePassword().then((value) {
           showMessageDialog(
               context: context,
-              message:
-              "Enviamos uma mensagem para o email cadastrado para que a sua senha seja alterada.",
+              message: AppLocalizations.of(context).change_password_message,
               onConfirmation: () {});
         })),
         Expanded(
           child: SizedBox(height: MediaQuery.of(context).size.height * 0.1),
         ),
-        _itemList("Meus favoritos", () => favorites(context, appRouter)),
+        _itemList(AppLocalizations.of(context).my_favorites, () => favorites(context, appRouter)),
       ],
     ));
   }
@@ -82,9 +82,9 @@ class AccountView extends HookConsumerWidget {
         ));
   }
 
-  handleCustomBar(CustomBarState customBar) {
+  handleCustomBar(CustomBarState customBar, BuildContext context) {
     customBar.changeState(
-        showBackButton: true, showActions: false, title: "Minha conta");
+        showBackButton: true, showActions: false, title: AppLocalizations.of(context).my_account);
   }
 
   void logout(BuildContext context, AppRouter appRouter) async {

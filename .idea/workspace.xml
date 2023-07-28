@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d08f3d-4284-48c0-980d-0098d3994994" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/base_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/base_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/custombar/custom_appbar_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/cloudservices/auth/cloudservices_auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/cloudservices/auth/cloudservices_auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/repository/implementation/user_repository_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/repository/implementation/user_repository_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/repository/mock/user_repository_impl_mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/repository/mock/user_repository_impl_mock.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/domain/di/domain_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/di/domain_module.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/domain/repositories/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/repositories/user_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/firebase/auth/firebase_cloudservices_auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/firebase/auth/firebase_cloudservices_auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/navigation/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/app_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/navigation/app_router_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/app_router_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mynextbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mynextbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/app_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_en.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/l10n/app_pt.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_pt.arb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
