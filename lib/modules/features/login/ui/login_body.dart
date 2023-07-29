@@ -49,6 +49,7 @@ class LoginBody extends StatelessWidget {
             padding: 6,
             obscureText: false,
             action: TextInputAction.next,
+            textInputType: TextInputType.emailAddress,
             validation: (value) => doEmailValidation(context, value),
           ),
           TextFieldOutlined(

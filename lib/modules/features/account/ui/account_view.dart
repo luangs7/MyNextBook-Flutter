@@ -29,25 +29,28 @@ class AccountView extends HookConsumerWidget {
           const EdgeInsets.only(bottom: defaultPadding, top: defaultPadding),
       physics: const BouncingScrollPhysics(),
       children: [
-        _itemList(AppLocalizations.of(context).logout, () => logout(context, appRouter)),
+        _itemList(AppLocalizations.of(context).logout,
+            () => logout(context, appRouter)),
         _itemList(AppLocalizations.of(context).delete_account, () {
           viewModel.doDeleteAccount().then(
                 (value) => showMessageDialog(
                     context: context,
-                    message: AppLocalizations.of(context).delete_account_message,
+                    message:
+                        AppLocalizations.of(context).delete_account_message,
                     onConfirmation: () => logout(context, appRouter)),
               );
         }),
-        _itemList(AppLocalizations.of(context).change_password, () => viewModel.doChangePassword().then((value) {
-          showMessageDialog(
-              context: context,
-              message: AppLocalizations.of(context).change_password_message,
-              onConfirmation: () {});
-        })),
-        Expanded(
-          child: SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-        ),
-        _itemList(AppLocalizations.of(context).my_favorites, () => favorites(context, appRouter)),
+        _itemList(
+            AppLocalizations.of(context).change_password,
+            () => viewModel.doChangePassword().then((value) {
+                  showMessageDialog(
+                      context: context,
+                      message:
+                          AppLocalizations.of(context).change_password_message,
+                      onConfirmation: () {});
+                })),
+        _itemList(AppLocalizations.of(context).my_favorites,
+            () => favorites(context, appRouter)),
       ],
     ));
   }
@@ -57,7 +60,8 @@ class AccountView extends HookConsumerWidget {
         padding: const EdgeInsets.all(8),
         child: Ink(
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 1, style: BorderStyle.solid),
+              border: Border.all(
+                  color: Colors.black, width: 1, style: BorderStyle.solid),
               color: Colors.white.withOpacity(0.8),
               borderRadius: const BorderRadius.all(Radius.circular(27)),
               boxShadow: [
@@ -74,8 +78,10 @@ class AccountView extends HookConsumerWidget {
               padding: const EdgeInsets.all(16),
               child: Text(label,
                   textAlign: TextAlign.center,
-                  style:
-                      AppTextTheme().h30.bold().copyWith(color: Colors.black87)),
+                  style: AppTextTheme()
+                      .h30
+                      .bold()
+                      .copyWith(color: Colors.black87)),
             ),
             onTap: () => onTap.call(),
           ),
@@ -84,7 +90,9 @@ class AccountView extends HookConsumerWidget {
 
   handleCustomBar(CustomBarState customBar, BuildContext context) {
     customBar.changeState(
-        showBackButton: true, showActions: false, title: AppLocalizations.of(context).my_account);
+        showBackButton: true,
+        showActions: false,
+        title: AppLocalizations.of(context).my_account);
   }
 
   void logout(BuildContext context, AppRouter appRouter) async {
@@ -108,9 +116,10 @@ class AccountView extends HookConsumerWidget {
       barrierDismissible: true,
       builder: (context) {
         return MessageDialog(
-            message: message, onConfirmation: () {
-               onConfirmation.call();
-        });
+            message: message,
+            onConfirmation: () {
+              onConfirmation.call();
+            });
       },
     );
   }
