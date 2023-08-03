@@ -27,7 +27,7 @@ class FilterRadio extends HookConsumerWidget {
               style: AppTextTheme().h30.light()),
           trailing: Radio(
               value: relevance,
-              groupValue: orderState.state,
+              groupValue: orderBy.value,
               onChanged: ((value) {
                 orderBy.value = value;
                 orderState.state = value;
@@ -40,7 +40,7 @@ class FilterRadio extends HookConsumerWidget {
               style: AppTextTheme().h30.light()),
           trailing: Radio(
               value: newest,
-              groupValue: orderState.state,
+              groupValue: orderBy.value,
               onChanged: ((value) {
                 orderBy.value = value;
                 orderState.state = value;
