@@ -87,5 +87,6 @@ class PreviewViewModel extends ChangeNotifier {
 
   resetState() {
     _previewState = PreviewViewState.init();
+    notifyListeners();
   }
 }

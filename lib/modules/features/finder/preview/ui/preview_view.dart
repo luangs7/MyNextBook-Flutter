@@ -37,9 +37,11 @@ class PreviewView extends HookConsumerWidget {
         return Stack(
           children: [
             PreviewItem(
-              book: book,
-              onRefresh: () => viewModel.getBook(),
-            ),
+                book: book,
+                onRefresh: () {
+                  viewModel.resetState();
+                  viewModel.getBook();
+                }),
             PreviewBottomSheet(book: book)
           ],
         );
