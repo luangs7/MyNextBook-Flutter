@@ -9,8 +9,8 @@ import '../../../../domain/model/book.dart';
 
 class PreviewItem extends HookConsumerWidget {
   final Book? book;
-
-  const PreviewItem({super.key, required this.book});
+  final Function onRefresh;
+  const PreviewItem({super.key, required this.book, required this.onRefresh});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,6 +37,7 @@ class PreviewItem extends HookConsumerWidget {
                 onView: () {
                   showUrl(book?.previewLink ?? "");
                 },
+                onRefresh: onRefresh,
               )),
         ],
       );
