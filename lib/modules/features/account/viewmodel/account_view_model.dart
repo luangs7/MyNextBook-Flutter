@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mynextbook/common/base/api_result.dart';
 import 'package:mynextbook/common/base/base_view_model.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 
@@ -19,7 +17,7 @@ class AccountViewModel extends BaseViewModel {
 
   Future doChangePassword() async {
     return await changePassword.execute().then((value) {
-     return ViewState.success(true);
+      return ViewState.success(true);
     });
   }
 

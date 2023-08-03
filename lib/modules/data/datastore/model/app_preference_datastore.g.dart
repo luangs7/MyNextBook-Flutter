@@ -19,24 +19,36 @@ class AppPreferenceDatastoreAdapter
     };
     return AppPreferenceDatastore(
       isEbook: fields[0] as bool,
-      keyword: fields[1] as String?,
-      isPortuguese: fields[2] as bool,
-      subject: fields[3] as String?,
+      isPortuguese: fields[1] as bool,
+      subject: fields[2] as String?,
+      title: fields[3] as String?,
+      keyword: fields[6] as String?,
+      orderBy: fields[7] as String?,
+      author: fields[4] as String?,
+      editor: fields[5] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, AppPreferenceDatastore obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.isEbook)
       ..writeByte(1)
-      ..write(obj.keyword)
-      ..writeByte(2)
       ..write(obj.isPortuguese)
+      ..writeByte(2)
+      ..write(obj.subject)
       ..writeByte(3)
-      ..write(obj.subject);
+      ..write(obj.title)
+      ..writeByte(4)
+      ..write(obj.author)
+      ..writeByte(5)
+      ..write(obj.editor)
+      ..writeByte(6)
+      ..write(obj.keyword)
+      ..writeByte(7)
+      ..write(obj.orderBy);
   }
 
   @override

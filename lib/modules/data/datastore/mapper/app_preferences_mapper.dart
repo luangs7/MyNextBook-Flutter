@@ -4,17 +4,26 @@ import 'package:mynextbook/modules/data/repository/model/app_preferences_repo.da
 class AppPreferencesMapper {
   AppPreferenceDatastore toDatastore(AppPreferencesRepo model) {
     return AppPreferenceDatastore(
-        isEbook: model.isEbook,
-        keyword: model.keyword,
-        isPortuguese: model.isPortuguese,
-        subject: model.subject);
+      orderBy: model.orderBy,
+      isEbook: model.isEbook,
+      subject: model.subject,
+      title: model.title,
+      author: model.author,
+      keyword: model.keyword,
+      editor: model.editor,
+      isPortuguese: model.isPortuguese,
+    );
   }
 
   AppPreferencesRepo toRepo(AppPreferenceDatastore model) {
     return AppPreferencesRepo(
+        orderBy: model.orderBy,
         isEbook: model.isEbook,
-        keyword: model.keyword,
         isPortuguese: model.isPortuguese,
-        subject: model.subject);
+        subject: model.subject,
+        keyword: model.keyword,
+        title: model.title,
+        author: model.author,
+        editor: model.editor);
   }
 }

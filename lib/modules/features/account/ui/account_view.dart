@@ -9,18 +9,23 @@ import '../../../../designsystem/common/app_theme_text.dart';
 import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import '../../../../navigation/app_router.dart';
 import '../../../domain/interactor/do_logout.dart';
+import '../../../domain/model/app_preferences.dart';
+import '../../finder/find/filter_dialog.dart';
+import '../../preferences/model/preferences_param.dart';
+import '../../preferences/viewmodel/preferences_view_model.dart';
 import '../viewmodel/account_view_model.dart';
 import 'message_dialog.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountView extends HookConsumerWidget {
-  const AccountView({super.key});
+  AccountView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     handleCustomBar(ref.read(customBarProvider), context);
     final AppRouter appRouter = GetIt.I.get();
     final viewModel = ref.watch(accountViewModelProvider);
+    final prefViewModel = ref.watch(preferencesViewModelProvider);
 
     return BaseView(
         child: ListView(
@@ -51,9 +56,25 @@ class AccountView extends HookConsumerWidget {
                 })),
         _itemList(AppLocalizations.of(context).my_favorites,
             () => favorites(context, appRouter)),
+        _itemList(
+            AppLocalizations.of(context).my_filter,
+            () => prefViewModel.getAppPreferences().then((value) {
+                  prefViewModel.getPreferenceState.handleState(success: (data) {
+                    final prefes = data as AppPreferences;
+                    ref.read(ebookProvider.notifier).state = prefes.isEbook;
+                    ref.read(languageProvider.notifier).state =
+                        prefes.isPortuguese;
+                    _showFilter(context, prefes, (param) {
+                      prefViewModel.onSetPreferences(param);
+                    });
+                  });
+                })),
       ],
     ));
   }
+
+  final ebookProvider = StateProvider((_) => false);
+  final languageProvider = StateProvider((_) => false);
 
   Widget _itemList(String label, Function onTap) {
     return Padding(
@@ -122,5 +143,22 @@ class AccountView extends HookConsumerWidget {
             });
       },
     );
+  }
+
+  void _showFilter(BuildContext context, AppPreferences preferences,
+      Function(PreferencesParam) onConfirmation) {
+    showDialog(
+        context: context,
+        barrierLabel: "",
+        barrierDismissible: false,
+        useSafeArea: false,
+        builder: (_) {
+          return FilterDialog(
+              context: context,
+              pref: preferences,
+              ebookProvider: ebookProvider,
+              languageProvider: languageProvider,
+              onConfirmation: onConfirmation);
+        });
   }
 }

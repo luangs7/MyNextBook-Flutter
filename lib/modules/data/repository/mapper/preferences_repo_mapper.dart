@@ -7,7 +7,11 @@ class PreferencesRepoMapper {
         isEbook: model.isEbook,
         keyword: model.keyword ?? "",
         isPortuguese: model.isPortuguese,
-        subject: model.subject ?? "");
+        subject: model.subject ?? "",
+        author: model.author,
+        editor: model.editor,
+        orderBy: model.orderBy,
+        title: model.title);
   }
 
   AppPreferences toDomain(AppPreferencesRepo model) {
@@ -15,6 +19,10 @@ class PreferencesRepoMapper {
         isEbook: model.isEbook,
         keyword: model.keyword,
         isPortuguese: model.isPortuguese,
-        subject: model.subject);
+        subject: model.subject,
+        author: model.author,
+        editor: model.editor,
+        orderBy: model.orderBy,
+        title: model.title);
   }
 }

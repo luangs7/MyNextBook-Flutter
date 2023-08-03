@@ -27,9 +27,9 @@ extension CustomAppBar on AppBar {
         child: const Padding(
             padding: EdgeInsets.all(8),
             child: Icon(
-              Icons.person,
+              Icons.settings,
               color: Colors.white,
-              size: 36.0,
+              size: 26.0,
               semanticLabel: 'Account',
             )),
         onTap: () {

@@ -7,7 +7,8 @@ class CustomCheckbox extends HookConsumerWidget {
   final StateProvider provider;
   final String label;
 
-  const CustomCheckbox({super.key, required this.provider, required this.label});
+  const CustomCheckbox(
+      {super.key, required this.provider, required this.label});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,7 +18,8 @@ class CustomCheckbox extends HookConsumerWidget {
       children: [
         Expanded(
           flex: 10,
-          child: Text(label, style: AppTextTheme().h30.bold(), textAlign: TextAlign.start),
+          child: Text(label,
+              style: AppTextTheme().h30.bold(), textAlign: TextAlign.start),
         ),
         Expanded(
           child: Checkbox(

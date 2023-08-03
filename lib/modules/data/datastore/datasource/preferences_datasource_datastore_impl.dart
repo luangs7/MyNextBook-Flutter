@@ -18,8 +18,7 @@ class PreferencesDataSourceDatastoreImpl
     if (preferences != null) {
       return mapper.toRepo(preferences);
     } else {
-      return mapper.toRepo(AppPreferenceDatastore(
-          isEbook: false, isPortuguese: false, keyword: "", subject: ""));
+      return mapper.toRepo(AppPreferenceDatastore.init());
     }
   }
 
