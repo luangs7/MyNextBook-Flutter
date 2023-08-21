@@ -17,4 +17,16 @@ class AppPreferences {
       required this.author,
       required this.orderBy,
       required this.editor});
+
+  static AppPreferences init() {
+    return AppPreferences(
+        author: null,
+        keyword: null,
+        orderBy: "relevance",
+        editor: null,
+        isEbook: false,
+        isPortuguese: false,
+        subject: null,
+        title: null);
+  }
 }

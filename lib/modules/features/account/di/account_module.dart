@@ -4,6 +4,6 @@ import 'package:mynextbook/modules/features/account/viewmodel/account_view_model
 extension AccountModule on GetIt {
   void accountModule() {
     registerLazySingleton<AccountViewModel>(
-        () => AccountViewModel(changePassword: get(), deleteAccount: get()));
+        () => AccountViewModel(changePassword: get(), deleteAccount: get(), getCurrentUser: get()));
   }
 }

@@ -29,7 +29,7 @@
     "change_password" : "Alterar senha",
     "change_password_message" : "Enviamos uma mensagem para o email cadastrado para que a sua senha seja alterada.",
     "my_favorites" : "Meus favoritos",
-    "my_account" : "Minha conta",
+    "my_account" : "Configurações",
     "keyword_category": "Digite uma categoria",
     "keyword_author": "Digite um autor",
     "keyword_title": "Digite um título",
@@ -37,5 +37,8 @@
     "keyword_all": "Digite palavra-chaves",
     "my_filter": "Mudar meu filtro",
     "relevance": "Relevância",
-    "newest": "Mais recente"
+    "newest": "Mais recente",
+    "login": "login",
+    "recommendation": "Recomendações",
+    "find_my": "Ache meu livro"
     }

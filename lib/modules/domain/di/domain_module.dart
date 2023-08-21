@@ -9,6 +9,7 @@ import 'package:mynextbook/modules/domain/interactor/get_favorite_books.dart';
 import 'package:mynextbook/modules/domain/interactor/get_login_email.dart';
 import 'package:mynextbook/modules/domain/interactor/get_preferences.dart';
 import 'package:mynextbook/modules/domain/interactor/get_random_book.dart';
+import 'package:mynextbook/modules/domain/interactor/get_recommendation.dart';
 import 'package:mynextbook/modules/domain/interactor/remove_book_from_favorite.dart';
 import 'package:mynextbook/modules/domain/interactor/set_login_email.dart';
 import 'package:mynextbook/modules/domain/interactor/update_preferences.dart';
@@ -39,5 +40,7 @@ extension DomainModule on GetIt {
         () => DoChangePasswordImpl(repository: get()));
     registerLazySingleton<DoDeleteAccount>(
         () => DoDeleteAccountImpl(repository: get()));
+    registerLazySingleton<GetRecommendations>(
+        () => GetRecommendationsImpl(repository: get()));
   }
 }

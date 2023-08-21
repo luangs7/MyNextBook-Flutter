@@ -9,6 +9,8 @@ class QueryFormatInterceptor extends Interceptor {
       parameters = {
         queryParam: "$orderByQuery=${options.queryParameters[orderByQuery]}"
       };
+      options.queryParameters.remove(queryParam);
+      parameters.addAll(options.queryParameters);
     }
     super.onRequest(options.copyWith(queryParameters: parameters), handler);
   }

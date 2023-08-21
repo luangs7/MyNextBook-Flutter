@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../designsystem/common/app_theme.dart';
-import '../../../../designsystem/common/app_theme_text.dart';
+import '../../designsystem/common/app_theme.dart';
+import '../../designsystem/common/app_theme_text.dart';
 
 class FilterTextfield extends StatelessWidget {
   final TextEditingController controller;

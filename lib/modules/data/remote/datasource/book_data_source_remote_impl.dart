@@ -57,4 +57,18 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
 
     return query.toString();
   }
+
+  @override
+  Future<List<BookData>> getRecommendation(AppPreferencesRepo pref) async {
+    var filter = pref.isEbook ? ebookQuery : null;
+    var query = createQueryParams(pref);
+    return await service
+        .getBooks(query, pref.isPortuguese ? languagePt : null, filter,
+            pref.orderBy ?? orderByQueryValue, maxresultsValue)
+        .then((value) {
+      return mapper.toRepo(value);
+    }).catchError((onError) {
+      throw onError;
+    });
+  }
 }

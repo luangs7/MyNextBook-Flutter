@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../designsystem/common/app_theme_text.dart';
+import '../../designsystem/common/app_theme_text.dart';
 import 'filter_dialog.dart';
 
 class FilterRadio extends HookConsumerWidget {

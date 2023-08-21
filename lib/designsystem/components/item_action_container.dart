@@ -16,7 +16,7 @@ class ItemActionContainer extends StatelessWidget {
       required this.isFavorited,
       required this.onFavorited,
       this.onRefresh,
-      required this.onShared,
+      this.onShared,
       required this.onView});
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mynextbook/designsystem/components/item_title_grid.dart';
 import '../../../../designsystem/components/item_action_container.dart';
 import '../../../../designsystem/components/item_image.dart';
 import '../../../domain/model/book.dart';
@@ -27,13 +28,13 @@ class FavoriteItem extends HookConsumerWidget {
           width: width,
           url: book.imageLinks?.thumbnail ?? "",
         ),
+        ItemTitleGrid(label: book.title ?? ""),
         Padding(
           padding: const EdgeInsets.only(top: 8),
           child: ItemActionContainer(
             itemSize: 28,
             isFavorited: true,
             onFavorited: () => onFavorited.call(book),
-            onShared: null,
             onView: onView,
           ),
         )

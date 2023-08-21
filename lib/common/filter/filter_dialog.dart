@@ -4,12 +4,12 @@ import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
 import 'package:mynextbook/designsystem/components/custom_checkbok.dart';
-import 'package:mynextbook/modules/features/finder/find/filter_textfield.dart';
+import 'package:mynextbook/common/filter/filter_textfield.dart';
 import 'package:mynextbook/modules/features/preferences/model/preferences_param.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../domain/model/app_preferences.dart';
+import '../../modules/domain/model/app_preferences.dart';
 import 'filter_radio_choice.dart';
 
 final orderByState = StateProvider<String?>((_) => "");

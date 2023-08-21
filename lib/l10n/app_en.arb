@@ -29,7 +29,7 @@
     "change_password": "Change password",
     "change_password_message": "We have sent a message to the registered email to change your password.",
     "my_favorites": "My favorites",
-    "my_account": "My account",
+    "my_account": "Settings",
     "keyword_category": "Enter a category",
     "keyword_author": "Enter an author",
     "keyword_title": "Enter a title",
@@ -37,5 +37,8 @@
     "keyword_all": "Enter keywords",
     "my_filter": "Change my filter",
     "relevance": "Relevance",
-    "newest": "Newest"
+    "newest": "Newest",
+    "login": "login",
+    "recommendation": "Recommendations",
+    "find_my": "Find my book"
 }

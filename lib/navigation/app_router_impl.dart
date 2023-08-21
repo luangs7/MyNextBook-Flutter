@@ -3,6 +3,7 @@ import 'package:mynextbook/modules/features/favorites/ui/favorites_view.dart';
 import 'package:mynextbook/modules/features/finder/find/find_view.dart';
 import 'package:mynextbook/modules/features/home/ui/home_view.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
+import 'package:mynextbook/modules/features/recommendation/ui/recommendation_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
 import '../modules/features/account/ui/account_view.dart';
@@ -18,12 +19,17 @@ class AppRouterImpl extends AppRouter {
       previewView: (context) => const PreviewView(),
       loginView: (context) => const LoginView(),
       accountView: (context) => AccountView(),
+      recommendationView: (context) => const RecommendationView(),
     };
   }
 
   @override
-  void pop(BuildContext context) {
-    Navigator.pop(context);
+  void pop(BuildContext context, {bool reload = false}) {
+    if (reload) {
+      Navigator.pop(context, "reload");
+    } else {
+      Navigator.pop(context);
+    }
   }
 
   @override

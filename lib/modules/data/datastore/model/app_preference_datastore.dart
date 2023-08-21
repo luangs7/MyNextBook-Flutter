@@ -32,13 +32,13 @@ class AppPreferenceDatastore {
 
   static AppPreferenceDatastore init() {
     return AppPreferenceDatastore(
-        author: "",
-        keyword: "",
+        author: null,
+        keyword: null,
         orderBy: "relevance",
-        editor: "",
+        editor: null,
         isEbook: false,
         isPortuguese: false,
-        subject: "",
-        title: "");
+        subject: null,
+        title: null);
   }
 }

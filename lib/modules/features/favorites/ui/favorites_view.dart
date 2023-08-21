@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/designsystem/common/lottie_states.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
+import 'package:mynextbook/designsystem/components/grid_items.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/features/favorites/ui/favorite_item.dart';
 import 'package:mynextbook/modules/features/favorites/viewmodel/favorites_view_model.dart';
@@ -21,7 +22,9 @@ class FavoritesView extends HookConsumerWidget {
     final viewModel = ref.watch(favoritesViewModelProvider);
     final customBar = ref.read(customBarProvider);
     customBar.changeState(
-        showBackButton: true, showActions: false, title: AppLocalizations.of(context).my_favorites);
+        showBackButton: true,
+        showActions: false,
+        title: AppLocalizations.of(context).my_favorites);
 
     useEffect(() {
       viewModel.getFavoriteItems();
@@ -31,46 +34,26 @@ class FavoritesView extends HookConsumerWidget {
     return BaseView(
         child: viewModel.state.handleWidget(
             success: (data) {
-              return listOfItems(data, (book) {
-                viewModel.removeItem(book);
+              return GridItems(data: data, builder: (context, index) {
+                return FavoriteItem(
+                  book: data[index],
+                  onFavorited: (book) =>  viewModel.removeItem(book),
+                  onView: () {
+                    showUrl(data[index].previewLink ?? "");
+                  },
+                );
               });
             },
             error: (exception) {
               return const Center();
             },
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => LottieView(
+                  asset: lottieLoading,
+                  message: AppLocalizations.of(context).empty_favorites,
+                ),
             empty: () => LottieView(
                   asset: lottieEmpty,
                   message: AppLocalizations.of(context).empty_favorites,
                 )));
-  }
-
-  Widget listOfItems(List<Book> data, Function(Book) onFavorited) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final ratio =
-          (MediaQuery.of(context).size.width * 0.5) / constraints.maxWidth;
-      return GridView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: ratio,
-            crossAxisCount: constraints.maxWidth > 700
-                ? 4
-                : 3, // Number of columns in the grid
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8),
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return FavoriteItem(
-            book: data[index],
-            onFavorited: (book) => onFavorited.call(book),
-            onView: () {
-              showUrl(data[index].previewLink ?? "");
-            },
-          );
-        },
-      );
-    });
   }
 }
