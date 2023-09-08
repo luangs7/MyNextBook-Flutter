@@ -48,4 +48,9 @@ class AppRouterImpl extends AppRouter {
       Navigator.of(context).pushNamed(route, arguments: params);
     }
   }
+
+  @override
+  void popFirst(BuildContext context, String newRoute) {
+      Navigator.of(context).pushNamedAndRemoveUntil(newRoute, (route) => route.isFirst);
+    }
 }

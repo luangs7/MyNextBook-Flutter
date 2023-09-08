@@ -20,11 +20,11 @@ class _BookServiceImpl implements BookServiceImpl {
 
   @override
   Future<BookResponse> getBooks(
-    query,
-    language,
-    filter,
-    orderBy,
-    maxResults,
+    String query,
+    String? language,
+    String? filter,
+    String orderBy,
+    int maxResults,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -49,13 +49,17 @@ class _BookServiceImpl implements BookServiceImpl {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = BookResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<Item> getBookId(bookId) async {
+  Future<Item> getBookId(String bookId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -72,7 +76,11 @@ class _BookServiceImpl implements BookServiceImpl {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Item.fromJson(_result.data!);
     return value;
   }
@@ -88,5 +96,22 @@ class _BookServiceImpl implements BookServiceImpl {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }

@@ -13,4 +13,5 @@ abstract class AppRouter {
   void to(BuildContext context, String route, {bool replace, String? params});
   void pop(BuildContext context, {bool reload});
   void popTo(BuildContext context, String route);
+  void popFirst(BuildContext context, String newRoute);
 }

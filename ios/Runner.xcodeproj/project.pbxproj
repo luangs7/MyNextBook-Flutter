@@ -163,7 +163,7 @@
 		97C146E61CF9000F007C117D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
@@ -378,8 +378,8 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_prod.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_prod.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MeuProximoLivro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
@@ -464,8 +464,8 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_dev.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_dev.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
@@ -551,8 +551,8 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_prod.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_prod.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MeuProximoLivro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
@@ -638,8 +638,8 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_mock.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_mock.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-mock";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
@@ -722,8 +722,8 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_dev.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_dev.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
@@ -805,8 +805,8 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_mock.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_mock.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
