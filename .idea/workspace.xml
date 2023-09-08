@@ -5,39 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d08f3d-4284-48c0-980d-0098d3994994" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/common/utils/show_dialog.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/designsystem/components/grid_items.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/designsystem/components/item_title_grid.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/modules/features/account/ui/account_item_list.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/modules/features/recommendation/viewmodel/recommendation_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/designsystem/components/information_dialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/domain/interactor/get_book_by_id.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/item_action_container.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/item_action_container.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/item_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/item_image.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/filter/filter_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/filter/filter_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common/filter/filter_radio_choice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/filter/filter_radio_choice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/designsystem/components/grid_items.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/designsystem/components/grid_items.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/l10n/app_en.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_en.arb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/l10n/app_pt.arb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/l10n/app_pt.arb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/datastore/model/app_preference_datastore.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/datastore/model/app_preference_datastore.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/datasource/book_data_source_remote_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/datasource/book_data_source_remote_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/interceptor/query_format_interceptor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/interceptor/query_format_interceptor.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/mapper/book_remote_mapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/mapper/book_remote_mapper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service_impl.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service_impl.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service_mock.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/remote/service/book_service_mock.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/data/repository/datasource/book_data_source_remote.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/repository/datasource/book_data_source_remote.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/data/repository/implementation/book_remote_repository_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/data/repository/implementation/book_remote_repository_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/domain/di/domain_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/di/domain_module.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/domain/model/app_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/model/app_preferences.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/domain/repositories/book_remote_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/domain/repositories/book_remote_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/account/di/account_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/account/di/account_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/account/ui/account_item_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/account/ui/account_item_list.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/account/viewmodel/account_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/account/viewmodel/account_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorite_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/favorites/ui/favorites_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/filter/filter_dialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_radio_choice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/filter/filter_radio_choice.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/filter_textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/common/filter/filter_textfield.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/find_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/find/find_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/modules/features/home/ui/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/home/ui/home_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/di/finder_module.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/di/finder_module.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/find/find_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/finder/ui/find_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_bottomsheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/preview/ui/preview_bottomsheet.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/preview/ui/preview_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_item_information.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/preview/ui/preview_item_information.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/ui/preview_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/preview/ui/preview_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/preview/viewmodel/preview_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/finder/preview/viewmodel/preview_view_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/preview/viewmodel/preview_view_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/ui/login_body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_signup_dialog.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modules/features/login/ui/login_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/login/ui/login_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/navigation/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/features/recommendation/ui/recommendation_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/features/recommendation/ui/recommendation_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/navigation/app_router_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigation/app_router_impl.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,13 +86,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHOW_ALL_PROCESSES": "false",
+    "SHOW_ALL_PROCESSES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
     "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "C:/Users/Luan/Documents/GitHub/MyNextBook-Flutter/lib/designsystem/components",
+    "last_opened_file_path": "C:/Users/Luan/Development/Pokedex",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false"
@@ -99,6 +100,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luan\Documents\GitHub\MyNextBook-Flutter\lib\modules\domain\interactor" />
+      <recent name="C:\Users\Luan\Documents\GitHub\MyNextBook-Flutter\lib\modules\features\finder\viewmodel" />
       <recent name="C:\Users\Luan\Documents\GitHub\MyNextBook-Flutter\lib\designsystem\components" />
       <recent name="C:\Users\Luan\Documents\GitHub\MyNextBook-Flutter\lib\modules\features\recommendation\viewmodel" />
     </key>
@@ -165,7 +168,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/modules/features/account/ui/account_view.dart</url>
-          <line>102</line>
+          <line>101</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
@@ -192,6 +195,26 @@
           <url>file://$PROJECT_DIR$/lib/modules/features/recommendation/viewmodel/recommendation_view_model.dart</url>
           <line>28</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/designsystem/components/information_dialog.dart</url>
+          <line>19</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/preview/ui/preview_item.dart</url>
+          <line>38</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/preview/viewmodel/preview_view_model.dart</url>
+          <line>113</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modules/features/preview/viewmodel/preview_view_model.dart</url>
+          <line>78</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

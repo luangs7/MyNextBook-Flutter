@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../designsystem/common/app_constants.dart';
-import '../../../../../designsystem/common/app_theme_text.dart';
-import '../../../../../designsystem/components/item_title.dart';
-import '../../../../domain/model/book.dart';
+import '../../../../designsystem/common/app_constants.dart';
+import '../../../../designsystem/common/app_theme_text.dart';
+import '../../../../designsystem/components/item_title.dart';
+import '../../../domain/model/book.dart';
 
 class PreviewItemInformation extends StatelessWidget {
   final Book? book;

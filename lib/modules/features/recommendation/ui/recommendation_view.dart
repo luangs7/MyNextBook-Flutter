@@ -28,7 +28,7 @@ class RecommendationView extends HookConsumerWidget {
     customBar.changeState(
         showBackButton: false,
         showActions: true,
-        title: AppLocalizations.of(context).find_my);
+        title: AppLocalizations.of(context).recommendation);
     final theme = ref.watch(appThemeProvider);
 
     useEffect(() {
@@ -45,7 +45,9 @@ class RecommendationView extends HookConsumerWidget {
                   data: data,
                   builder: (context, index) {
                     return RecommendationItem(
-                        book: data[index], onDetails: (data) {});
+                        book: data[index], onDetails: (data) {
+                          appRouter.to(context, appRouter.previewView, params: data.id);
+                    });
                   })
             ]);
           },

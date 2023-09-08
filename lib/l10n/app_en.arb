@@ -38,7 +38,8 @@
     "my_filter": "Change my filter",
     "relevance": "Relevance",
     "newest": "Newest",
-    "login": "login",
+    "login": "Login Account",
     "recommendation": "Recommendations",
-    "find_my": "Find my book"
+    "find_my": "Find my book",
+    "login_information": "Para usar de determinadas funções você precisa fazer o login."
 }

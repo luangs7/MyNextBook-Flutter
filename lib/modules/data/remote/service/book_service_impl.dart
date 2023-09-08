@@ -18,4 +18,8 @@ abstract class BookServiceImpl extends BookService {
     @Query(orderByQuery) String orderBy,
     @Query(maxresultsQuery) int maxResults,
   );
+
+  @override
+  @GET("volumes/{bookId}")
+  Future<Item> getBookId(@Path("bookId")String bookId);
 }

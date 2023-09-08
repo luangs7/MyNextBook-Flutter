@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:mynextbook/modules/features/finder/preview/viewmodel/preview_view_model.dart';
+import 'package:mynextbook/modules/features/preview/viewmodel/preview_view_model.dart';
 
 extension FinderModule on GetIt {
   void finderModule() {
@@ -8,6 +8,7 @@ extension FinderModule on GetIt {
         getPreferences: get(),
         getRandomBook: get(),
         removeBookFromFavorite: get(),
-        getCurrentUser: get()));
+        getCurrentUser: get(),
+        getBookById: get()));
   }
 }

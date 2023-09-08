@@ -5,7 +5,6 @@ import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/designsystem/common/lottie_states.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:mynextbook/designsystem/components/grid_items.dart';
-import 'package:mynextbook/modules/domain/model/book.dart';
 import 'package:mynextbook/modules/features/favorites/ui/favorite_item.dart';
 import 'package:mynextbook/modules/features/favorites/viewmodel/favorites_view_model.dart';
 

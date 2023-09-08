@@ -8,4 +8,8 @@ abstract class BookService {
     String orderBy,
     int maxResults,
   );
+
+  Future<Item> getBookId(
+      String bookId
+      );
 }

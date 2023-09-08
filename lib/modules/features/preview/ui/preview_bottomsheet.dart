@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mynextbook/modules/features/finder/preview/ui/preview_item_information.dart';
+import 'package:mynextbook/modules/features/preview/ui/preview_item_information.dart';
 
-import '../../../../domain/model/book.dart';
+import '../../../domain/model/book.dart';
 
 class PreviewBottomSheet extends StatelessWidget {
   final Book? book;

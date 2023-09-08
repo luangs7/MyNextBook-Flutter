@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mynextbook/modules/features/favorites/ui/favorites_view.dart';
-import 'package:mynextbook/modules/features/finder/find/find_view.dart';
 import 'package:mynextbook/modules/features/home/ui/home_view.dart';
 import 'package:mynextbook/modules/features/login/ui/login_view.dart';
 import 'package:mynextbook/modules/features/recommendation/ui/recommendation_view.dart';
 import 'package:mynextbook/navigation/app_router.dart';
 
 import '../modules/features/account/ui/account_view.dart';
-import '../modules/features/finder/preview/ui/preview_view.dart';
+import '../modules/features/finder/ui/find_view.dart';
+import '../modules/features/preview/ui/preview_view.dart';
 
 class AppRouterImpl extends AppRouter {
   @override

@@ -7,7 +7,6 @@ import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:mynextbook/modules/features/account/ui/account_item_list.dart';
 
-import '../../../../designsystem/common/app_theme_text.dart';
 import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
 import '../../../../navigation/app_router.dart';
 import '../../../domain/interactor/do_logout.dart';
@@ -43,7 +42,7 @@ class AccountView extends HookConsumerWidget {
                     children:
                       snapshot.data == true
                           ? buildLoggedList(ref, context, appRouter, viewModel, prefViewModel)
-                          : [ AccountItemList(label: AppLocalizations.of(context).logout,
+                          : [ AccountItemList(label: AppLocalizations.of(context).login,
                           onTap: () => appRouter.to(context, appRouter.loginView)) ]
                   ));
             } else {
@@ -85,7 +84,7 @@ class AccountView extends HookConsumerWidget {
           })),
       AccountItemList(label: AppLocalizations.of(context).my_favorites,
           onTap: () => favorites(context, appRouter)),
-      AccountItemList(label: AppLocalizations.of(context).my_favorites,
+      AccountItemList(label: AppLocalizations.of(context).my_filter,
           onTap: () => prefViewModel.getAppPreferences().then((value) {
             prefViewModel.getPreferenceState.handleState(success: (data) {
               final prefers = data as AppPreferences;

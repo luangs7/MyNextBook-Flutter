@@ -71,4 +71,9 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
       throw onError;
     });
   }
+
+  @override
+  Future<BookData?> getBooksById(String id) async {
+    return await service.getBookId(id).then((value) => mapper.toBookRepo(value));
+  }
 }

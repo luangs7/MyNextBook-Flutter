@@ -1,19 +1,25 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mynextbook/designsystem/common/app_constants.dart';
-import 'package:mynextbook/designsystem/common/app_theme.dart';
-import 'package:mynextbook/designsystem/components/custom_button.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../../designsystem/common/app_theme_text.dart';
+import '../common/app_constants.dart';
+import '../common/app_theme.dart';
+import '../common/app_theme_text.dart';
+import 'custom_button.dart';
 
-class LoginSignupDialog extends HookConsumerWidget {
-  final BuildContext context;
+class InformationDialog extends StatelessWidget {
+  final String buttonLabel;
+  final String message;
+  final Function onClick;
 
-  const LoginSignupDialog({super.key, required this.context});
+  const InformationDialog(
+      {super.key,
+      required this.message,
+      required this.buttonLabel,
+      required this.onClick});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Dialog(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8))),
@@ -37,15 +43,16 @@ class LoginSignupDialog extends HookConsumerWidget {
                 child: Column(children: [
                   Text(
                     style: AppTextTheme().h30.dense(),
-                    AppLocalizations.of(context).signup_description,
+                    message,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 30),
                   CustomButton(
                       isEnabled: true,
-                      title: "OK",
+                      title: buttonLabel,
                       onPressed: () {
                         Navigator.pop(context);
+                        onClick.call();
                       })
                 ]))
           ]);

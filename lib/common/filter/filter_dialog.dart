@@ -21,7 +21,7 @@ class FilterDialog extends HookConsumerWidget {
   final StateProvider ebookProvider;
   final StateProvider languageProvider;
 
-  FilterDialog(
+  const FilterDialog(
       {super.key,
       required this.pref,
       required this.context,

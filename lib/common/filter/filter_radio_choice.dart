@@ -11,7 +11,7 @@ class FilterRadio extends HookConsumerWidget {
   final String relevance = "relevance";
   final String newest = "newest";
 
-  const FilterRadio({required this.currentValue});
+  const FilterRadio({super.key, required this.currentValue});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

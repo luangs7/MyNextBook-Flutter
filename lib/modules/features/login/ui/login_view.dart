@@ -51,8 +51,8 @@ class LoginView extends HookConsumerWidget {
         viewModel.getUser().then((value) {
           value.handleState(success: ((data) async {
             if (data != null) {
-              WidgetsBinding.instance.addPostFrameCallback((_) =>
-                  appRouter.to(context, appRouter.recommendationView, replace: true));
+              WidgetsBinding.instance
+                  .addPostFrameCallback((_) => appRouter.pop(context));
             } else {
               viewModel.getLoginEmail().then((value) {
                 isLoading.value = false;
