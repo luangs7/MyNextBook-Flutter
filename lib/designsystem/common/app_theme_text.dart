@@ -57,6 +57,10 @@ class AppTextTheme {
 }
 
 extension TextStyleExt on TextStyle {
+  TextStyle light() => copyWith(fontWeight: FontWeight.w300);
+
+  TextStyle semibold() => copyWith(fontWeight: FontWeight.w600);
+
   TextStyle bold() => copyWith(fontWeight: FontWeight.w700);
 
   TextStyle comfort() => copyWith(height: 1.8);

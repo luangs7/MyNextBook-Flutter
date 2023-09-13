@@ -7,4 +7,6 @@ abstract class CloudServicesAuth {
   Future<CurrentUser?> currentUser();
   Future signOut();
   Future<bool> signInWithProvider(String token);
+  Future requestPasswordChange(String email);
+  Future deleteAccount();
 }

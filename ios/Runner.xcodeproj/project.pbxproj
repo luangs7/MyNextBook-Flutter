@@ -42,7 +42,7 @@
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
-		97C146EE1CF9000F007C117D /* My Next Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Next Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97C146EE1CF9000F007C117D /* Meu Proximo Livro Mock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meu Proximo Livro Mock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		97C146EF1CF9000F007C117D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97C146EE1CF9000F007C117D /* My Next Book.app */,
+				97C146EE1CF9000F007C117D /* Meu Proximo Livro Mock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			);
 			name = Runner;
 			productName = Runner;
-			productReference = 97C146EE1CF9000F007C117D /* My Next Book.app */;
+			productReference = 97C146EE1CF9000F007C117D /* Meu Proximo Livro Mock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +163,7 @@
 		97C146E61CF9000F007C117D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					97C146ED1CF9000F007C117D = {
@@ -378,10 +378,10 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_prod.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_prod.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MyNextBook;
+				INFOPLIST_KEY_CFBundleDisplayName = MeuProximoLivro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,7 +389,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.lgmakerdevs.mynextbook;
-				PRODUCT_NAME = "My Next Book";
+				PRODUCT_NAME = "Meu Proximo Livro";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -464,10 +464,10 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_dev.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_dev.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "MyNextBook-dev";
+				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -475,7 +475,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.lgmakerdevs.mynextbook.dev;
-				PRODUCT_NAME = "My Next Book Dev";
+				PRODUCT_NAME = "Meu Proximo Livro Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -551,10 +551,10 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_prod.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_prod.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MyNextBook;
+				INFOPLIST_KEY_CFBundleDisplayName = MeuProximoLivro;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -562,7 +562,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.lgmakerdevs.mynextbook;
-				PRODUCT_NAME = "My Next Book Mock";
+				PRODUCT_NAME = "Meu Proximo Livro";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -638,10 +638,10 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_mock.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_mock.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "MyNextBook-mock";
+				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-mock";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -649,7 +649,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.lgmakerdevs.mynextbook.mock;
-				PRODUCT_NAME = "My Next Book";
+				PRODUCT_NAME = "Meu Proximo Livro Mock";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -722,10 +722,10 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_dev.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_dev.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "MyNextBook-dev";
+				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -733,7 +733,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.lgmakerdevs.mynextbook.dev;
-				PRODUCT_NAME = "My Next Book Dev";
+				PRODUCT_NAME = "Meu Proximo Livro Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -805,10 +805,10 @@
 				ENABLE_BITCODE = NO;
 				FLUTTER_BUILD_NAME = 1.0.0;
 				FLUTTER_BUILD_NUMBER = 1;
-				FLUTTER_ROOT = /Users/user235577/Downloads/flutter;
-				FLUTTER_TARGET = "/Users/user235577/MyNextBook-Flutter/lib/environment/main_mock.dart";
+				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
+				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_mock.dart";
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "MyNextBook-mock";
+				INFOPLIST_KEY_CFBundleDisplayName = "MeuProximoLivro-dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -816,7 +816,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.lgmakerdevs.mynextbook.mock;
-				PRODUCT_NAME = "My Next Book Mock";
+				PRODUCT_NAME = "Meu Proximo Livro Mock";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -12,4 +12,12 @@ class BookServiceMock extends BookService {
     final data = await json.decode(response);
     return BookResponse.fromJson(data);
   }
+
+  @override
+  Future<Item> getBookId(String bookId) async {
+    final String response =
+        await rootBundle.loadString('lib/assets/book_response.json');
+    final data = await json.decode(response);
+    return Future.value(null);
+  }
 }

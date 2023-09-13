@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/common/base/view_state.dart';
+import 'package:mynextbook/common/utils/show_dialog.dart';
 import 'package:mynextbook/designsystem/components/information_view.dart';
 import 'package:mynextbook/modules/domain/model/app_preferences.dart';
 import 'package:mynextbook/modules/features/preferences/model/preferences_param.dart';
 import 'package:mynextbook/modules/features/preferences/viewmodel/preferences_view_model.dart';
 import 'package:mynextbook/navigation/app_router.dart';
-import 'package:mynextbook/modules/features/finder/find/filter_dialog.dart';
+import 'package:mynextbook/common/filter/filter_dialog.dart';
 
 import '../../../../designsystem/common/lottie_states.dart';
 import '../../../../designsystem/components/base_view.dart';
@@ -21,8 +21,7 @@ class FindView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final viewModel = ref.watch(preferencesViewModelProvider);
-    final textController =
-        useTextEditingController.fromValue(TextEditingValue.empty);
+
     final customBar = ref.read(customBarProvider);
     customBar.changeState(showBackButton: true, showActions: true);
     final AppRouter appRouter = GetIt.I.get();
@@ -35,8 +34,11 @@ class FindView extends HookConsumerWidget {
             onInformation: () {
               viewModel.getAppPreferences().then((value) {
                 viewModel.getPreferenceState.handleState(success: (data) {
-                  onInitValues(data as AppPreferences, ref, textController);
-                  _openDialog(context, textController, (param) {
+                  final prefers = data as AppPreferences;
+                  ref.read(ebookProvider.notifier).state = prefers.isEbook;
+                  ref.read(languageProvider.notifier).state =
+                      prefers.isPortuguese;
+                  _openDialog(context, prefers, (param) {
                     viewModel.onSetPreferences(param);
                   });
                 });
@@ -50,27 +52,13 @@ class FindView extends HookConsumerWidget {
   final ebookProvider = StateProvider((_) => false);
   final languageProvider = StateProvider((_) => false);
 
-  void onInitValues(AppPreferences pref, WidgetRef ref,
-      TextEditingController textController) {
-    ref.read(ebookProvider.notifier).state = pref.isEbook;
-    ref.read(languageProvider.notifier).state = pref.isPortuguese;
-    textController.text = pref.keyword ?? "";
-  }
-
-  void _openDialog(BuildContext context, TextEditingController textController,
+  void _openDialog(BuildContext context, AppPreferences preferences,
       Function(PreferencesParam) onConfirmation) {
-    showDialog(
-        context: context,
-        barrierLabel: "",
-        barrierDismissible: false,
-        useSafeArea: false,
-        builder: (_) {
-          return FilterDialog(
-              context: context,
-              textController: textController,
-              onConfirmation: onConfirmation,
-              ebookProvider: ebookProvider,
-              languageProvider: languageProvider);
-        });
+    dialog(context, FilterDialog(
+    context: context,
+    pref: preferences,
+        ebookProvider: ebookProvider,
+        languageProvider: languageProvider,
+        onConfirmation: onConfirmation));
   }
 }

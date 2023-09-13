@@ -8,13 +8,15 @@ class ItemActionContainer extends StatelessWidget {
   final Function onFavorited;
   final Function? onShared;
   final Function onView;
+  final Function? onRefresh;
 
   const ItemActionContainer(
       {super.key,
       required this.itemSize,
       required this.isFavorited,
       required this.onFavorited,
-      required this.onShared,
+      this.onRefresh,
+      this.onShared,
       required this.onView});
 
   @override
@@ -23,6 +25,17 @@ class ItemActionContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        if (onRefresh != null)
+          ItemAction(
+              icon: Icons.refresh,
+              height: itemSize,
+              width: itemSize,
+              accent: Colors.white,
+              onClick: onRefresh!),
+        if (onRefresh != null)
+          const SizedBox(
+            width: 8,
+          ),
         ItemAction(
             icon: Icons.favorite,
             height: itemSize,

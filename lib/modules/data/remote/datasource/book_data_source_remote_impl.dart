@@ -12,13 +12,12 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
   BookDataSourceRemoteImpl({required this.service, required this.mapper});
 
   @override
-  Future<BookData?> getBooksFromQuery(
-      AppPreferencesRepo appPreferencesRepo) async {
-    var filter = appPreferencesRepo.isEbook ? ebookQuery : null;
-    var query = createQueryParams(appPreferencesRepo);
+  Future<BookData?> getBooksFromQuery(AppPreferencesRepo pref) async {
+    var filter = pref.isEbook ? ebookQuery : null;
+    var query = createQueryParams(pref);
     return await service
-        .getBooks(query, appPreferencesRepo.isPortuguese ? languagePt : null,
-            filter, orderByQueryValue, maxresultsValue)
+        .getBooks(query, pref.isPortuguese ? languagePt : null, filter,
+            pref.orderBy ?? orderByQueryValue, maxresultsValue)
         .then((value) {
       var list = mapper.toRepo(value);
       if (list.isNotEmpty) {
@@ -31,11 +30,50 @@ class BookDataSourceRemoteImpl extends BookDataSourceRemote {
     });
   }
 
-  String createQueryParams(AppPreferencesRepo appPreferencesRepo) {
+  String createQueryParams(AppPreferencesRepo model) {
     var query = StringBuffer();
-    var keyword =
-        appPreferencesRepo.keyword?.replaceAll(dividerOld, divider) ?? "a";
+    var keyword = model.keyword?.replaceAll(dividerOld, divider) ?? "";
     query.write(keyword);
+
+    if (model.author != null && model.author?.isNotEmpty == true) {
+      var author = model.author?.replaceAll(dividerOld, divider) ?? "";
+      query.write("+$authorParam$author");
+    }
+
+    if (model.subject != null && model.subject?.isNotEmpty == true) {
+      var author = model.subject?.replaceAll(dividerOld, divider) ?? "";
+      query.write("+$subjectParam$author");
+    }
+
+    if (model.editor != null && model.editor?.isNotEmpty == true) {
+      var author = model.editor?.replaceAll(dividerOld, divider) ?? "";
+      query.write("+$editorParam$author");
+    }
+
+    if (model.title != null && model.title?.isNotEmpty == true) {
+      var author = model.title?.replaceAll(dividerOld, divider) ?? "";
+      query.write("+$titleParam$author");
+    }
+
     return query.toString();
+  }
+
+  @override
+  Future<List<BookData>> getRecommendation(AppPreferencesRepo pref) async {
+    var filter = pref.isEbook ? ebookQuery : null;
+    var query = createQueryParams(pref);
+    return await service
+        .getBooks(query, pref.isPortuguese ? languagePt : null, filter,
+            pref.orderBy ?? orderByQueryValue, maxresultsValue)
+        .then((value) {
+      return mapper.toRepo(value);
+    }).catchError((onError) {
+      throw onError;
+    });
+  }
+
+  @override
+  Future<BookData?> getBooksById(String id) async {
+    return await service.getBookId(id).then((value) => mapper.toBookRepo(value));
   }
 }

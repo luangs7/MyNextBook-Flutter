@@ -33,10 +33,14 @@ class PreferencesViewModel extends ChangeNotifier {
     _setPreferenceState = ViewState.loading();
     notifyListeners();
     final prefs = AppPreferences(
-        isEbook: param.isEbook,
         keyword: param.keyword,
+        isEbook: param.isEbook,
         isPortuguese: param.isPortuguese,
-        subject: null);
+        subject: param.subject,
+        author: param.author,
+        editor: param.editor,
+        orderBy: param.orderBy,
+        title: param.title);
     final user = await getCurrentUser.execute();
     if (user == null) return;
     updatePreferences.execute(prefs, user.uuid).then((value) {

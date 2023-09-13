@@ -9,6 +9,7 @@ class CustomBarState extends ChangeNotifier {
   bool showActions = false;
   bool resizeToAvoidBottomInset = false;
   bool isVisible = false;
+  String title = "";
 }
 
 extension CustomBar on CustomBarState {
@@ -17,11 +18,13 @@ extension CustomBar on CustomBarState {
       bool showBackButton = false,
       bool showActions = false,
       bool resizeToAvoidBottomInset = false,
-      bool isVisible = true}) {
+      bool isVisible = true,
+      String title = ""}) {
     this.hasSignOut = hasSignOut;
     this.showBackButton = showBackButton;
     this.showActions = showActions;
     this.resizeToAvoidBottomInset = resizeToAvoidBottomInset;
     this.isVisible = isVisible;
+    this.title = title;
   }
 }

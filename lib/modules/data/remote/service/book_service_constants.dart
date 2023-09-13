@@ -11,3 +11,7 @@ const String orderByQueryValue = "relevance";
 const String maxresultsQuery = "maxResults";
 const int maxresultsValue = 40;
 const String queryDivider = "&";
+const String authorParam = "inauthor:";
+const String subjectParam = "subject:";
+const String titleParam = "intitle:";
+const String editorParam = "inpublisher:";

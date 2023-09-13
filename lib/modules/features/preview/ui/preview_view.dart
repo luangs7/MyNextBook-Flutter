@@ -4,13 +4,13 @@ import 'package:mynextbook/common/base/view_state.dart';
 import 'package:mynextbook/designsystem/components/base_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mynextbook/modules/domain/model/book.dart';
-import 'package:mynextbook/modules/features/finder/preview/ui/preview_bottomsheet.dart';
-import 'package:mynextbook/modules/features/finder/preview/ui/preview_item.dart';
+import 'package:mynextbook/modules/features/preview/ui/preview_bottomsheet.dart';
+import 'package:mynextbook/modules/features/preview/ui/preview_item.dart';
 
-import '../../../../../common/base/api_result.dart';
-import '../../../../../designsystem/common/lottie_states.dart';
-import '../../../../../designsystem/components/custombar/custom_appbar_provider.dart';
-import '../../../../../designsystem/components/lottie_view.dart';
+import '../../../../common/base/api_result.dart';
+import '../../../../designsystem/common/lottie_states.dart';
+import '../../../../designsystem/components/custombar/custom_appbar_provider.dart';
+import '../../../../designsystem/components/lottie_view.dart';
 import '../viewmodel/preview_view_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -22,9 +22,18 @@ class PreviewView extends HookConsumerWidget {
     final viewModel = ref.watch(previewViewModelProvider);
     final customBar = ref.read(customBarProvider);
     customBar.changeState(showBackButton: true, showActions: true);
+    final bookId = ModalRoute.of(context)?.settings.arguments as String?;
+    var onRefresh = null;
+
+    if(bookId == null) {
+      onRefresh = () {
+        viewModel.resetState();
+        viewModel.getBookRandom();
+      };
+    }
 
     useEffect(() {
-      viewModel.getBook();
+      viewModel.getBook(bookId);
       return () {
         viewModel.resetState();
       };
@@ -35,7 +44,12 @@ class PreviewView extends HookConsumerWidget {
       success: (data) {
         final book = castOrNull<Book>(data);
         return Stack(
-          children: [PreviewItem(book: book), PreviewBottomSheet(book: book)],
+          children: [
+            PreviewItem(
+                book: book,
+                onRefresh: onRefresh),
+            PreviewBottomSheet(book: book)
+          ],
         );
       },
       error: (exception) {

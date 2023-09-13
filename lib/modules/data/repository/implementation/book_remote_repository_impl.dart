@@ -38,4 +38,42 @@ class BookRemoteRepositoryImpl extends BookRemoteRepository {
       return ApiResult.error(e);
     }
   }
+
+  @override
+  Future<ApiResult<List<Book>>> getRecommendations(
+      AppPreferences? params) async {
+    try {
+      final prefs = params ?? AppPreferences.init();
+      final list =
+          await dataSourceRemote.getRecommendation(prefMapper.toRepo(prefs));
+      if (list.isNotEmpty) {
+        return ApiResult.success(
+            list.map((e) => bookMapper.toDomain(e)).toList());
+      } else {
+        return ApiResult.empty();
+      }
+    } on Exception catch (e, _) {
+      return ApiResult.error(e);
+    }
+  }
+
+  @override
+  Future<ApiResult<Book>> getBookById(String bookId, String? userId) async {
+    try {
+      final item =
+          await dataSourceRemote.getBooksById(bookId);
+      if (item != null) {
+        if (userId != null) {
+          final localBook =
+          await dataSourceLocal.getFavoriteBook(item.id, userId);
+          item.isFavorited = localBook != null;
+        }
+        return ApiResult.success(bookMapper.toDomain(item));
+      } else {
+        return ApiResult.empty();
+      }
+    } on Exception catch (e, _) {
+      return ApiResult.error(e);
+    }
+  }
 }

@@ -6,9 +6,12 @@ abstract class AppRouter {
   final String previewView = "/preview_view";
   final String favoriteView = "/favorite_view";
   final String loginView = "/login_view";
+  final String accountView = "/account_view";
+  final String recommendationView = "/recommend_view";
 
   Map<String, WidgetBuilder> createRouter(BuildContext context);
   void to(BuildContext context, String route, {bool replace, String? params});
-  void pop(BuildContext context);
+  void pop(BuildContext context, {bool reload});
   void popTo(BuildContext context, String route);
+  void popFirst(BuildContext context, String newRoute);
 }

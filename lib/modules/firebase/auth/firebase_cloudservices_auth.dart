@@ -50,4 +50,14 @@ class FirebaseCloudServicesAuth extends CloudServicesAuth {
         email: email, password: password);
     return result.user != null;
   }
+
+  @override
+  Future requestPasswordChange(String email) async {
+    return await firebaseAuth.sendPasswordResetEmail(email: email);
+  }
+
+  @override
+  Future deleteAccount() async {
+    return await firebaseAuth.currentUser?.delete();
+  }
 }

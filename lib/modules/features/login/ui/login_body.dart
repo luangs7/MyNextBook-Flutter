@@ -6,7 +6,7 @@ import 'package:mynextbook/designsystem/components/custom_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../designsystem/common/lottie_states.dart';
-import 'login_signup_dialog.dart';
+import '../../../../designsystem/components/information_dialog.dart';
 
 class LoginBody extends StatelessWidget {
   final TextEditingController emailTextController;
@@ -49,6 +49,7 @@ class LoginBody extends StatelessWidget {
             padding: 6,
             obscureText: false,
             action: TextInputAction.next,
+            textInputType: TextInputType.emailAddress,
             validation: (value) => doEmailValidation(context, value),
           ),
           TextFieldOutlined(
@@ -73,7 +74,11 @@ class LoginBody extends StatelessWidget {
                 barrierLabel: "",
                 barrierDismissible: true,
                 builder: (context) {
-                  return LoginSignupDialog(context: context);
+                  return InformationDialog(
+                    message: AppLocalizations.of(context).signup_description,
+                    buttonLabel: "Ok",
+                    onClick: (){},
+                  );
                 },
               );
             },
