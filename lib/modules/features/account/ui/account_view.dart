@@ -28,27 +28,29 @@ class AccountView extends HookConsumerWidget {
     final viewModel = ref.watch(accountViewModelProvider);
     final prefViewModel = ref.watch(preferencesViewModelProvider);
 
-    return
-      FutureBuilder(
+    return FutureBuilder(
         future: viewModel.getIsLogged(),
-          builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-            if (snapshot.hasData) {
-              return  BaseView(
-                  child: ListView(
+        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+          if (snapshot.hasData) {
+            return BaseView(
+                child: ListView(
                     reverse: true,
-                    padding:
-                    const EdgeInsets.only(bottom: defaultPadding, top: defaultPadding),
+                    padding: const EdgeInsets.only(
+                        bottom: defaultPadding, top: defaultPadding),
                     physics: const BouncingScrollPhysics(),
-                    children:
-                      snapshot.data == true
-                          ? buildLoggedList(ref, context, appRouter, viewModel, prefViewModel)
-                          : [ AccountItemList(label: AppLocalizations.of(context).login,
-                          onTap: () => appRouter.to(context, appRouter.loginView)) ]
-                  ));
-            } else {
-              return const Center();
-            }
-          });
+                    children: snapshot.data == true
+                        ? buildLoggedList(
+                            ref, context, appRouter, viewModel, prefViewModel)
+                        : [
+                            AccountItemList(
+                                label: AppLocalizations.of(context).login,
+                                onTap: () =>
+                                    appRouter.to(context, appRouter.loginView))
+                          ]));
+          } else {
+            return const Center();
+          }
+        });
   }
 
   final ebookProvider = StateProvider((_) => false);
@@ -59,43 +61,47 @@ class AccountView extends HookConsumerWidget {
       BuildContext context,
       AppRouter appRouter,
       AccountViewModel viewModel,
-      PreferencesViewModel prefViewModel
-      ) {
+      PreferencesViewModel prefViewModel) {
     return [
-      AccountItemList(label: AppLocalizations.of(context).logout,
-              onTap: () => logout(context, appRouter)),
-      AccountItemList(label: AppLocalizations.of(context).delete_account,
-          onTap:  () {
+      AccountItemList(
+          label: AppLocalizations.of(context).logout,
+          onTap: () => logout(context, appRouter)),
+      AccountItemList(
+          label: AppLocalizations.of(context).delete_account,
+          onTap: () {
             viewModel.doDeleteAccount().then(
                   (value) => _showMessageDialog(
-                  context: context,
-                  message:
-                  AppLocalizations.of(context).delete_account_message,
-                  onConfirmation: () => logout(context, appRouter)),
-            );
+                      context: context,
+                      message:
+                          AppLocalizations.of(context).delete_account_message,
+                      onConfirmation: () => logout(context, appRouter)),
+                );
           }),
-      AccountItemList(label: AppLocalizations.of(context).change_password,
-          onTap:() => viewModel.doChangePassword().then((value) {
-            _showMessageDialog(
-                context: context,
-                message:
-                AppLocalizations.of(context).change_password_message,
-                onConfirmation: () {});
-          })),
-      AccountItemList(label: AppLocalizations.of(context).my_favorites,
+      AccountItemList(
+          label: AppLocalizations.of(context).change_password,
+          onTap: () => viewModel.doChangePassword().then((value) {
+                _showMessageDialog(
+                    context: context,
+                    message:
+                        AppLocalizations.of(context).change_password_message,
+                    onConfirmation: () {});
+              })),
+      AccountItemList(
+          label: AppLocalizations.of(context).my_favorites,
           onTap: () => favorites(context, appRouter)),
-      AccountItemList(label: AppLocalizations.of(context).my_filter,
+      AccountItemList(
+          label: AppLocalizations.of(context).my_filter,
           onTap: () => prefViewModel.getAppPreferences().then((value) {
-            prefViewModel.getPreferenceState.handleState(success: (data) {
-              final prefers = data as AppPreferences;
-              ref.read(ebookProvider.notifier).state = prefers.isEbook;
-              ref.read(languageProvider.notifier).state =
-                  prefers.isPortuguese;
-              _showFilter(context, prefers, (param) {
-                prefViewModel.onSetPreferences(param);
-              });
-            });
-          }))
+                prefViewModel.getPreferenceState.handleState(success: (data) {
+                  final prefers = data as AppPreferences;
+                  ref.read(ebookProvider.notifier).state = prefers.isEbook;
+                  ref.read(languageProvider.notifier).state =
+                      prefers.isPortuguese;
+                  _showFilter(context, prefers, (param) {
+                    prefViewModel.onSetPreferences(param);
+                  });
+                });
+              }))
     ];
   }
 
@@ -122,7 +128,8 @@ class AccountView extends HookConsumerWidget {
       required String message,
       required Function onConfirmation}) {
     dialog(
-      context, MessageDialog(
+        context,
+        MessageDialog(
             message: message,
             onConfirmation: () {
               onConfirmation.call();
@@ -131,11 +138,13 @@ class AccountView extends HookConsumerWidget {
 
   void _showFilter(BuildContext context, AppPreferences preferences,
       Function(PreferencesParam) onConfirmation) {
-    dialog(context, FilterDialog(
-        context: context,
-        pref: preferences,
-        ebookProvider: ebookProvider,
-        languageProvider: languageProvider,
-        onConfirmation: onConfirmation));
+    dialog(
+        context,
+        FilterDialog(
+            context: context,
+            pref: preferences,
+            ebookProvider: ebookProvider,
+            languageProvider: languageProvider,
+            onConfirmation: onConfirmation));
   }
 }

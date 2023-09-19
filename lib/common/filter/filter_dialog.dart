@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mynextbook/designsystem/common/app_constants.dart';
 import 'package:mynextbook/designsystem/common/app_theme.dart';
+import 'package:mynextbook/designsystem/common/app_theme_text.dart';
 import 'package:mynextbook/designsystem/components/custom_button.dart';
 import 'package:mynextbook/designsystem/components/custom_checkbok.dart';
 import 'package:mynextbook/common/filter/filter_textfield.dart';
@@ -10,7 +11,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../modules/domain/model/app_preferences.dart';
-import 'filter_radio_choice.dart';
 
 final orderByState = StateProvider<String?>((_) => "");
 
@@ -20,6 +20,8 @@ class FilterDialog extends HookConsumerWidget {
   final AppPreferences pref;
   final StateProvider ebookProvider;
   final StateProvider languageProvider;
+  final String relevance = "relevance";
+  final String newest = "newest";
 
   const FilterDialog(
       {super.key,
@@ -41,6 +43,7 @@ class FilterDialog extends HookConsumerWidget {
         useTextEditingController.fromValue(TextEditingValue.empty);
     final keywordController =
         useTextEditingController.fromValue(TextEditingValue.empty);
+    final orderBy = useState(pref.orderBy);
 
     onInitValues(ref,
         authorController: authorController,
@@ -95,7 +98,30 @@ class FilterDialog extends HookConsumerWidget {
                       hint: AppLocalizations.of(context).keyword_all,
                       controller: keywordController,
                     ),
-                    FilterRadio(currentValue: pref.orderBy),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      horizontalTitleGap: 0,
+                      title: Text(AppLocalizations.of(context).relevance,
+                          style: AppTextTheme().h30.light()),
+                      trailing: Radio(
+                          value: relevance,
+                          groupValue: orderBy.value,
+                          onChanged: ((value) {
+                            orderBy.value = value;
+                          })),
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      horizontalTitleGap: 0,
+                      title: Text(AppLocalizations.of(context).newest,
+                          style: AppTextTheme().h30.light()),
+                      trailing: Radio(
+                          value: newest,
+                          groupValue: orderBy.value,
+                          onChanged: ((value) {
+                            orderBy.value = value;
+                          })),
+                    ),
                     const SizedBox(
                       height: defaultPaddingBig,
                     ),
@@ -105,7 +131,7 @@ class FilterDialog extends HookConsumerWidget {
                         onPressed: () {
                           Navigator.pop(context);
                           onConfirmation(setPrefParams(ref,
-                              orderBy: ref.watch(orderByState.notifier).state,
+                              orderBy: orderBy.value,
                               authorController: authorController,
                               editorController: editorController,
                               keywordController: keywordController,

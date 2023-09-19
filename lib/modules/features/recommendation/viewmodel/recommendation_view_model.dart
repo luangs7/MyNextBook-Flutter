@@ -12,6 +12,8 @@ final recommendationViewModelProvider = ChangeNotifierProvider((ref) {
   return GetIt.I.get<RecommendationViewModel>();
 });
 
+final recommendationFilterChanged = StateProvider<bool>((_) => false);
+
 class RecommendationViewModel extends BaseViewModel {
   final GetRecommendations getRecommendations;
   final GetCurrentUser getCurrentUser;
