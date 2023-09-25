@@ -376,7 +376,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DWJSYP5RT5;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.0.0;
+				FLUTTER_BUILD_NAME = 1.0.1;
 				FLUTTER_BUILD_NUMBER = 1;
 				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
 				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_prod.dart";
@@ -462,7 +462,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DWJSYP5RT5;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.0.0;
+				FLUTTER_BUILD_NAME = 1.0.1;
 				FLUTTER_BUILD_NUMBER = 1;
 				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
 				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_dev.dart";
@@ -549,7 +549,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DWJSYP5RT5;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.0.0;
+				FLUTTER_BUILD_NAME = 1.0.1;
 				FLUTTER_BUILD_NUMBER = 1;
 				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
 				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_prod.dart";
@@ -636,7 +636,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DWJSYP5RT5;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.0.0;
+				FLUTTER_BUILD_NAME = 1.0.1;
 				FLUTTER_BUILD_NUMBER = 1;
 				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
 				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_mock.dart";
@@ -720,7 +720,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DWJSYP5RT5;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.0.0;
+				FLUTTER_BUILD_NAME = 1.0.1;
 				FLUTTER_BUILD_NUMBER = 1;
 				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
 				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_dev.dart";
@@ -803,7 +803,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = DWJSYP5RT5;
 				ENABLE_BITCODE = NO;
-				FLUTTER_BUILD_NAME = 1.0.0;
+				FLUTTER_BUILD_NAME = 1.0.1;
 				FLUTTER_BUILD_NUMBER = 1;
 				FLUTTER_ROOT = /Users/luangabrieldasilva/Documents/Development/flutter;
 				FLUTTER_TARGET = "/Users/luangabrieldasilva/Documents/GitHub/MyNextBook-Flutter/lib/environment/main_mock.dart";
