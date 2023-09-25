@@ -61,8 +61,8 @@ class RecommendationView extends HookConsumerWidget {
                     children: [
                       LottieView(
                                                   size: MediaQuery.of(context).size.height * 0.2,
-                          asset: lottieError,
-                          message: AppLocalizations.of(context).error_message)
+                          asset: lottieEmpty,
+                          message: AppLocalizations.of(context).empty_message)
                     ]);
               },
               loading: () => const LottieView(asset: lottieLoading),
