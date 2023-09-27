@@ -38,29 +38,47 @@ class RecommendationView extends HookConsumerWidget {
 
     return BaseView(
         child: Scaffold(
-      body: viewModel.bookState.handleWidget(
-          success: (data) {
-            return Stack(children: [
-              GridItems(
-                  data: data,
-                  builder: (context, index) {
-                    return RecommendationItem(
-                        book: data[index], onDetails: (data) {
-                          appRouter.to(context, appRouter.previewView, params: data.id);
-                    });
-                  })
-            ]);
-          },
-          error: (exception) {
-            return LottieView(
-                asset: lottieError,
-                message: AppLocalizations.of(context).error_message);
-          },
-          loading: () => const LottieView(asset: lottieLoading),
-          empty: () => LottieView(
-                asset: lottieEmpty,
-                message: AppLocalizations.of(context).empty_favorites,
-              )),
+      body: RefreshIndicator(
+          child: viewModel.bookState.handleWidget(
+              success: (data) {
+                return Stack(children: [
+                  GridItems(
+                      data: data,
+                      builder: (context, index) {
+                        return RecommendationItem(
+                            book: data[index],
+                            onDetails: (data) {
+                              appRouter.to(context, appRouter.previewView,
+                                  params: data.id);
+                            });
+                      })
+                ]);
+              },
+              error: (exception) {
+                return ListView(
+                    physics:
+                        const AlwaysScrollableScrollPhysics(), // This makes it always scrollable!
+                    children: [
+                      LottieView(
+                                                  size: MediaQuery.of(context).size.height * 0.2,
+                          asset: lottieEmpty,
+                          message: AppLocalizations.of(context).empty_message)
+                    ]);
+              },
+              loading: () => const LottieView(asset: lottieLoading),
+              empty: () => ListView(
+                      physics:
+                          const AlwaysScrollableScrollPhysics(), // This makes it always scrollable!
+                      children: [
+                        LottieView(
+                          size: MediaQuery.of(context).size.height * 0.2,
+                          asset: lottieEmpty,
+                          message: AppLocalizations.of(context).empty_message,
+                        )
+                      ])),
+          onRefresh: () async {
+            viewModel.getBook();
+          }),
       floatingActionButton: FloatingActionButton.extended(
           backgroundColor: AppColors.dark().accent.withOpacity(0.7),
           onPressed: () {

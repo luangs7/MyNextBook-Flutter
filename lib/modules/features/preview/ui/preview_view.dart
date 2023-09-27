@@ -53,9 +53,9 @@ class PreviewView extends HookConsumerWidget {
         );
       },
       error: (exception) {
-        return LottieView(
-            asset: lottieError,
-            message: AppLocalizations.of(context).error_message);
+         return LottieView(
+            asset: lottieEmpty,
+            message: AppLocalizations.of(context).empty_message);
       },
       loading: () {
         return LottieView(
